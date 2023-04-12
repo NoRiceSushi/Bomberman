@@ -1,2 +1,16 @@
-﻿  LINK : no se encontró C:\Users\2004r\Downloads\Project_5_Solution\Project_5_Solution\Source\Debug\Bomberman.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-LINK : fatal error LNK1104: no se puede abrir el archivo 'SDL_image/libx86/SDL2_image.lib'
+﻿  Application.cpp
+  Globals.cpp
+  ModuleParticles.cpp
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModuleParticles.cpp(43,19): warning C4244: '=': conversión de 'float' a 'uint'; posible pérdida de datos
+  ModuleScene.cpp
+  ModuleInput.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Main.cpp
+  Module.cpp
+  Particle.cpp
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\Particle.cpp(33,19): warning C4018: '>=': no coinciden signed/unsigned
+  Generando código...
+  Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe
