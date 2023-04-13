@@ -30,7 +30,6 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	App->render->camera.x += 3;
 
 	return update_status::UPDATE_CONTINUE;
 }
