@@ -11,24 +11,32 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position.x = 150;
-	position.y = 120;
+	position.x = 48;
+	position.y = 16;
 
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
-
-	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
-	upAnim.loop = false;
-	upAnim.speed = 0.1f;
-
-	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
-	downAnim.speed = 0.1f;
+	idleAnim.PushBack({ 0, rand() % 3*128, 128, 128 });
 }
+
+/*
+ModulePlayer::ModulePlayer()
+{
+	position.x = 64;
+	position.y = 16;
+
+	// idle animation - just one sprite
+	idleAnim.PushBack({ 0, 129, 128, 128 });
+}
+
+ModulePlayer::ModulePlayer()
+{
+	position.x = 64;
+	position.y = 32;
+
+	// idle animation - just one sprite
+	idleAnim.PushBack({ 0, 129, 128, 128 });
+}
+*/
 
 ModulePlayer::~ModulePlayer()
 {
@@ -41,7 +49,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/ship.png"); // arcade version
+	texture = App->textures->Load("Assets/SpriteSheetPuyos.png"); // arcade version
 	currentAnimation = &idleAnim;
 
 	return ret;
@@ -50,36 +58,25 @@ bool ModulePlayer::Start()
 update_status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	App->player->position.x += 1;
-
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+	if (position.y<207)
 	{
-		position.x -= speed;
+	App->player->position.y += 0.5;
+	}
+	
+
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position.x > 0)
+	{
+		position.x -= 16;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position.x<112)
 	{
-		position.x += speed;
+		position.x += 16;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position.y < 207)
 	{
 		position.y += speed;
-		if (currentAnimation != &downAnim)
-		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
-		}
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	{
-		position.y -= speed;
-		if (currentAnimation != &upAnim)
-		{
-			upAnim.Reset();
-			currentAnimation = &upAnim;
-		}
 	}
 
 	// TODO 3: Shoot lasers when the player hits SPACE

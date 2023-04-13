@@ -35,10 +35,8 @@ update_status ModuleScene::Update()
 // Update: draw background
 update_status ModuleScene::PostUpdate()
 {
-	position.x = 1500;
-	position.y = 120;
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, 0, 1);
+	App->render->Blit(bgTexture, 0, 0, 0, 10);
 
 	return update_status::UPDATE_CONTINUE;
 }

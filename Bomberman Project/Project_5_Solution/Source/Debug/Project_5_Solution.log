@@ -1,2 +1,72 @@
-﻿  ModuleScene.cpp
+﻿  ModulePlayer.cpp
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(85,82): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(85,65): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(86,82): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(86,65): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(92,81): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(92,66): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(93,83): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(93,69): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(94,81): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(94,66): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(95,83): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(95,69): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(111,52): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(111,37): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
   Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe
