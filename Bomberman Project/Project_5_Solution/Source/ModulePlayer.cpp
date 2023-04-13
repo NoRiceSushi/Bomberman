@@ -1,5 +1,5 @@
 #include "ModulePlayer.h"
-
+#include <ctime>
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -11,6 +11,7 @@
 
 ModulePlayer::ModulePlayer()
 {
+	srand(time(0));
 	position.x = 48;
 	position.y = 16;
 
