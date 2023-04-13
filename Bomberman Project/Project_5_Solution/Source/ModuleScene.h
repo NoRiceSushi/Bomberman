@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Animation.h"
+#include "p2Point.h"
 
 struct SDL_Texture;
 
@@ -28,7 +29,8 @@ public:
 	update_status PostUpdate() override;
 
 public:
-	
+	iPoint position;
+
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	
