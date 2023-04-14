@@ -59,7 +59,7 @@ update_status ModulePlayer::Update()
 	}
 
 
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x < 112 && position[1].x < 112 && position[2].x < 112 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 0 && position[1].x > 0 && position[2].x > 0 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
 		position[0].x -= 16;
 		position[1].x -= 16;
@@ -94,13 +94,6 @@ update_status ModulePlayer::Update()
 	{
 		position[2].y -= speed;
 	}
-
-	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
-		currentAnimation = &idleAnim;
-
-	currentAnimation->Update();
 
 	return update_status::UPDATE_CONTINUE;
 }
