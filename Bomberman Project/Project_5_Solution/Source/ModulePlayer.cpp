@@ -11,33 +11,19 @@
 
 ModulePlayer::ModulePlayer()
 {
-	srand(time(0));
-	position.x = 48;
-	position.y = 16;
+	position[0].x = 48;
+	position[0].y = 32;
+
+	position[1].x = 64;
+	position[1].y = 32;
+	
+	position[2].x = 64;
+	position[2].y = 48;
 
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, rand() % 3*128, 128, 128 });
+	idleAnim.PushBack({ 0, 0, 16, 16 });
 }
 
-/*
-ModulePlayer::ModulePlayer()
-{
-	position.x = 64;
-	position.y = 16;
-
-	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, 129, 128, 128 });
-}
-
-ModulePlayer::ModulePlayer()
-{
-	position.x = 64;
-	position.y = 32;
-
-	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, 129, 128, 128 });
-}
-*/
 
 ModulePlayer::~ModulePlayer()
 {
@@ -58,42 +44,55 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	// Moving the player with the camera scroll
-	if (position.y<207)
+	if (position[0].y<208	||	(position[2].y==1	&&	position[0].x == position[1].x))
 	{
-	App->player->position.y += 0.5;
+	App->player->position[0].y += 0.5;
 	}
-	
-
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position.x > 0)
+	if (position[1].y < 207 && !(position[1].x==position[0].x	&&	position[0].y>=207) && !(position[1].x == position[2].x && position[2].y >= 208))
 	{
-		position.x -= 16;
+		App->player->position[1].y += 0.5;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position.x<112)
+	if (position[2].y < 208 || (position[0].y == 1 && position[2].x == position[1].x))
 	{
-		position.x += 16;
+		App->player->position[2].y += 0.5;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position.y < 207)
+
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x < 112 && position[1].x < 112 && position[2].x < 112 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
-		position.y += speed;
+		position[0].x -= 16;
+		position[1].x -= 16;
+		position[2].x -= 16;
 	}
 
-	// TODO 3: Shoot lasers when the player hits SPACE
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 112 && position[1].x < 112 && position[2].x < 112 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 10, position.y - 25, 0);
-		App->particles->AddParticle(App->particles->laser, position.x + 10, position.y - 5, 0);
+		position[0].x += 16;
+		position[1].x += 16;
+		position[2].x += 16;
 	}
 
-	// Spawn explosion particles when pressing B
-	if (App->input->keys[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position[0].y < 208 && position[1].y < 207 && position[2].y < 208)
 	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y + 25);
-		App->particles->AddParticle(App->particles->explosion, position.x - 25, position.y, 30);
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y - 25, 60);
-		App->particles->AddParticle(App->particles->explosion, position.x + 25, position.y, 90);
+		position[0].y += speed;
+		position[1].y += speed;
+		position[2].y += speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[0].y > 0)
+	{
+		position[0].y -= speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[1].y > 0)
+	{
+		position[1].y -= speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[2].y > 0)
+	{
+		position[2].y -= speed;
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
@@ -109,7 +108,9 @@ update_status ModulePlayer::Update()
 update_status ModulePlayer::PostUpdate()
 {
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, position.x, position.y - rect.h, &rect);
+	App->render->Blit(texture, position[0].x, position[0].y - rect.h, &rect);
+	App->render->Blit(texture, position[1].x, position[1].y - rect.h, &rect);
+	App->render->Blit(texture, position[2].x, position[2].y - rect.h, &rect);
 
 	return update_status::UPDATE_CONTINUE;
 }
