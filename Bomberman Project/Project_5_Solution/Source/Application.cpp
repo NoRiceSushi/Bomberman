@@ -8,7 +8,8 @@
 #include "ModuleScene.h"
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
-#include "ModuleAudio.h"
+#include "ModuleMenu.h"
+//#include "ModuleAudio.h"
 
 Application::Application()
 {
@@ -23,8 +24,9 @@ Application::Application()
 	modules[4] = player = new ModulePlayer();
 
 	modules[5] = particles = new ModuleParticles();
-	modules[6] = render = new ModuleRender();
-	modules[7] = audio = new ModuleAudio();
+	modules[6] = menu = new ModuleMenu();
+	modules[7] = render = new ModuleRender();
+	/*modules[7] = audio = new ModuleAudio();*/
 }
 
 Application::~Application()

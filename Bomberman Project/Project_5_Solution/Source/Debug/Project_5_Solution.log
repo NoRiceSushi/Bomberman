@@ -1,32 +1,43 @@
-﻿  ModulePlayer.cpp
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+﻿  Application.cpp
+  Main.cpp
+  ModuleInput.cpp
+  ModuleMenu.cpp
+  ModuleParticles.cpp
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModuleParticles.cpp(43,19): warning C4244: '=': conversión de 'float' a 'uint'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-  Project_5_Solution.vcxproj -> C:\Users\Raulsr4\Documents\Bomberman\Bomberman Project\Debug\Bomberman.exe
+  ModuleRender.cpp
+  ModuleScene.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generando código...
+  Project_5_Solution.vcxproj -> C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe
