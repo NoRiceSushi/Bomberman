@@ -12,13 +12,13 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position[0+ ACT_PUYOS].x = 48;
+	position[0+ ACT_PUYOS].x = 48+25;
 	position[0+ ACT_PUYOS].y = 32;
 
-	position[1+ ACT_PUYOS].x = 64;
+	position[1+ ACT_PUYOS].x = 64+25;
 	position[1+ ACT_PUYOS].y = 32;
 	
-	position[2+ ACT_PUYOS].x = 64;
+	position[2+ ACT_PUYOS].x = 64 + 25;
 	position[2+ ACT_PUYOS].y = 48;
 
 	// idle animation - just one sprite
@@ -60,14 +60,14 @@ update_status ModulePlayer::Update()
 	}
 
 
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 0 && position[1].x > 0 && position[2].x > 0 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 40 && position[1].x > 40 && position[2].x > 40 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
 		position[0].x -= 16;
 		position[1].x -= 16;
 		position[2].x -= 16;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 112 && position[1].x < 112 && position[2].x < 112 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 128 && position[1].x < 128 && position[2].x < 128 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
 		position[0].x += 16;
 		position[1].x += 16;
