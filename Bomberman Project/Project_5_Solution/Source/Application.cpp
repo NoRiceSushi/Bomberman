@@ -20,12 +20,12 @@ Application::Application()
 	modules[1] = input = new ModuleInput();
 	modules[2] = textures = new ModuleTextures();
 	/*modules[3] = audio = new ModuleAudio();*/
-	modules[4] = scene = new ModuleScene();
-	modules[5] = player = new ModulePlayer();
+	modules[3] = scene = new ModuleScene();
+	modules[4] = player = new ModulePlayer();
 
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = menu = new ModuleMenu();
-	modules[8] = render = new ModuleRender();
+	modules[5] = particles = new ModuleParticles();
+	modules[6] = menu = new ModuleMenu();
+	modules[7] = render = new ModuleRender();
 	
 }
 
