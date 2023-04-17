@@ -12,7 +12,7 @@ class ModuleScene : public Module
 public:
 	//Constructor
 	ModuleScene();
-	int aaaaaaaaaaaaaaaaaaaaaaaa;
+
 	//Destructor
 	~ModuleScene();
 
