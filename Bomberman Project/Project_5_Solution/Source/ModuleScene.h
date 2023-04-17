@@ -35,7 +35,7 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 	
 	// The sprite rectangle for the ground
-	SDL_Texture* starsTexture = nullptr;
+	SDL_Texture* bgTexture2 = nullptr;
 };
 
 #endif

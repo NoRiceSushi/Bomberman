@@ -5,23 +5,32 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
+#include "SDL/include/SDL.h"
 
 #include "SDL/include/SDL_scancode.h"
 
 
 ModulePlayer::ModulePlayer()
 {
-	position[0].x = 48;
-	position[0].y = 32;
+	position[0+ ACT_PUYOS].x = 48 + 25;
+	position[0+ ACT_PUYOS].y = 32;
 
-	position[1].x = 64;
-	position[1].y = 32;
+	position[1+ ACT_PUYOS].x = 64 + 25;
+	position[1+ ACT_PUYOS].y = 32;
 	
-	position[2].x = 64;
-	position[2].y = 48;
+	position[2+ ACT_PUYOS].x = 64 + 25;
+	position[2+ ACT_PUYOS].y = 48;
+	
+	position[3 + ACT_PUYOS].x = 48 + 25;
+	position[3 + ACT_PUYOS].y = 48;
+
+	position[4 + ACT_PUYOS].x = 48 + 25;
+	position[4 + ACT_PUYOS].y = 32;
+
+
 
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, 0, 16, 16 });
+	idleAnim.PushBack({ 0, 16, 16, 16 });
 }
 
 
@@ -44,33 +53,47 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	if (position[0].y<208	||	(position[2].y==1	&&	position[0].x == position[1].x))
+	if (position[0].y<208 || (position[2].y==1	&&	position[0].x == position[1].x))										
 	{
-	App->player->position[0].y += 0.5;
+		position[0].y += 0.5;
 	}
-	if (position[1].y < 207 && !(position[1].x==position[0].x	&&	position[0].y>=207) && !(position[1].x == position[2].x && position[2].y >= 208))
+	if (position[1].y < 208 && !(position[1].x==position[0].x	&&	position[0].y>=207) && !(position[1].x == position[2].x && position[2].y >= 208))	
 	{
-		App->player->position[1].y += 0.5;
-	}
-
-	if (position[2].y < 208 || (position[0].y == 1 && position[2].x == position[1].x))
-	{
-		App->player->position[2].y += 0.5;
+		position[1].y += 0.5;
 	}
 
+	if (position[2].y < 208 || (position[0].y == 1 && position[2].x == position[1].x))									
+	{
+		position[2].y += 0.5;
+	}
 
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 0 && position[1].x > 0 && position[2].x > 0 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
+	if (position[3].y < 208 )
+	{
+		position[3].y += 0.5;
+	}
+
+	if (position[4].y < 208)
+	{
+		position[4].y += 0.5;
+	}
+
+
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 40 && position[1].x > 40 && position[2].x > 40 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
 		position[0].x -= 16;
 		position[1].x -= 16;
 		position[2].x -= 16;
+		position[3].x -= 16;
+		position[4].x -= 16;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 112 && position[1].x < 112 && position[2].x < 112 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 128 && position[1].x < 128 && position[2].x < 128 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
 	{
 		position[0].x += 16;
 		position[1].x += 16;
 		position[2].x += 16;
+		position[3].x += 16;
+		position[4].x += 16;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position[0].y < 208 && position[1].y < 207 && position[2].y < 208)
@@ -78,6 +101,8 @@ update_status ModulePlayer::Update()
 		position[0].y += speed;
 		position[1].y += speed;
 		position[2].y += speed;
+		position[3].y += speed;
+		position[4].y += speed;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[0].y > 0)
@@ -94,6 +119,24 @@ update_status ModulePlayer::Update()
 	{
 		position[2].y -= speed;
 	}
+	if (App->input->keys[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN ) {
+		
+		position[4].x == position[0].x;
+		position[4].y == position[0].y;
+
+		position[0].x = position[1].x;
+		position[0].y = position[1].y;
+
+		position[1].x = position[2].x;
+		position[1].y = position[2].y;
+
+		position[2].x = position[3].x;
+		position[2].y = position[3].y;
+
+		position[3].x = position[4].x;
+		position[3].y = position[4].y;
+		
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -104,6 +147,9 @@ update_status ModulePlayer::PostUpdate()
 	App->render->Blit(texture, position[0].x, position[0].y - rect.h, &rect);
 	App->render->Blit(texture, position[1].x, position[1].y - rect.h, &rect);
 	App->render->Blit(texture, position[2].x, position[2].y - rect.h, &rect);
+
+
+	ACT_PUYOS += 3;
 
 	return update_status::UPDATE_CONTINUE;
 }
