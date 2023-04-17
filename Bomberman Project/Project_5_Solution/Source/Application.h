@@ -15,10 +15,7 @@ class ModuleScene;
 class ModuleParticles;
 class ModuleRender;
 class ModuleMenu;
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 6bd81b0 (adding audio template)
 
 class Application
 {
