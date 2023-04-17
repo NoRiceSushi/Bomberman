@@ -1,2 +1,3 @@
-﻿Application.obj : error LNK2019: unresolved external symbol "public: __thiscall ModuleScene::ModuleScene(void)" (??0ModuleScene@@QAE@XZ) referenced in function "public: __thiscall Application::Application(void)" (??0Application@@QAE@XZ)
+﻿  Application.cpp
+Application.obj : error LNK2019: unresolved external symbol "public: __thiscall ModuleScene::ModuleScene(void)" (??0ModuleScene@@QAE@XZ) referenced in function "public: __thiscall Application::Application(void)" (??0Application@@QAE@XZ)
 C:\Users\junhaocy\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe : fatal error LNK1120: 1 unresolved externals
