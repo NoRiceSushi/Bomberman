@@ -22,6 +22,7 @@ bool ModuleScene::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/background.png");
+	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
 
 	return ret;
 }
@@ -37,6 +38,7 @@ update_status ModuleScene::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, 0, 10);
+	App->render->Blit(bgTexture2, 0, 0, 0, 10);
 
 	return update_status::UPDATE_CONTINUE;
 }
