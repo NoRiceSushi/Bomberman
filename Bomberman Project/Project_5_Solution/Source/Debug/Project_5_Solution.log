@@ -1,38 +1,38 @@
-<<<<<<< HEAD
-﻿  Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe
-=======
-﻿  ModulePlayer.cpp
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(124,17): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(125,17): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(147,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+﻿  Application.cpp
+  ModuleMenu.cpp
+  ModulePlayer.cpp
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(124,17): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(125,17): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(147,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(147,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(147,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(148,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(148,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(148,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(148,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(149,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(149,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(149,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(149,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-  Project_5_Solution.vcxproj -> C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe
->>>>>>> d108721379a642a851a9e9415f13890081d7ec41
+  ModuleScene.cpp
+  Generando código...
+  Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe

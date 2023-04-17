@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
       <FullPath>C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe</FullPath>
-=======
-      <FullPath>C:\Users\alejandroir2\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe</FullPath>
->>>>>>> d108721379a642a851a9e9415f13890081d7ec41
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
