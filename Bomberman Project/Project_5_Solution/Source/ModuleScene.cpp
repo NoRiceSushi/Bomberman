@@ -1,44 +1,42 @@
-#include "ModuleScene.h"
+#ifndef __MODULE_SCENE_H__
+#define __MODULE_SCENE_H__
 
-#include "Application.h"
-#include "ModuleTextures.h"
-#include "ModuleRender.h"
+#include "Module.h"
+#include "Animation.h"
+#include "p2Point.h"
 
-ModuleScene::ModuleScene()
+struct SDL_Texture;
+
+class ModuleScene : public Module
 {
+public:
+	//Constructor
+	ModuleScene();
 
-}
+	//Destructor
+	~ModuleScene();
 
-ModuleScene::~ModuleScene()
-{
+	// Called when the module is activated
+	// Loads the necessary textures for the map background
+	bool Start() override;
 
-}
+	// Called at the middle of the application loop
+	// Updates the scene's background animations
+	update_status Update() override;
 
-// Load assets
-bool ModuleScene::Start()
-{
-	LOG("Loading background assets");
+	// Called at the end of the application loop.
+	// Performs the render call of all the parts of the scene's background
+	update_status PostUpdate() override;
 
-	bool ret = true;
+public:
+	iPoint position;
 
-	bgTexture = App->textures->Load("Assets/background.png");
-	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
+	// The scene sprite sheet loaded into an SDL_Texture
+	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* bgTexture2 = nullptr;
+	
+	// The sprite rectangle for the ground
+	SDL_Texture* starsTexture = nullptr;
+};
 
-	return ret;
-}
-
-update_status ModuleScene::Update()
-{
-
-	return update_status::UPDATE_CONTINUE;
-}
-
-// Update: draw background
-update_status ModuleScene::PostUpdate()
-{
-	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, 0, 10);
-	App->render->Blit(bgTexture2, 0, 0, 0, 10);
-
-	return update_status::UPDATE_CONTINUE;
-}
+#endif
