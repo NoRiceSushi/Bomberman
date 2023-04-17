@@ -1,43 +1,48 @@
 ﻿  Application.cpp
-  Main.cpp
-  ModuleInput.cpp
+  Globals.cpp
   ModuleMenu.cpp
   ModuleParticles.cpp
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModuleParticles.cpp(43,19): warning C4244: '=': conversión de 'float' a 'uint'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModuleParticles.cpp(43,19): warning C4244: '=': conversion from 'float' to 'uint', possible loss of data
+  ModuleScene.cpp
+  ModuleInput.cpp
   ModulePlayer.cpp
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(104,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(105,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(107,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
-C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(106,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(107,40): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
           with
           [
               TYPE=float
           ]
   ModuleRender.cpp
-  ModuleScene.cpp
   ModuleTextures.cpp
   ModuleWindow.cpp
-  Generando código...
-  Project_5_Solution.vcxproj -> C:\Users\34628\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe
+  Main.cpp
+  Module.cpp
+  Particle.cpp
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\Particle.cpp(33,19): warning C4018: '>=': signed/unsigned mismatch
+  Generating Code...
+Application.obj : error LNK2019: unresolved external symbol "public: __thiscall ModuleScene::ModuleScene(void)" (??0ModuleScene@@QAE@XZ) referenced in function "public: __thiscall Application::Application(void)" (??0Application@@QAE@XZ)
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe : fatal error LNK1120: 1 unresolved externals
