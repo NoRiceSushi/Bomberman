@@ -511,7 +511,7 @@ extern DECLSPEC Uint32 SDLCALL SDL_GetWindowPixelFormat(SDL_Window * window);
  *  \sa SDL_GL_LoadLibrary()
  *  \sa SDL_Vulkan_LoadLibrary()
  */
-extern DECLSPEC SDL_Window * SDLCALL SDL_CreateWindow(const char *title,
+extern DECLSPEC SDL_Window * SDLCALL SDL_CreateWindow(
                                                       int x, int y, int w,
                                                       int h, Uint32 flags);
 
