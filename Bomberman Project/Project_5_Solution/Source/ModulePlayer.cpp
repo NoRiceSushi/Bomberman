@@ -120,9 +120,9 @@ update_status ModulePlayer::Update()
 		position[2].y -= speed;
 	}
 	if (App->input->keys[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN ) {
-		
-		position[4].x == position[0].x;
-		position[4].y == position[0].y;
+
+		position[4].x = position[0].x;
+		position[4].y = position[0].y;
 
 		position[0].x = position[1].x;
 		position[0].y = position[1].y;
