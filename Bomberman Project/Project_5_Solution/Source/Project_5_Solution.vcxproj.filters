@@ -103,7 +103,7 @@
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="ModuleMenu.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,86 +4,51 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "SDL/include/SDL.h"
-#include "SDL_image/include/SDL_image.h"
-
-#include <string>
 
 struct SDL_Texture;
 
 class ModulePlayer : public Module
 {
 public:
-
+	// Constructor
 	ModulePlayer();
 
+	// Destructor
 	~ModulePlayer();
 
-	void setCurrentTime(Uint32 t)
-	{
-		currentTime = t;
-	}
-
-	bool isrunning()
-	{
-		return running;
-	}
-
+	// Called when the module is activated
+	// Loads the necessary textures for the player
 	bool Start() override;
-	bool isvalid();
 
+	// Called at the middle of the application loop
+	// Processes new input and handles player movement
 	update_status Update() override;
+
+	// Called at the end of the application loop
+	// Performs the render call of the player sprite
 	update_status PostUpdate() override;
 
-	void setRectPos(SDL_Rect& rect, int x = 0, int y = 0, int w = BlockW, int h = BlockH);
-	void moveRectPos(SDL_Rect& rect, int x, int y);
-
-
-	void nextTetrimino();
-	void gameplay();
-	void updateRender();
-	void clean();
-
 public:
+	// Position of the player in the map
+	fPoint position[5];
 
+	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
 	bool down = true;
 
 	int ACT_PUYOS = 0;
-	int MAX_PUYOS=100;
-
+	int MAX_PUYOS = 100;
+	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
-	
+
+	// The pointer to the current player animation
+	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
+
+	// A set of animations
 	Animation idleAnim;
-	Animation ESPACIO_ANIMACION; /*Hacer este tipo de declaraciones para meter una animación en el player*/
-
-private:
-
-	enum { ScreenW = 320, ScreenH = 224 };
-	enum { BlockW = 16, BlockH = 16 };
-	enum { Lines = 12, Cols = 8 };
-
-	SDL_Window* window = NULL;
-	SDL_Renderer* render = NULL;
-	SDL_Texture* background = NULL, * puyos = NULL, * leftbackground = NULL;
-	SDL_Rect srcR = { 0, 0, BlockW, BlockH }, destR = { 0, 0, BlockW, BlockH };
-
-	bool running = false;
-	int field[Lines][Cols] = { 0 };
-	static const int figures[4];
-
-	struct Point
-	{
-		int x, y;
-	} items[4], backup[4];
-
-	int color = 1;
-	int dx = 0;
-	bool rotate = false;
-	unsigned int delay = 300;
-
-	Uint32 startTime = 0, currentTime = 0;
+	Animation upAnim;
+	Animation downAnim;
 };
 
 #endif //!__MODULE_PLAYER_H__
