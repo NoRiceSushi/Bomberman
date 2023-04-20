@@ -12,20 +12,20 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position[0+ ACT_PUYOS].x = 48 + 25;
-	position[0+ ACT_PUYOS].y = 32;
+	position[0].x = 48 + 25;
+	position[0].y = 32;
 
-	position[1+ ACT_PUYOS].x = 64 + 25;
-	position[1+ ACT_PUYOS].y = 32;
+	position[1].x = 64 + 25;
+	position[1].y = 32;
 	
-	position[2+ ACT_PUYOS].x = 64 + 25;
-	position[2+ ACT_PUYOS].y = 48;
+	position[2].x = 64 + 25;
+	position[2].y = 48;
 	
-	position[3 + ACT_PUYOS].x = 48 + 25;
-	position[3 + ACT_PUYOS].y = 48;
+	position[3].x = 48 + 25;
+	position[3].y = 48;
 
-	position[4 + ACT_PUYOS].x = 48 + 25;
-	position[4 + ACT_PUYOS].y = 32;
+	position[4].x = 48 + 25;
+	position[4].y = 32;
 
 
 
