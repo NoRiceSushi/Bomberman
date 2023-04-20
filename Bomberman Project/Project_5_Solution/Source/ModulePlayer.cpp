@@ -105,20 +105,31 @@ update_status ModulePlayer::Update()
 		position[4].y += speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[0].y > 0)
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
-		position[0].y -= speed;
+		position[0].y -= 2*speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[1].y > 0)
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
-		position[1].y -= speed;
+		position[1].y -= 2 * speed;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[2].y > 0)
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
-		position[2].y -= speed;
+		position[2].y -= 2 * speed;
 	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+	{
+		position[3].y -= 2 * speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+	{
+		position[4].y -= 2 * speed;
+	}
+
 	if (App->input->keys[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN ) {
 
 		position[4].x = position[0].x;
