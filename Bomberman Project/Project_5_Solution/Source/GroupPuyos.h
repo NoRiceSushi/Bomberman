@@ -9,5 +9,11 @@ public:
 	
 	~GroupPuyos();
 
+	void UpdateGroup();
+
 	Puyo Group[4];
+
+	bool active = true;
+
+	fPoint position;
 };

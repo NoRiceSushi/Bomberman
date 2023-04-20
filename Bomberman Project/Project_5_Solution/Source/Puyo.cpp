@@ -25,9 +25,8 @@ Puyo::Puyo() {
 
 		case 1:
 			//ETCETCETC
+			break;
 	}
-
-
 }
 
 void Puyo::UpdatePuyo() {

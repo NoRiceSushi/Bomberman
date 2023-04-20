@@ -159,8 +159,5 @@ update_status ModulePlayer::PostUpdate()
 	App->render->Blit(texture, position[1].x, position[1].y - rect.h, &rect);
 	App->render->Blit(texture, position[2].x, position[2].y - rect.h, &rect);
 
-
-	ACT_PUYOS += 3;
-
 	return update_status::UPDATE_CONTINUE;
 }

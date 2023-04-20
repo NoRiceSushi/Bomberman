@@ -12,7 +12,7 @@ public:
 
 	void UpdatePuyo();
 
-private:
+public:
 	int color=1;
 	fPoint position;
 	float speed= 0.5;

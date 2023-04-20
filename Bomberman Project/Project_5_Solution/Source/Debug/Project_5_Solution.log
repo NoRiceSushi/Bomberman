@@ -1,4 +1,5 @@
 ﻿  GroupPuyos.cpp
   Puyo.cpp
   Generating Code...
-  Project_5_Solution.vcxproj -> C:\Users\Raulsr4\Desktop\Bomberman\Bomberman Project\Debug\Bomberman.exe
+GroupPuyos.obj : error LNK2019: unresolved external symbol "public: __thiscall Puyo::~Puyo(void)" (??1Puyo@@QAE@XZ) referenced in function "public: void __thiscall GroupPuyos::UpdateGroup(void)" (?UpdateGroup@GroupPuyos@@QAEXXZ)
+C:\Users\Raulsr4\Desktop\Bomberman\Bomberman Project\Debug\Bomberman.exe : fatal error LNK1120: 1 unresolved externals
