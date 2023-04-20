@@ -12,9 +12,10 @@
 using namespace std;
 
 GroupPuyos::GroupPuyos()	{
-
-
-
+	Group[0] = Puyo().position.x = 48 + 25;
+	Group[1] = Puyo();
+	Group[2] = Puyo();
+	Group[3] = Puyo();
 }
 
 void GroupPuyos::UpdateGroup() {
