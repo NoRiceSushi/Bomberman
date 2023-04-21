@@ -70,9 +70,6 @@
     <ClInclude Include="Puyo.h">
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="GroupPuyos.h">
-      <Filter>Source Files\Entities</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -118,9 +115,6 @@
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="Puyo.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="GroupPuyos.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>

@@ -76,7 +76,6 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="GroupPuyos.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleMenu.h" />
     <ClInclude Include="ModuleParticles.h" />
@@ -96,7 +95,6 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="GroupPuyos.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleMenu.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />

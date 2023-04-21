@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include "Puyo.h"
 
 struct SDL_Texture;
 
@@ -14,17 +15,15 @@ public:
 
 	~ModulePlayer();
 
-	bool Start() override;
-
 	update_status Update() override;
 
 	update_status PostUpdate() override;
 
 public:
-	fPoint position[5];
-
+	Puyo* Group[1] = { nullptr };
+	fPoint position;
 	int speed = 1;
-	bool down = true;
+	bool active = true;
 
 	int verde = 0;
 	SDL_Texture* texture = nullptr;

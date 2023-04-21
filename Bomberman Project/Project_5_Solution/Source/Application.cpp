@@ -1,5 +1,6 @@
 #include "Application.h"
 
+#include "Puyo.h"
 #include "Module.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
@@ -19,8 +20,8 @@ Application::Application()
 	modules[0] = window = new ModuleWindow();
 	modules[1] = input = new ModuleInput();
 	modules[2] = textures = new ModuleTextures();
-
 	modules[3] = scene = new ModuleScene();
+	//modules[4] = puyo = new Puyo();
 	modules[4] = player = new ModulePlayer();
 	modules[5] = audio = new ModuleAudio();
 	modules[6] = particles = new ModuleParticles();
