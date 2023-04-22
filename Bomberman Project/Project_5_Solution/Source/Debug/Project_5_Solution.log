@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ModulePlayer.cpp
 C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(147,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
@@ -30,3 +31,10 @@ C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solutio
               TYPE=float
           ]
   Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe
+=======
+﻿  GroupPuyos.cpp
+  Puyo.cpp
+  Generating Code...
+GroupPuyos.obj : error LNK2019: unresolved external symbol "public: __thiscall Puyo::~Puyo(void)" (??1Puyo@@QAE@XZ) referenced in function "public: void __thiscall GroupPuyos::UpdateGroup(void)" (?UpdateGroup@GroupPuyos@@QAEXXZ)
+C:\Users\Raulsr4\Desktop\Bomberman\Bomberman Project\Debug\Bomberman.exe : fatal error LNK1120: 1 unresolved externals
+>>>>>>> 238b7137b4d56b899e5ea25f531954e287ea7f26

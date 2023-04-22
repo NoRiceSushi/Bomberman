@@ -12,25 +12,25 @@
 
 ModulePlayer::ModulePlayer()
 {
+<<<<<<< HEAD
 	position[0+ ACT_PUYOS].x = 48+25 ;
 	position[0+ ACT_PUYOS].y = 32;
+=======
+>>>>>>> 238b7137b4d56b899e5ea25f531954e287ea7f26
 
-	position[1+ ACT_PUYOS].x = 64 + 25;
-	position[1+ ACT_PUYOS].y = 32;
-	
-	position[2+ ACT_PUYOS].x = 64 + 25;
-	position[2+ ACT_PUYOS].y = 48;
-	
-	position[3 + ACT_PUYOS].x = 48 + 25;
-	position[3 + ACT_PUYOS].y = 48;
+	Group[0] = new Puyo();
 
-	position[4 + ACT_PUYOS].x = 48 + 25;
-	position[4 + ACT_PUYOS].y = 32;
+	//Group[0].position.x = 48 + 25;
+	//Group[0].position.y = 32;
 
+	/*Group[1].position.x = 64 + 25;
+	Group[1].position.y = 32;
 
+	Group[2].position.x = 64 + 25;
+	Group[2].position.y = 48;
 
-	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, 16, 16, 16 });
+	Group[3].position.x = 48 + 25;
+	Group[3].position.y = 48;*/
 }
 
 
@@ -39,103 +39,30 @@ ModulePlayer::~ModulePlayer()
 
 }
 
-bool ModulePlayer::Start()
-{
-	LOG("Loading player textures");
-
-	bool ret = true;
-
-	texture = App->textures->Load("Assets/SpriteSheetPuyos.png"); // arcade version
-	currentAnimation = &idleAnim;
-
-	return ret;
-}
-
 update_status ModulePlayer::Update()
 {
-	if (position[0].y<208 || (position[2].y==1	&&	position[0].x == position[1].x))										
+	for (Puyo* p : Group)
 	{
-		position[0].y += 0.5;
-	}
-	if (position[1].y < 208 && !(position[1].x==position[0].x	&&	position[0].y>=207) && !(position[1].x == position[2].x && position[2].y >= 208))	
-	{
-		position[1].y += 0.5;
-	}
+		if (active) //Todo el modulo del jugador, no el grupo
+		{
+			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position.x > 40)
+			{
+				position.x -= 16;
+			}
+			else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position.x < 128)
+			{
+				position.x += 16;
+			}
+			else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position.y < 208)
+			{
+				position.y += speed;
+			}
+		}
 
-	if (position[2].y < 208 || (position[0].y == 1 && position[2].x == position[1].x))									
-	{
-		position[2].y += 0.5;
-	}
-
-	if (position[3].y < 208 )
-	{
-		position[3].y += 0.5;
-	}
-
-	if (position[4].y < 208)
-	{
-		position[4].y += 0.5;
-	}
-
-
-	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position[0].x > 40 && position[1].x > 40 && position[2].x > 40 && !((position[1].x == position[0].x && position[1].y != position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
-	{
-		position[0].x -= 16;
-		position[1].x -= 16;
-		position[2].x -= 16;
-		position[3].x -= 16;
-		position[4].x -= 16;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position[0].x < 128 && position[1].x < 128 && position[2].x < 128 && !((position[1].x==position[0].x && position[1].y!=position[2].y) || (position[1].x == position[2].x && position[1].y != position[0].y)))
-	{
-		position[0].x += 16;
-		position[1].x += 16;
-		position[2].x += 16;
-		position[3].x += 16;
-		position[4].x += 16;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position[0].y < 208 && position[1].y < 207 && position[2].y < 208)
-	{
-		position[0].y += speed;
-		position[1].y += speed;
-		position[2].y += speed;
-		position[3].y += speed;
-		position[4].y += speed;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[0].y > 0)
-	{
-		position[0].y -= speed;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[1].y > 0)
-	{
-		position[1].y -= speed;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && position[2].y > 0)
-	{
-		position[2].y -= speed;
-	}
-	if (App->input->keys[SDL_SCANCODE_J] == KEY_STATE::KEY_DOWN ) {
-
-		position[4].x = position[0].x;
-		position[4].y = position[0].y;
-
-		position[0].x = position[1].x;
-		position[0].y = position[1].y;
-
-		position[1].x = position[2].x;
-		position[1].y = position[2].y;
-
-		position[2].x = position[3].x;
-		position[2].y = position[3].y;
-
-		position[3].x = position[4].x;
-		position[3].y = position[4].y;
-		
+		else
+		{
+			p->UpdatePuyo();
+		}
 	}
 
 	return update_status::UPDATE_CONTINUE;
@@ -143,13 +70,12 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
-	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, position[0].x, position[0].y - rect.h, &rect);
-	App->render->Blit(texture, position[1].x, position[1].y - rect.h, &rect);
-	App->render->Blit(texture, position[2].x, position[2].y - rect.h, &rect);
-
-
-	ACT_PUYOS += 3;
+	SDL_Rect rect = Group[0]->currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, Group[0]->position.x, Group[0]->position.y - rect.h, &rect);
+	//rect = Group[1].currentAnimation->GetCurrentFrame();
+	//App->render->Blit(texture, Group[1].position.x, Group[1].position.y - rect.h, &rect);
+	//rect = Group[2].currentAnimation->GetCurrentFrame();
+	//App->render->Blit(texture, Group[2].position.x, Group[2].position.x - rect.h, &rect);
 
 	return update_status::UPDATE_CONTINUE;
 }

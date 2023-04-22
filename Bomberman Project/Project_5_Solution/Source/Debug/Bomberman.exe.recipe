@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe</FullPath>
+=======
+      <FullPath>C:\Users\Raulsr4\Desktop\Bomberman\Bomberman Project\Debug\Bomberman.exe</FullPath>
+>>>>>>> 238b7137b4d56b899e5ea25f531954e287ea7f26
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
