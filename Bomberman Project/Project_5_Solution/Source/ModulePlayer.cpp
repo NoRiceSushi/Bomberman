@@ -12,7 +12,7 @@
 
 ModulePlayer::ModulePlayer()
 {
-	position[0+ ACT_PUYOS].x = 48 + 25;
+	position[0+ ACT_PUYOS].x = 48+25 ;
 	position[0+ ACT_PUYOS].y = 32;
 
 	position[1+ ACT_PUYOS].x = 64 + 25;
