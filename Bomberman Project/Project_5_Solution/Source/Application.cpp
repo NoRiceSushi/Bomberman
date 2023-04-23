@@ -1,6 +1,4 @@
 #include "Application.h"
-
-#include "Puyo.h"
 #include "Module.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"

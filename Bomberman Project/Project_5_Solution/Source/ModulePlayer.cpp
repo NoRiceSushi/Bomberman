@@ -12,19 +12,13 @@
 
 ModulePlayer::ModulePlayer()
 {
-	color = rand() % (3);
+	p->position.x = 73;
+	p->position.y = 32;
+	p->downAnim.PushBack({ 0, rand() % 4 * 16, 16,16 });
 
-	Group[0].position.x = 48 + 25;
-	Group[0].position.y = 32;
-	Group[0].downAnim.PushBack({ 0, color * 16, 16,16 });
-	/*Group[1].position.x = 64 + 25;
-	Group[1].position.y = 32;
-
-	Group[2].position.x = 64 + 25;
-	Group[2].position.y = 48;
-
-	Group[3].position.x = 48 + 25;
-	Group[3].position.y = 48;*/
+	p[1]->position.x = 73;
+	p[1]->position.y = 32;
+	p[1]->downAnim.PushBack({ 0, rand() % 4 * 16, 16,16 });
 }
 
 
@@ -47,40 +41,42 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	for (Puyo p : Group)
+	if (p->active) 
 	{
-		if (active) //Todo el modulo del jugador, no el grupo
-		{
-			currentAnimation = &downAnim;
-			position.y += speed;
+		p->currentAnimation = &p->downAnim;
 
-			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position.x > 40)
-			{
-				position.x -= 16;
-			}
-			else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && position.x < 128)
-			{
-				position.x += 16;
-			}
-			else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && position.y < 208)
-			{
-				position.y += speed;
-			}
+		if (p->position.y < 208)
+		{
+			p->position.y += p->speed;
 		}
+		
 
-		else
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && p->position.x > 40)
 		{
-			p.UpdatePuyo();
+			p->position.x -= 16;
+		}
+		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && p->position.x < 128)
+		{
+			p->position.x += 16;
+		}
+		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && p->position.y < 208)
+		{
+			p->position.y += p->speed;
 		}
 	}
 
+	else
+	{
+		return update_status::UPDATE_CONTINUE;
+	}
+	
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModulePlayer::PostUpdate()
 {
-	SDL_Rect rect = Group[0].currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, Group[0].position.x, Group[0].position.y - rect.h, &rect);
+	SDL_Rect rect = p->currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, p->position.x, p->position.y - rect.h, &rect);
 	//rect = Group[1].currentAnimation->GetCurrentFrame();
 	//App->render->Blit(texture, Group[1].position.x, Group[1].position.y - rect.h, &rect);
 	//rect = Group[2].currentAnimation->GetCurrentFrame();

@@ -4,7 +4,6 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "Puyo.h"
 
 struct SDL_Texture;
 
@@ -22,22 +21,24 @@ public:
 	update_status PostUpdate() override;
 
 public:
-	Puyo Group[4];
-	fPoint position;
-	int speed = 1;
-	bool active = true;
+	struct Puyo
+	{
+		fPoint position;
+		int speed = 1;
+		bool active = true;
+		int verde = 0;
+		char color;
 
-	int verde = 0;
+		Animation* currentAnimation = nullptr;
+
+		Animation idleAnim;
+		Animation upAnim;
+		Animation downAnim;
+	}p[4];
+	
+	
 	SDL_Texture* texture = nullptr;
-	int color = 1;
-	// The pointer to the current player animation
-	// It will be switched depending on the player's movement direction
-	Animation* currentAnimation = nullptr;
 
-	// A set of animations
-	Animation idleAnim;
-	Animation upAnim;
-	Animation downAnim;
 };
 
 #endif //!__MODULE_PLAYER_H__

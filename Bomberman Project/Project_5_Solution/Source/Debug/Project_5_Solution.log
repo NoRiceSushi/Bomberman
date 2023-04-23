@@ -1,16 +1,12 @@
-﻿  Application.cpp
-  ModuleMenu.cpp
-  ModulePlayer.cpp
-C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(83,70): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+﻿  ModulePlayer.cpp
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(75,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(83,46): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(75,40): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-  Puyo.cpp
-  Generando código...
   Project_5_Solution.vcxproj -> C:\Users\2004r\OneDrive\Escritorio\Bomberman\Bomberman Project\Debug\Bomberman.exe
