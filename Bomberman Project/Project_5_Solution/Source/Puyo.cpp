@@ -15,8 +15,8 @@ using namespace std;
 
 Puyo::Puyo(){
 
-	color = rand() % (3+ App->player->verde);
-	downAnim.PushBack({0, color*16, 16,16});
+//	color = rand() % (3+ App->player->verde);
+	//downAnim.PushBack({0, color*16, 16,16});
 
 	/*switch (color)
 	{

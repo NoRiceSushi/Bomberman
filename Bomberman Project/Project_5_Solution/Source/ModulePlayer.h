@@ -15,19 +15,21 @@ public:
 
 	~ModulePlayer();
 
+	bool Start() override;
+
 	update_status Update() override;
 
 	update_status PostUpdate() override;
 
 public:
-	Puyo* Group[1] = { nullptr };
+	Puyo Group[4];
 	fPoint position;
 	int speed = 1;
 	bool active = true;
 
 	int verde = 0;
 	SDL_Texture* texture = nullptr;
-	
+	int color = 1;
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;

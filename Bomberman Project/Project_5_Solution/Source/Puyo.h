@@ -7,14 +7,14 @@
 
 struct SDL_Texture;
 
-class Puyo : public Module	{
+class Puyo	{
 
 public:
 	Puyo();
 
 	~Puyo();
 
-	bool Start() override;
+	bool Start();
 	void UpdatePuyo();
 
 public:

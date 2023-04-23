@@ -12,17 +12,11 @@
 
 ModulePlayer::ModulePlayer()
 {
-<<<<<<< HEAD
-	position[0+ ACT_PUYOS].x = 48+25 ;
-	position[0+ ACT_PUYOS].y = 32;
-=======
->>>>>>> 238b7137b4d56b899e5ea25f531954e287ea7f26
+	color = rand() % (3);
 
-	Group[0] = new Puyo();
-
-	//Group[0].position.x = 48 + 25;
-	//Group[0].position.y = 32;
-
+	Group[0].position.x = 48 + 25;
+	Group[0].position.y = 32;
+	Group[0].downAnim.PushBack({ 0, color * 16, 16,16 });
 	/*Group[1].position.x = 64 + 25;
 	Group[1].position.y = 32;
 
@@ -39,12 +33,27 @@ ModulePlayer::~ModulePlayer()
 
 }
 
+bool ModulePlayer::Start()
+{
+	LOG("Loading player textures");
+
+	bool ret = true;
+
+	texture = App->textures->Load("Assets/SpriteSheetPuyos.png"); // arcade version
+
+
+	return ret;
+}
+
 update_status ModulePlayer::Update()
 {
-	for (Puyo* p : Group)
+	for (Puyo p : Group)
 	{
 		if (active) //Todo el modulo del jugador, no el grupo
 		{
+			currentAnimation = &downAnim;
+			position.y += speed;
+
 			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && position.x > 40)
 			{
 				position.x -= 16;
@@ -61,7 +70,7 @@ update_status ModulePlayer::Update()
 
 		else
 		{
-			p->UpdatePuyo();
+			p.UpdatePuyo();
 		}
 	}
 
@@ -70,8 +79,8 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
-	SDL_Rect rect = Group[0]->currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, Group[0]->position.x, Group[0]->position.y - rect.h, &rect);
+	SDL_Rect rect = Group[0].currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, Group[0].position.x, Group[0].position.y - rect.h, &rect);
 	//rect = Group[1].currentAnimation->GetCurrentFrame();
 	//App->render->Blit(texture, Group[1].position.x, Group[1].position.y - rect.h, &rect);
 	//rect = Group[2].currentAnimation->GetCurrentFrame();
