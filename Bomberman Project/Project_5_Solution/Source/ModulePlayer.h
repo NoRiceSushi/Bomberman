@@ -27,6 +27,7 @@ public:
 		int speed = 1;
 		bool active = true;
 		int verde = 0;
+		int col;
 		char color;
 
 		Animation* currentAnimation = nullptr;
@@ -34,11 +35,12 @@ public:
 		Animation idleAnim;
 		Animation upAnim;
 		Animation downAnim;
-	}p[4];
+	};
 	
+	struct Puyo p[4];
 	
+	int air=0;
 	SDL_Texture* texture = nullptr;
-
 };
 
 #endif //!__MODULE_PLAYER_H__
