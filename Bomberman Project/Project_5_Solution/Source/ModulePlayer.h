@@ -24,10 +24,7 @@ public:
 	struct Puyo
 	{
 		fPoint position;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 		bool active = true;
 		int verde = 0;
 		int col;
@@ -40,7 +37,7 @@ public:
 		Animation downAnim;
 	};
 	
-	struct Puyo p[2][2];
+	struct Puyo p[3];
 	int speed = 1;
 	int air=0;
 	SDL_Texture* texture = nullptr;

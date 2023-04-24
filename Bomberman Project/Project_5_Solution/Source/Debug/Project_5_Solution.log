@@ -1,2 +1,32 @@
-﻿  ModuleGameOver.cpp
-  Project_5_Solution.vcxproj -> C:\Users\junhaocy\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe
+﻿  ModulePlayer.cpp
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(189,62): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(189,42): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(191,62): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(191,42): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(193,62): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModulePlayer.cpp(193,42): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+  Project_5_Solution.vcxproj -> C:\Users\Raulsr4\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe

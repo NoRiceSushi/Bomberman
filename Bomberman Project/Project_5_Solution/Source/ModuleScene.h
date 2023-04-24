@@ -20,7 +20,6 @@ public:
 
 	update_status PostUpdate() override;
 
-<<<<<<< Updated upstream
 	void SetTile(int x, int y, char value);
 	bool isEmpty(int x, int y);
 
@@ -45,13 +44,9 @@ private:
 	
 	*/
 
-=======
-	char field[8][12] = { '0' };
-
 public:
->>>>>>> Stashed changes
-	iPoint position;
 
+	iPoint position;
 
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;

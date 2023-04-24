@@ -18,113 +18,95 @@ ModulePlayer::ModulePlayer()
 	switch (air)
 	{
 	case 0:
-		p[0][0].col = rand() % 4;
-		p[0][0].position.x = 73;
-		p[0][0].position.y = 32;
-		p[0][0].downAnim.PushBack({ 0, p[0][0].col * 16, 16,16 });
+		p[0].col = rand() % 4;
+		p[0].position.x = 73;
+		p[0].position.y = 32;
+		p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
-		p[1][0].col = rand() % 4;
-		p[1][0].position.x = 89;
-		p[1][0].position.y = 32;
-		p[1][0].downAnim.PushBack({ 0, p[1][0].col * 16, 16,16 });
+		p[1].col = rand() % 4;
+		p[1].position.x = 89;
+		p[1].position.y = 32;
+		p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
-		p[0][1].col = rand() % 4;
-		p[0][1].position.x = 73;
-		p[0][1].position.y = 48;
-		p[0][1].downAnim.PushBack({ 0, p[0][1].col * 16, 16,16 });
+		p[2].col = rand() % 4;
+		p[2].position.x = 73;
+		p[2].position.y = 48;
+		p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 		break;
 	case 1:
-		p[0][0].col = rand() % 4;
-		p[0][0].position.x = 73;
-		p[0][0].position.y = 32;
-		p[0][0].downAnim.PushBack({ 0, p[0][0].col * 16, 16,16 });
+		p[0].col = rand() % 4;
+		p[0].position.x = 73;
+		p[0].position.y = 32;
+		p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
-		p[1][0].col = rand() % 4;
-		p[1][0].position.x = 89;
-		p[1][0].position.y = 32;
-		p[1][0].downAnim.PushBack({ 0, p[1][0].col * 16, 16,16 });
+		p[1].col = rand() % 4;
+		p[1].position.x = 89;
+		p[1].position.y = 32;
+		p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
-		p[1][1].col = rand() % 4;
-		p[1][1].position.x = 89;
-		p[1][1].position.y = 48;
-		p[1][1].downAnim.PushBack({ 0, p[1][1].col * 16, 16,16 });
+		p[2].col = rand() % 4;
+		p[2].position.x = 89;
+		p[2].position.y = 48;
+		p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 		break;
 	case 2:
-		p[0][0].col = rand() % 4;
-		p[0][0].position.x = 73;
-		p[0][0].position.y = 32;
-		p[0][0].downAnim.PushBack({ 0, p[0][0].col * 16, 16,16 });
+		p[0].col = rand() % 4;
+		p[0].position.x = 73;
+		p[0].position.y = 32;
+		p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
-		p[0][1].col = rand() % 4;
-		p[0][1].position.x = 73;
-		p[0][1].position.y = 48;
-		p[0][1].downAnim.PushBack({ 0, p[0][1].col * 16, 16,16 });
+		p[1].col = rand() % 4;
+		p[1].position.x = 73;
+		p[1].position.y = 48;
+		p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
-		p[1][1].col = rand() % 4;
-		p[1][1].position.x = 89;
-		p[1][1].position.y = 48;
-		p[1][1].downAnim.PushBack({ 0, p[1][1].col * 16, 16,16 });
+		p[2].col = rand() % 4;
+		p[2].position.x = 89;
+		p[2].position.y = 48;
+		p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 		break;
 	case 3:
-		p[1][0].col = rand() % 4;
-		p[1][0].position.x = 89;
-		p[1][0].position.y = 32;
-		p[1][0].downAnim.PushBack({ 0, p[1][0].col * 16, 16,16 });
+		p[0].col = rand() % 4;
+		p[0].position.x = 89;
+		p[0].position.y = 32;
+		p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
-		p[0][1].col = rand() % 4;
-		p[0][1].position.x = 73;
-		p[0][1].position.y = 48;
-		p[0][1].downAnim.PushBack({ 0, p[0][1].col * 16, 16,16 });
+		p[1].col = rand() % 4;
+		p[1].position.x = 73;
+		p[1].position.y = 48;
+		p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
-		p[1][1].col = rand() % 4;
-		p[1][1].position.x = 89;
-		p[1][1].position.y = 48;
-		p[1][1].downAnim.PushBack({ 0, p[1][1].col * 16, 16,16 });
+		p[2].col = rand() % 4;
+		p[2].position.x = 89;
+		p[2].position.y = 48;
+		p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 		break;
 	}
 
-	for (int j = 0; j < 2; j++)
+	for (int i = 0; i < 3; i++)
 	{ 
-		for (int i = 0; i < 2; i++)
-		{
-			switch (p[i][j].col)
+			switch (p[i].col)
 			{
 				case 0:
-					p[i][j].color = 'N';
+					p[i].color = 'N';
 					break;
 				case 1:
-					p[i][j].color = 'A';
+					p[i].color = 'A';
 					break;
 				case 2:
-					p[i][j].color = 'B';
+					p[i].color = 'B';
 					break;
 				case 3:
-					p[i][j].color = 'R';
+					p[i].color = 'R';
 					break;
 				case 4:
-					p[i][j].color = 'V';
+					p[i].color = 'V';
 					break;
-			}
-		}	
-<<<<<<< Updated upstream
-=======
-	}
-	
-	if (p[0][0].color != '0') {
-		ModuleScene::field[4][0]= p[0][0].color; }
-	if (p[1][0].color != '0') {
-		ModuleScene::field[5][0] = p[1][0].color;
-	}
-	if (p[0][1].color != '0') {
-		ModuleScene::field[4][1] = p[0][1].color;
-	}
-	if (p[1][1].color != '0') {
-		ModuleScene::field[5][1] = p[1][1].color;
->>>>>>> Stashed changes
+			}	
 	}
 }
 
@@ -139,63 +121,63 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/SpriteSheetPuyos.png"); // arcade version
-
+	texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
 
 	return ret;
 }
 
 update_status ModulePlayer::Update()
 {
-	if (p[0][0].active && p[1][0].active && p[0][1].active && p[1][1].active)
+		p[0].currentAnimation = &p[0].downAnim;
+		p[1].currentAnimation = &p[1].downAnim;
+		p[2].currentAnimation = &p[2].downAnim;
+
+		if (p[0].position.y < 208)
+		{
+			p[0].position.y += speed; }
+		else p[0].active = false;
+
+		if(p[1].position.y < 208)
+		{
+			p[1].position.y += speed; }
+		else p[1].active = false;
+
+		if(p[2].position.y < 208) 
+		{ 
+			p[2].position.y += speed; }
+		else p[2].active = false;
+
+if (p[0].active==true && p[1].active == true && p[2].active == true)
 	{
-		p[0][0].currentAnimation = &p[0][0].downAnim;
-		p[1][0].currentAnimation = &p[1][0].downAnim;
-		p[0][1].currentAnimation = &p[0][1].downAnim;
-		p[1][1].currentAnimation = &p[1][1].downAnim;
-
-		if (p[0][0].position.y < 208 && p[1][1].position.y < 208 && p[0][1].position.y < 208 && p[1][1].position.y < 208)
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && p[0].position.x > 40 && p[1].position.x > 40 && p[2].position.x > 40)
 		{
-			p[0][0].position.y += speed;
-			p[1][0].position.y += speed;
-			p[0][1].position.y += speed;
-			p[1][1].position.y += speed;
+			p[0].position.x -= 16;
+			p[1].position.x -= 16;
+			p[2].position.x -= 16;
 		}
-		
-
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && p[0][0].position.x > 40 && p[1][0].position.x > 40 && p[0][1].position.x > 40 && p[1][1].position.x > 40)
+		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && p[0].position.x < 128 && p[1].position.x < 128 && p[2].position.x < 128)
 		{
-			p[0][0].position.x -= 16;
-			p[1][0].position.x -= 16;
-			p[0][1].position.x -= 16;
-			p[1][1].position.x -= 16;
+			p[0].position.x += 16;
+			p[1].position.x += 16;
+			p[2].position.x += 16;
 		}
-		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && p[0][0].position.x < 128 && p[1][0].position.x < 128 && p[0][1].position.x < 128 && p[1][1].position.x < 128)
+		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && p[0].position.y < 208 && p[1].position.y < 208 && p[2].position.y < 208)
 		{
-			p[0][0].position.x += 16;
-			p[1][0].position.x += 16;
-			p[0][1].position.x += 16;
-			p[1][1].position.x += 16;
-		}
-		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && p[0][0].position.y < 208 && p[1][0].position.y < 208 && p[0][1].position.y < 208 && p[1][1].position.y < 208)
-		{
-			p[0][0].position.y += speed;
-			p[1][0].position.y += speed;
-			p[0][1].position.y += speed;
-			p[1][1].position.y += speed;
+			p[0].position.y += speed;
+			p[1].position.y += speed;
+			p[2].position.y += speed;
 		}
 		else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		{
-			p[0][0].position.y -= 2;
-			p[1][0].position.y -= 2;
-			p[0][1].position.y -= 2;
-			p[1][1].position.y -= 2;
+			p[0].position.y -= 2;
+			p[1].position.y -= 2;
+			p[2].position.y -= 2;
 		}
 	}
 
 	else
 	{
-		//ModuleScene::SetTile((p[0][0].position.y-25)/16,posicion en y. p[0].color)
+		return update_status::UPDATE_CONTINUE;
 	}
 	
 	return update_status::UPDATE_CONTINUE;
@@ -203,14 +185,12 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
-	SDL_Rect rect = p[0][0].currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, p[0][0].position.x, p[0][0].position.y - rect.h, &rect);
-	rect = p[1][0].currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, p[1][0].position.x, p[1][0].position.y - rect.h, &rect);
-	rect = p[0][1].currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, p[0][1].position.x, p[0][1].position.y - rect.h, &rect);
-	rect = p[1][1].currentAnimation->GetCurrentFrame();
-	App->render->Blit(texture, p[1][1].position.x, p[1][1].position.y - rect.h, &rect);
+	SDL_Rect rect = p[0].currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, p[0].position.x, p[0].position.y - rect.h, &rect);
+	rect = p[1].currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, p[1].position.x, p[1].position.y - rect.h, &rect);
+	rect = p[2].currentAnimation->GetCurrentFrame();
+	App->render->Blit(texture, p[2].position.x, p[2].position.y - rect.h, &rect);
 
 	return update_status::UPDATE_CONTINUE;
 }
