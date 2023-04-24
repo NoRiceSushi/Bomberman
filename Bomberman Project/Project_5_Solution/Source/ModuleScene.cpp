@@ -5,9 +5,22 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 
+/*{	-,-,-,X,X,-,-,-
+	-,-,-,X,X,-,-,-
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0
+	0,0,0,0,0,0,0,0 }
+*/
 ModuleScene::ModuleScene()
 {
-
+	
 }
 
 ModuleScene::~ModuleScene()
@@ -15,7 +28,6 @@ ModuleScene::~ModuleScene()
 
 }
 
-// Load assets
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
@@ -34,10 +46,8 @@ update_status ModuleScene::Update()
 	return update_status::UPDATE_CONTINUE;
 }
 
-// Update: draw background
 update_status ModuleScene::PostUpdate()
 {
-	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
 

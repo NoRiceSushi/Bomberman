@@ -110,6 +110,21 @@ ModulePlayer::ModulePlayer()
 					break;
 			}
 		}	
+<<<<<<< Updated upstream
+=======
+	}
+	
+	if (p[0][0].color != '0') {
+		ModuleScene::field[4][0]= p[0][0].color; }
+	if (p[1][0].color != '0') {
+		ModuleScene::field[5][0] = p[1][0].color;
+	}
+	if (p[0][1].color != '0') {
+		ModuleScene::field[4][1] = p[0][1].color;
+	}
+	if (p[1][1].color != '0') {
+		ModuleScene::field[5][1] = p[1][1].color;
+>>>>>>> Stashed changes
 	}
 }
 

@@ -24,10 +24,14 @@ public:
 	struct Puyo
 	{
 		fPoint position;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		bool active = true;
 		int verde = 0;
 		int col;
-		char color;
+		char color='0';
 
 		Animation* currentAnimation = nullptr;
 
