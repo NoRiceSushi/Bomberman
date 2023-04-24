@@ -24,7 +24,7 @@ bool ModuleScene::Start()
 
 	bgTexture = App->textures->Load("Assets/background.png");
 	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
-	App->audio->PlayMusic("Assets/08_stage_1.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 	return ret;
 }
 
