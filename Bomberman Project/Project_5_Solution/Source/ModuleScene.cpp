@@ -58,3 +58,16 @@ void ModuleScene::SetTile(int x, int y, char value)
 {
 	map[x][y] = value;
 }
+
+bool ModuleScene::isYEmpty(int x, int y)
+{
+	if (map[x][y - 1] == '0') 
+	{
+		return true;
+	}
+
+	else
+	{
+		return false;
+	}
+}

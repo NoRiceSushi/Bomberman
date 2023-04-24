@@ -134,7 +134,13 @@ update_status ModulePlayer::Update()
 
 		if (p[0].position.y < 208)
 		{
-			p[0].position.y += speed; }
+			if (ModuleScene::isYEmpty(p[0].position.x, p[0].position.y))
+			{
+				p[0].position.y += 2*speed;
+			}
+			else
+			p[0].position.y += speed;
+		}
 		else p[0].active = false;
 
 		if(p[1].position.y < 208)
@@ -173,13 +179,16 @@ if (p[0].active==true && p[1].active == true && p[2].active == true)
 			p[1].position.y -= 2;
 			p[2].position.y -= 2;
 		}
+
 	}
 
-	else
-	{
-		return update_status::UPDATE_CONTINUE;
-	}
+else
+{
+	////ELIMINAR LOS BLOQUES DEL PLAYER PERO DEJARLOS COMO OBSTACULOS DEL NIVEL
+}
 	
+void ModuleScene::SetTile (int (p[0].position.x-25)/16, int (p[0].position.y-32)/16, char p[0].color);
+
 	return update_status::UPDATE_CONTINUE;
 }
 

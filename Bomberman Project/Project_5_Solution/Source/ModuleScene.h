@@ -21,7 +21,7 @@ public:
 	update_status PostUpdate() override;
 
 	void SetTile(int x, int y, char value);
-	bool isEmpty(int x, int y);
+	bool isYEmpty(int x, int y);
 
 private:
 	
