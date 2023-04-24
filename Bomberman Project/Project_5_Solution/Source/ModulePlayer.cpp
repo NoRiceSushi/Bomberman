@@ -132,13 +132,26 @@ update_status ModulePlayer::Update()
 		p[1].currentAnimation = &p[1].downAnim;
 		p[2].currentAnimation = &p[2].downAnim;
 
-		App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
-		App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
-		App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+		int x0 = (p[0].position.x - 25) / 16;
+		int y0 = (p[0].position.y - 32) / 16;
+		int x1 = (p[1].position.x - 25) / 16;
+		int y1 = (p[1].position.y - 32) / 16;
+		int x2 = (p[2].position.x - 25) / 16;
+		int y2 = (p[2].position.y - 32) / 16;
 
-		App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32)-32 / 16, p[0].color);
-		App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32)-32 / 16, p[1].color);
-		App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32)-32 / 16, p[2].color);
+		if (y0,y1,y2>1)
+		{
+		App->scene->SetTile(x0, y0-1, '0');
+		App->scene->SetTile(x1, y1-1, '0');
+		App->scene->SetTile(x2, y2-1, '0');
+		}
+		
+
+		App->scene->SetTile(x0, y0, p[0].color);
+		App->scene->SetTile(x1, y1, p[1].color);
+		App->scene->SetTile(x2, y2, p[2].color);
+
+
 
 		if (p[0].position.y < 208 && App->scene->isYEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16)==true)
 		{
