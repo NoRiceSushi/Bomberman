@@ -132,25 +132,32 @@ update_status ModulePlayer::Update()
 		p[1].currentAnimation = &p[1].downAnim;
 		p[2].currentAnimation = &p[2].downAnim;
 
-		if (p[0].position.y < 208)
+		App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
+		App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
+		App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+
+		App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32)-32 / 16, p[0].color);
+		App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32)-32 / 16, p[1].color);
+		App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32)-32 / 16, p[2].color);
+
+		if (p[0].position.y < 208 && App->scene->isYEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16)==true)
 		{
-			if (ModuleScene::isYEmpty(p[0].position.x, p[0].position.y))
-			{
-				p[0].position.y += 2*speed;
-			}
-			else
 			p[0].position.y += speed;
 		}
 		else p[0].active = false;
 
-		if(p[1].position.y < 208)
+
+		if (p[1].position.y < 208 && App->scene->isYEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true)
 		{
-			p[1].position.y += speed; }
+			p[1].position.y += speed;
+		} 
 		else p[1].active = false;
 
-		if(p[2].position.y < 208) 
-		{ 
-			p[2].position.y += speed; }
+
+		if (p[2].position.y < 208 && App->scene->isYEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+		{
+			p[2].position.y += speed;
+		}
 		else p[2].active = false;
 
 if (p[0].active==true && p[1].active == true && p[2].active == true)
@@ -186,10 +193,9 @@ else
 {
 	////ELIMINAR LOS BLOQUES DEL PLAYER PERO DEJARLOS COMO OBSTACULOS DEL NIVEL
 }
-	
-void ModuleScene::SetTile (int (p[0].position.x-25)/16, int (p[0].position.y-32)/16, char p[0].color);
+	App->scene->SetTile ((p[0].position.x-25)/16, (p[0].position.y-32)/16, p[0].color);
 
-	return update_status::UPDATE_CONTINUE;
+return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModulePlayer::PostUpdate()

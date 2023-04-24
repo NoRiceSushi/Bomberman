@@ -5,6 +5,10 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 
+#include<iostream>
+
+
+using namespace std;
 /*{	-,-,-,X,X,-,-,-
 	-,-,-,X,X,-,-,-
 	0,0,0,0,0,0,0,0
@@ -20,7 +24,13 @@
 */
 ModuleScene::ModuleScene()
 {
-	
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			map[i][j] = '0';
+		}
+	}
 }
 
 ModuleScene::~ModuleScene()
@@ -43,6 +53,13 @@ bool ModuleScene::Start()
 update_status ModuleScene::Update()
 {
 
+	for (int i = 0; i < 12; i++) {
+		for (int j = 0; j < 8; j++) {
+			cout << "[" << map[i][j] << "] ";
+		}
+		cout << endl;
+	}
+	cout << endl; cout << endl; cout << endl; cout << endl;
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -56,7 +73,7 @@ update_status ModuleScene::PostUpdate()
 
 void ModuleScene::SetTile(int x, int y, char value)
 {
-	map[x][y] = value;
+	map[y][x] = value;
 }
 
 bool ModuleScene::isYEmpty(int x, int y)

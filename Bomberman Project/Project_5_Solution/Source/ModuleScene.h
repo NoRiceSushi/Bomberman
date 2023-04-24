@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include<algorithm>
 
 struct SDL_Texture;
 
@@ -25,7 +26,8 @@ public:
 
 private:
 	
-	char map[8][12] = { '0' };
+	char map[12][8];
+
 
 	/*
 	 
