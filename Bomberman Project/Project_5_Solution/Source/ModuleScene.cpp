@@ -43,3 +43,8 @@ update_status ModuleScene::PostUpdate()
 
 	return update_status::UPDATE_CONTINUE;
 }
+
+void ModuleScene::SetTile(int x, int y, char value)
+{
+	map[x][y] = value;
+}

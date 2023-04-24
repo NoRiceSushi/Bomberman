@@ -24,7 +24,6 @@ public:
 	struct Puyo
 	{
 		fPoint position;
-		int speed = 1;
 		bool active = true;
 		int verde = 0;
 		int col;
@@ -37,8 +36,8 @@ public:
 		Animation downAnim;
 	};
 	
-	struct Puyo p[4];
-	
+	struct Puyo p[2][2];
+	int speed = 1;
 	int air=0;
 	SDL_Texture* texture = nullptr;
 };
