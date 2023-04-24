@@ -22,8 +22,10 @@ public:
 	update_status PostUpdate() override;
 
 	void SetTile(int x, int y, char value);
-	bool isYEmpty(int x, int y);
 
+	bool isLeftEmpty(int x, int y);
+	bool isRightEmpty(int x, int y);
+	bool isDownEmpty(int x, int y);
 private:
 	
 	char map[12][8];

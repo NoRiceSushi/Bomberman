@@ -132,42 +132,21 @@ update_status ModulePlayer::Update()
 		p[1].currentAnimation = &p[1].downAnim;
 		p[2].currentAnimation = &p[2].downAnim;
 
-		int x0 = (p[0].position.x - 25) / 16;
-		int y0 = (p[0].position.y - 32) / 16;
-		int x1 = (p[1].position.x - 25) / 16;
-		int y1 = (p[1].position.y - 32) / 16;
-		int x2 = (p[2].position.x - 25) / 16;
-		int y2 = (p[2].position.y - 32) / 16;
-
-		if (y0,y1,y2>1)
-		{
-		App->scene->SetTile(x0, y0-1, '0');
-		App->scene->SetTile(x1, y1-1, '0');
-		App->scene->SetTile(x2, y2-1, '0');
-		}
-		
-
-		App->scene->SetTile(x0, y0, p[0].color);
-		App->scene->SetTile(x1, y1, p[1].color);
-		App->scene->SetTile(x2, y2, p[2].color);
-
-
-
-		if (p[0].position.y < 208 && App->scene->isYEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16)==true)
+		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16)==true)
 		{
 			p[0].position.y += speed;
 		}
 		else p[0].active = false;
 
 
-		if (p[1].position.y < 208 && App->scene->isYEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true)
+		if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true)
 		{
 			p[1].position.y += speed;
 		} 
 		else p[1].active = false;
 
 
-		if (p[2].position.y < 208 && App->scene->isYEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+		if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true)
 		{
 			p[2].position.y += speed;
 		}
@@ -175,19 +154,19 @@ update_status ModulePlayer::Update()
 
 if (p[0].active==true && p[1].active == true && p[2].active == true)
 	{
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && p[0].position.x > 40 && p[1].position.x > 40 && p[2].position.x > 40)
+		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && App->scene->isLeftEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 		{
 			p[0].position.x -= 16;
 			p[1].position.x -= 16;
 			p[2].position.x -= 16;
 		}
-		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && p[0].position.x < 128 && p[1].position.x < 128 && p[2].position.x < 128)
+		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && App->scene->isRightEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 		{
 			p[0].position.x += 16;
 			p[1].position.x += 16;
 			p[2].position.x += 16;
 		}
-		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && p[0].position.y < 208 && p[1].position.y < 208 && p[2].position.y < 208)
+		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 		{
 			p[0].position.y += speed;
 			p[1].position.y += speed;
@@ -204,9 +183,51 @@ if (p[0].active==true && p[1].active == true && p[2].active == true)
 
 else
 {
-	////ELIMINAR LOS BLOQUES DEL PLAYER PERO DEJARLOS COMO OBSTACULOS DEL NIVEL
+	App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
+	App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
+	App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+
+	if (p[0].active == false)
+	{
+		if (p[0].position.x==p[1].position.x)
+		{
+			p[1].active = false;
+		}
+
+		if (p[0].position.x == p[2].position.x)
+		{
+			p[2].active = false;
+		}
+	}
+
+	if (p[1].active == false)
+	{
+		if (p[1].position.x == p[2].position.x)
+		{
+			p[2].active = false;
+		}
+
+		if (p[1].position.x == p[0].position.x)
+		{
+			p[0].active = false;
+		}
+	}
+
+	if (p[2].active == false)
+	{
+		if (p[2].position.x == p[1].position.x)
+		{
+			p[1].active = false;
+		}
+
+		if (p[2].position.x == p[0].position.x)
+		{
+			p[0].active = false;
+		}
+	}
+
 }
-	App->scene->SetTile ((p[0].position.x-25)/16, (p[0].position.y-32)/16, p[0].color);
+	
 
 return update_status::UPDATE_CONTINUE;
 }
