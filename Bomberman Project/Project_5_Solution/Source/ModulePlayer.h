@@ -15,10 +15,10 @@ public:
 	~ModulePlayer();
 
 	bool Start() override;
-
 	update_status Update() override;
-
 	update_status PostUpdate() override;
+
+	void Activation();
 
 public:
 	struct Puyo
@@ -26,7 +26,6 @@ public:
 		fPoint position;
 
 		bool active = true;
-		int verde = 0;
 		int col;
 		char color='0';
 
@@ -36,10 +35,12 @@ public:
 		Animation upAnim;
 		Animation downAnim;
 	};
-	
+
+	int verde = 0;
 	struct Puyo p[3];
 	int speed = 1;
 	int air=0;
+	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
 };
 
