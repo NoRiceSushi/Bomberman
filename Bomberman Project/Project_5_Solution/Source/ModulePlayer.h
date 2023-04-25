@@ -10,7 +10,7 @@ struct SDL_Texture;
 class ModulePlayer : public Module
 {
 public:
-	ModulePlayer();
+	ModulePlayer(int x, int y);
 
 	~ModulePlayer();
 
@@ -27,7 +27,7 @@ public:
 
 		bool active = true;
 		int col;
-		char color='0';
+		char color = '0';
 
 		Animation* currentAnimation = nullptr;
 
@@ -39,7 +39,7 @@ public:
 	int verde = 0;
 	struct Puyo p[3];
 	int speed = 1;
-	int air=0;
+	int air = 0;
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
 };

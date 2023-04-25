@@ -9,6 +9,7 @@
 #include "ModuleRender.h"
 #include "ModuleMenu.h"
 #include "ModuleAudio.h"
+#include "ModulePlayers.h"
 
 Application::Application()
 {
@@ -20,12 +21,12 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures();
 	modules[3] = scene = new ModuleScene();
 	//modules[4] = puyo = new Puyo();
-	modules[4] = player = new ModulePlayer();
+	modules[4] = players = new ModulePlayers();
 	modules[5] = audio = new ModuleAudio();
 	modules[6] = particles = new ModuleParticles();
 	modules[7] = menu = new ModuleMenu();
 	modules[8] = render = new ModuleRender();
-	
+
 }
 
 Application::~Application()
@@ -68,7 +69,7 @@ update_status Application::Update()
 
 	return ret;
 }
- 
+
 bool Application::CleanUp()
 {
 	bool ret = true;

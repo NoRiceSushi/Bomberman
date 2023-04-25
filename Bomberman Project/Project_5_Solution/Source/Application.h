@@ -10,6 +10,7 @@ class ModuleWindow;
 class ModuleInput;
 class ModuleTextures;
 class ModulePlayer;
+class ModulePlayers;
 class ModuleScene;
 class ModuleParticles;
 class ModuleRender;
@@ -42,12 +43,12 @@ public:
 
 	// All the modules stored individually
 
-	
+
 	ModuleWindow* window = nullptr;
 	ModuleInput* input = nullptr;
 	ModuleTextures* textures = nullptr;
 	ModuleAudio* audio = nullptr;
-	ModulePlayer* player = nullptr;
+	ModulePlayers* players = nullptr;
 	ModuleScene* scene = nullptr;
 	ModuleParticles* particles = nullptr;
 	ModuleMenu* menu = nullptr;

@@ -80,6 +80,7 @@
     <ClInclude Include="ModuleGameOver.h" />
     <ClInclude Include="ModuleMenu.h" />
     <ClInclude Include="ModuleParticles.h" />
+    <ClInclude Include="ModulePlayers.h" />
     <ClInclude Include="ModuleScene.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
@@ -99,6 +100,7 @@
     <ClCompile Include="ModuleGameOver.cpp" />
     <ClCompile Include="ModuleMenu.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
+    <ClCompile Include="ModulePlayers.cpp" />
     <ClCompile Include="ModuleScene.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
