@@ -132,21 +132,21 @@ update_status ModulePlayer::Update()
 		p[1].currentAnimation = &p[1].downAnim;
 		p[2].currentAnimation = &p[2].downAnim;
 
-		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16)==true)
+		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16)==true && p[0].active == true)
 		{
 			p[0].position.y += speed;
 		}
 		else p[0].active = false;
 
 
-		if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true)
+		if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true && p[1].active == true)
 		{
 			p[1].position.y += speed;
 		} 
 		else p[1].active = false;
 
 
-		if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true)
+		if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true && p[2].active == true)
 		{
 			p[2].position.y += speed;
 		}
@@ -187,32 +187,6 @@ else
 	App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
 	App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
 
-	if (p[0].active == false)
-	{
-		if (p[0].position.x==p[1].position.x)
-		{
-			p[1].active = false;
-		}
-
-		if (p[0].position.x == p[2].position.x)
-		{
-			p[2].active = false;
-		}
-	}
-
-	if (p[1].active == false)
-	{
-		if (p[1].position.x == p[2].position.x)
-		{
-			p[2].active = false;
-		}
-
-		if (p[1].position.x == p[0].position.x)
-		{
-			p[0].active = false;
-		}
-	}
-
 	if (p[2].active == false)
 	{
 		if (p[2].position.x == p[1].position.x)
@@ -225,7 +199,7 @@ else
 			p[0].active = false;
 		}
 	}
-
+	//ModulePlayer::ModulePlayer();
 }
 	
 
