@@ -14,7 +14,7 @@ ModuleMenu::ModuleMenu() : isMenuOpen(false)
     backgroundRect = { 50,0, SCREEN_WIDTH, SCREEN_HEIGHT };
     continueRect = { 100, 70, 495, 125 };
     exitRect = { 110, y + SCREEN_HEIGHT / 2, 396, 162 };
-
+    //hola
 
 }
 
