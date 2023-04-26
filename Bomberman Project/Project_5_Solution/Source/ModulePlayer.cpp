@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModuleScene.h"
 #include "SDL/include/SDL.h"
+#include "ModuleMenu.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -131,8 +132,8 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-
-
+	if(App->menu->isMenuOpen==false){
+	
 	if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 		p[0].active = false;
 		ModulePlayer::Activation();
@@ -251,6 +252,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+	}
 	}
 
 	else
