@@ -132,140 +132,140 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	if(App->menu->isMenuOpen==false){
-	
-	if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
-		p[0].active = false;
-		ModulePlayer::Activation();
-	}
+	if (App->menu->isMenuOpen == false) {
 
-	if (p[1].position.y == 208 || App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) != true || p[1].active != true) {
-		p[1].active = false;
-		ModulePlayer::Activation();
-	}
-
-	if (p[2].position.y == 208 || App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) != true || p[2].active != true) {
-		p[2].active = false;
-		ModulePlayer::Activation();
-	}
-
-
-	if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) == true && p[0].active == true)
-	{
-		p[0].position.y += speed;
-	}
-
-	if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true && p[1].active == true)
-	{
-		p[1].position.y += speed;
-	}
-
-	if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true && p[2].active == true)
-	{
-		p[2].position.y += speed;
-	}
-
-	int minX = 1000;
-	int maxX = 0;
-	int minY = 1000;
-	int maxY = 0;
-
-	for (int i = 0; i < 3; i++)
-	{
-		if (p[i].position.x > maxX)
-		{
-			maxX = p[i].position.x;
+		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
+			p[0].active = false;
+			ModulePlayer::Activation();
 		}
 
-		if (p[i].position.x < minX)
-		{
-			minX = p[i].position.x;
+		if (p[1].position.y == 208 || App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) != true || p[1].active != true) {
+			p[1].active = false;
+			ModulePlayer::Activation();
 		}
 
-		if (p[i].position.y > maxY)
-		{
-			maxY = p[i].position.y;
+		if (p[2].position.y == 208 || App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) != true || p[2].active != true) {
+			p[2].active = false;
+			ModulePlayer::Activation();
 		}
 
-		if (p[i].position.y < minY)
-		{
-			minY = p[i].position.y;
-		}
-	}
 
-	if (p[0].active == true && p[1].active == true && p[2].active == true)
-	{
-		if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && App->scene->isLeftEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
-		{
-			p[0].position.x -= 16;
-			p[1].position.x -= 16;
-			p[2].position.x -= 16;
-		}
-		else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && App->scene->isRightEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
-		{
-			p[0].position.x += 16;
-			p[1].position.x += 16;
-			p[2].position.x += 16;
-		}
-		else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) == true && p[0].active == true)
 		{
 			p[0].position.y += speed;
+		}
+
+		if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true && p[1].active == true)
+		{
 			p[1].position.y += speed;
+		}
+
+		if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true && p[2].active == true)
+		{
 			p[2].position.y += speed;
 		}
-		else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+
+		int minX = 1000;
+		int maxX = 0;
+		int minY = 1000;
+		int maxY = 0;
+
+		for (int i = 0; i < 3; i++)
 		{
-			p[0].position.y -= 2;
-			p[1].position.y -= 2;
-			p[2].position.y -= 2;
-		}
-		else if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
-		{
-			for (int i = 0; i < 3; i++)
+			if (p[i].position.x > maxX)
 			{
-				if (p[i].position.x == minX)
-				{
-					if (p[i].position.y == maxY)
-					{
-						p[i].position.y -= 16;
-					}
+				maxX = p[i].position.x;
+			}
 
-					else
-					{
-						p[i].position.x += 16;
-					}
-				}
+			if (p[i].position.x < minX)
+			{
+				minX = p[i].position.x;
+			}
 
-				else
-				{
-					if (p[i].position.y == minY)
-					{
-						p[i].position.y += 16;
-					}
+			if (p[i].position.y > maxY)
+			{
+				maxY = p[i].position.y;
+			}
 
-					else
-					{
-						p[i].position.x -= 16;
-					}
-
-				}
+			if (p[i].position.y < minY)
+			{
+				minY = p[i].position.y;
 			}
 		}
 
-	}
-	}
+		if (p[0].active == true && p[1].active == true && p[2].active == true)
+		{
+			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && App->scene->isLeftEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			{
+				p[0].position.x -= 16;
+				p[1].position.x -= 16;
+				p[2].position.x -= 16;
+			}
+			else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && App->scene->isRightEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			{
+				p[0].position.x += 16;
+				p[1].position.x += 16;
+				p[2].position.x += 16;
+			}
+			else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			{
+				p[0].position.y += speed;
+				p[1].position.y += speed;
+				p[2].position.y += speed;
+			}
+			else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+			{
+				p[0].position.y -= 2;
+				p[1].position.y -= 2;
+				p[2].position.y -= 2;
+			}
+			else if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					if (p[i].position.x == minX)
+					{
+						if (p[i].position.y == maxY)
+						{
+							p[i].position.y -= 16;
+						}
 
-	else
-	{
-		if (p[0].active == false && p[1].active == false && p[2].active == false) {
-			App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
-			App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
-			App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+						else
+						{
+							p[i].position.x += 16;
+						}
+					}
+
+					else
+					{
+						if (p[i].position.y == minY)
+						{
+							p[i].position.y += 16;
+						}
+
+						else
+						{
+							p[i].position.x -= 16;
+						}
+
+					}
+				}
+			}
+
 		}
 
-		//ModulePlayer::ModulePlayer();
-	}
 
+		else
+		{
+			if (p[0].active == false && p[1].active == false && p[2].active == false) {
+				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
+				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
+				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+			}
+
+			//ModulePlayer::ModulePlayer();
+		}
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }
