@@ -71,6 +71,9 @@
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModulePlayers.h" />
+    <ClInclude Include="ModuleFade.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -120,6 +123,9 @@
     </ClCompile>
     <ClCompile Include="ModulePlayers.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFade.cpp">
+      <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
