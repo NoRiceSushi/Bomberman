@@ -10,6 +10,8 @@
 #include "ModuleMenu.h"
 #include "ModuleAudio.h"
 #include "ModulePlayers.h"
+#include "ModuleFade.h"
+#include "ModuleGameOver.h"
 
 Application::Application()
 {
@@ -25,7 +27,9 @@ Application::Application()
 	modules[5] = audio = new ModuleAudio();
 	modules[6] = particles = new ModuleParticles();
 	modules[7] = menu = new ModuleMenu();
-	modules[8] = render = new ModuleRender();
+	modules[8] = fade = new ModuleFade();
+	modules[9] = gameover = new ModuleGameOver();
+	modules[10] = render = new ModuleRender();
 
 }
 
