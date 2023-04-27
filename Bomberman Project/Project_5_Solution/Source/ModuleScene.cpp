@@ -78,7 +78,7 @@ void ModuleScene::SetTile(int x, int y, char value)
 
 bool ModuleScene::isLeftEmpty(int x, int y)
 {
-	if (map[x-1][y] == '0' && x > 0)
+	if (map[y][x-1] == '0' && x > 0)
 	{
 		return true;
 	}
@@ -91,7 +91,7 @@ bool ModuleScene::isLeftEmpty(int x, int y)
 
 bool ModuleScene::isRightEmpty(int x, int y)
 {
-	if (map[x + 1][y] == '0' && x < 7)
+	if (map[y][x+1] == '0' && x < 7)
 	{
 		return true;
 	}
@@ -104,7 +104,7 @@ bool ModuleScene::isRightEmpty(int x, int y)
 
 bool ModuleScene::isDownEmpty(int x, int y)
 {
-	if (map[x][y+1] == '0' && y < 10)
+	if (map[y+2][x] == '0' && y < 10)
 	{
 		return true;
 	}

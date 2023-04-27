@@ -1,3 +1,2 @@
-﻿  ModuleFade.cpp
-C:\Users\Usuario\Documents\GitHub\Bomberman\Bomberman Project\Project_5_Solution\Source\ModuleFade.cpp(79,19): warning C4244: '=': conversion from 'float' to 'Uint32', possible loss of data
-  Project_5_Solution.vcxproj -> C:\Users\Usuario\Documents\GitHub\Bomberman\Bomberman Project\Debug\Bomberman.exe
+﻿  ModuleScene.cpp
+  Project_5_Solution.vcxproj -> C:\Users\Raulsr4\Desktop\Bomberman\Bomberman Project\Debug\Bomberman.exe

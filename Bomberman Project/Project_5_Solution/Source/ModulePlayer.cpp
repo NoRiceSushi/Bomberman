@@ -213,13 +213,13 @@ update_status ModulePlayer::Update()
 				p[1].position.y += speed;
 				p[2].position.y += speed;
 			}
-			else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 			{
 				p[0].position.y -= 2;
 				p[1].position.y -= 2;
 				p[2].position.y -= 2;
 			}
-			else if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
+			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
 			{
 				for (int i = 0; i < 3; i++)
 				{
