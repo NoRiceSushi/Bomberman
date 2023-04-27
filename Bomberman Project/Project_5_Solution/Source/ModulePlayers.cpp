@@ -145,7 +145,7 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
             }
             else
             {
-                if (players[i - 1]->p[0].position.y >= 208 || players[i - 1]->p[1].position.y >= 208)
+                if (players[i - 1]->p[0].active==false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
                 {
                     players[i] = new ModulePlayer(info.x, info.y);
 

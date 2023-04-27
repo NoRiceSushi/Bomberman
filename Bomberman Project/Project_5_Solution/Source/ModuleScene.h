@@ -23,6 +23,7 @@ public:
 
 	void SetTile(int x, int y, char value);
 
+	bool ReadTile(int x, int y);
 	bool isLeftEmpty(int x, int y);
 	bool isRightEmpty(int x, int y);
 	bool isDownEmpty(int x, int y);

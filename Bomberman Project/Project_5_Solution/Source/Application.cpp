@@ -71,6 +71,9 @@ update_status Application::Update()
 	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->PostUpdate();
 
+
+	SDL_Delay(16.666f);
+
 	return ret;
 }
 

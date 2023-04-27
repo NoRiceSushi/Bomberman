@@ -1,6 +1,7 @@
 #include "ModuleGameOver.h"
 #include "ModuleInput.h"
 #include "Application.h"
+#include "ModuleScene.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
@@ -34,7 +35,7 @@ bool ModuleGameOver::Start()
 
 update_status ModuleGameOver::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_P])
+	if (App->scene->ReadTile(4,0)==false)
 	{
 		gameover_png = App->textures->Load("Assets/Game_over.png");
 		App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
