@@ -24,19 +24,19 @@ bool ModuleGameOver::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	/*gameover_png = App->textures->Load("Assets/Game_over.png");
-	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);*/
+	gameover_png = App->textures->Load("Assets/Game_over.png");
+	App->audio->PlayMusic("Assets/audio/24_Game_Over.ogg", 1.0f);
 	return true;
 }
 
 update_status ModuleGameOver::Update()
 {
-	if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
-	{
-		gameover_png = App->textures->Load("Assets/Game_over.png");
-		App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
-		/*App->fade->FadeToBlack(this, (Module*)App->gameover, 90);*/
-	}
+	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
+	//{
+	//	gameover_png = App->textures->Load("Assets/Game_over.png");
+	//	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
+	//	/*App->fade->FadeToBlack(this, (Module*)App->gameover, 90);*/
+	//}
 	return update_status::UPDATE_CONTINUE;
 }
 
