@@ -10,7 +10,7 @@ struct SDL_Texture;
 class ModulePlayer : public Module
 {
 public:
-	ModulePlayer(int x, int y);
+	ModulePlayer(bool startEnabled);
 
 	~ModulePlayer();
 
@@ -21,6 +21,10 @@ public:
 	void Activation();
 
 public:
+
+	int x, y;
+	/*int speed = 1;
+	SDL_Texture* texture = nullptr;*/
 	struct Puyo
 	{
 		fPoint position;
@@ -45,3 +49,4 @@ public:
 };
 
 #endif //!__MODULE_PLAYER_H__
+

@@ -19,7 +19,7 @@ class ModulePlayers : public Module
 {
 public:
     // Constructor
-    ModulePlayers();
+    ModulePlayers(bool startEnabled);
 
     // Destructor
     ~ModulePlayers();

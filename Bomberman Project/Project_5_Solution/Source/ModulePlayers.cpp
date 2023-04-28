@@ -5,7 +5,7 @@
 #include "ModuleTextures.h"
 
 
-ModulePlayers::ModulePlayers()
+ModulePlayers::ModulePlayers(bool startEnabled) : Module(startEnabled)
 {
     for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
@@ -132,28 +132,25 @@ void ModulePlayers::HandleEnemiesSpawn()
 
 void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
 {
-
     for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
         if (players[i] == nullptr)
         {
             if (players[i] == players[0])
             {
-                players[i] = new ModulePlayer(info.x, info.y);
+                players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
                 players[i]->texture = texture;
             }
             else
             {
-                if (players[i - 1]->p[0].active==false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
+                if (players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
                 {
-                    players[i] = new ModulePlayer(info.x, info.y);
+                    players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
                     players[i]->texture = texture;
                 }
-
             }
-
 
             break;
         }

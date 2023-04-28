@@ -10,7 +10,7 @@ struct SDL_Texture;
 class ModuleMenu : public Module
 {
 public:
-	ModuleMenu();
+	ModuleMenu(bool startEnabled);
 	~ModuleMenu();
 
 	bool Start() override;

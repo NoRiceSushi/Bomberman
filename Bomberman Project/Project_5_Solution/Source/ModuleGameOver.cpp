@@ -7,8 +7,9 @@
 #include "ModuleAudio.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayer.h"
+#include "ModuleFade.h"
 
-ModuleGameOver::ModuleGameOver() : isGameOverOpen(false)
+ModuleGameOver::ModuleGameOver(bool startEnabled) : Module(startEnabled)
 {
 
 }
@@ -18,12 +19,23 @@ ModuleGameOver::~ModuleGameOver()
 
 }
 
+// Load assets
+bool ModuleGameOver::Start()
+{
+	LOG("Loading background assets");
+	bool ret = true;
+	/*gameover_png = App->textures->Load("Assets/Game_over.png");
+	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);*/
+	return true;
+}
+
 update_status ModuleGameOver::Update()
 {
-	if (App->scene->ReadTile(4,0)==false || App->scene->ReadTile(3, 0) == false)
+	if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
 	{
 		gameover_png = App->textures->Load("Assets/Game_over.png");
 		App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
+		/*App->fade->FadeToBlack(this, (Module*)App->gameover, 90);*/
 	}
 	return update_status::UPDATE_CONTINUE;
 }

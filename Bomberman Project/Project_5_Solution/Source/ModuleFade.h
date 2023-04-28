@@ -8,7 +8,7 @@ class ModuleFade : public Module
 {
 public:
 	//Constructor
-	ModuleFade();
+	ModuleFade(bool startEnabled);
 
 	//Destructor
 	~ModuleFade();
@@ -47,7 +47,8 @@ private:
 	SDL_Rect screenRect;
 
 	// The modules that should be switched after the first step
-
+	Module* moduleToEnable = nullptr;
+	Module* moduleToDisable = nullptr;
 };
 
 #endif //__MODULEFADETOBLACK_H__

@@ -22,7 +22,7 @@ using namespace std;
 	0,0,0,0,0,0,0,0
 	0,0,0,0,0,0,0,0 }
 */
-ModuleScene::ModuleScene()
+ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
 	for (int i = 0; i < 12; i++)
 	{

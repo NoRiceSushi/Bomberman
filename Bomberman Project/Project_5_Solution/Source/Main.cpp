@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
 	}
 
 	Uint32 starting_tick; //Frame rate cap
-	
+
 	bool running = true;
 	while (running) {
 		starting_tick = SDL_GetTicks();

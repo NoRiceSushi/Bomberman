@@ -11,7 +11,7 @@ struct SDL_Texture;
 class ModuleScene : public Module
 {
 public:
-	ModuleScene();
+	ModuleScene(bool startEnabled);
 
 	~ModuleScene();
 

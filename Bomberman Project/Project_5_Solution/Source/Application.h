@@ -51,6 +51,7 @@ public:
 	ModuleTextures* textures = nullptr;
 	ModuleAudio* audio = nullptr;
 	ModulePlayers* players = nullptr;
+	ModulePlayer* player = nullptr;
 	ModuleScene* scene = nullptr;
 	ModuleParticles* particles = nullptr;
 	ModuleMenu* menu = nullptr;

@@ -5,7 +5,7 @@
 
 #include "SDL/include/SDL_render.h"
 
-ModuleFade::ModuleFade() : Module()
+ModuleFade::ModuleFade(bool startEnabled) : Module(startEnabled)
 {
 	screenRect = { 0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE };
 }

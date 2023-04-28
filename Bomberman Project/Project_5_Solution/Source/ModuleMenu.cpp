@@ -9,7 +9,7 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 
-ModuleMenu::ModuleMenu() : isMenuOpen(false)
+ModuleMenu::ModuleMenu(bool startEnabled) : Module(startEnabled)
 {
     backgroundRect = { 50,0, SCREEN_WIDTH, SCREEN_HEIGHT };
     continueRect = { 100, 70, 495, 125 };
