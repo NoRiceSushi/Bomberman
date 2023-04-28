@@ -63,7 +63,11 @@ update_status ModuleMenu::Update()
 
         SDL_Point mousePos = { mouseX, mouseY };
 
+        isMouseOverContinue = (mousePos.x - 200 >= continueRect.x && mousePos.x - 200 < continueRect.x + continueRect.w - 125 &&
+            mousePos.y - 130 >= continueRect.y && mousePos.y - 130 < continueRect.y + continueRect.h - 22);
 
+        isMouseOverExit = (mousePos.x - 220 >= exitRect.x && mousePos.x - 220 < exitRect.x + exitRect.w - 99 &&
+            mousePos.y - 223 >= exitRect.y && mousePos.y - 223 < exitRect.y + exitRect.h - 43);
 
 
 
@@ -72,20 +76,20 @@ update_status ModuleMenu::Update()
 
 
             LOG("siii");
-            if (mousePos.x - 300 >= continueRect.x &&
-                mousePos.x - 300 < continueRect.x + continueRect.w &&
-                mousePos.y - 212 >= continueRect.y &&
-                mousePos.y - 212 < continueRect.y + continueRect.h)
+            if (mousePos.x - 200 >= continueRect.x &&
+                mousePos.x - 200 < continueRect.x + continueRect.w - 125 &&
+                mousePos.y - 130 >= continueRect.y &&
+                mousePos.y - 130 < continueRect.y + continueRect.h - 22)
             {
                 LOG("Continue button clicked");
                 isMenuOpen = false;
 
             }
 
-            else if (mousePos.x - 329 >= exitRect.x &&
-                mousePos.x - 329 < exitRect.x + exitRect.w &&
-                mousePos.y - 335 >= exitRect.y &&
-                mousePos.y - 335 < exitRect.y + exitRect.h)
+            else if (mousePos.x - 200 >= exitRect.x &&
+                mousePos.x - 200 < exitRect.x + exitRect.w - 99 &&
+                mousePos.y - 223 >= exitRect.y &&
+                mousePos.y - 223 < exitRect.y + exitRect.h - 43)
             {
                 LOG("Exit button clicked");
                 return update_status::UPDATE_STOP;
@@ -121,6 +125,33 @@ update_status ModuleMenu::PostUpdate()
 
 
         App->render->Blit(exitTexture, exitRect.x, exitRect.y, nullptr);
+
+        int mouseX;
+        int mouseY;
+
+        Uint32 mouseState = SDL_GetMouseState(&mouseX, &mouseY);
+
+        SDL_Point mousePos = { mouseX, mouseY };
+
+        if (mousePos.x - 200 >= continueRect.x && mousePos.x - 200 < continueRect.x + continueRect.w - 125 &&
+            mousePos.y - 130 >= continueRect.y && mousePos.y - 130 < continueRect.y + continueRect.h - 22)
+        {
+            // Crear un objeto SDL_Rect para el rectángulo amarillo
+            SDL_Rect highlightRect = { continueRect.x + 200, continueRect.y + 140, continueRect.w - 125, continueRect.h - 22 };
+
+            // Dibujar el rectángulo amarillo
+            App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
+        }
+
+        if (mousePos.x - 220 >= exitRect.x && mousePos.x - 220 < exitRect.x + exitRect.w - 99 &&
+            mousePos.y - 223 >= exitRect.y && mousePos.y - 223 < exitRect.y + exitRect.h - 43)
+        {
+            // Crear un objeto SDL_Rect para el rectángulo amarillo
+            SDL_Rect highlightRect = { exitRect.x + 220, exitRect.y + 223, exitRect.w - 99, exitRect.h - 43 };
+
+            // Dibujar el rectángulo amarillo
+            App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
+        }
 
     }
 

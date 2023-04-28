@@ -44,6 +44,8 @@ public:
 	// Param speed		- The amount of effect that is applied to the sprite depending on the camera
 	bool Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section = nullptr, float speed = 1.0f);
 
+	void DrawRectangle(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+
 public:
 	// Rendering context used for any rendering action
 	SDL_Renderer* renderer = nullptr;

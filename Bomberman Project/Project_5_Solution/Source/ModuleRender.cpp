@@ -125,3 +125,9 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, f
 
 	return ret;
 }
+
+void ModuleRender::DrawRectangle(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+{
+	SDL_SetRenderDrawColor(renderer, r, g, b, a);
+	SDL_RenderDrawRect(renderer, &rect);
+}

@@ -35,6 +35,8 @@ public:
 
 	SDL_Texture* continueTexture = nullptr;
 	SDL_Texture* exitTexture = nullptr;
+	
+
 	SDL_Texture* continueHighlightedTexture = nullptr;
 	SDL_Texture* exitHighlightedTexture = nullptr;
 
