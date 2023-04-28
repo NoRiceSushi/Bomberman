@@ -18,24 +18,9 @@ ModuleGameOver::~ModuleGameOver()
 
 }
 
-// Load assets
-bool ModuleGameOver::Start()
-{
-	LOG("Loading background assets");
-
-	/*bool ret = true;
-	if (App != nullptr && App->textures != nullptr)
-	{
-		gameover_png = App->textures->Load("Assets/Game_over.png");
-		App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
-
-	}*/
-	return true;
-}
-
 update_status ModuleGameOver::Update()
 {
-	if (App->scene->ReadTile(4,0)==false || App->scene->ReadTile(5, 0) == false)
+	if (App->scene->ReadTile(4,0)==false || App->scene->ReadTile(3, 0) == false)
 	{
 		gameover_png = App->textures->Load("Assets/Game_over.png");
 		App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);

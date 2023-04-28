@@ -1,5 +1,5 @@
 #include "ModulePlayer.h"
-#include <ctime>
+#include <time.h>
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -14,6 +14,10 @@
 
 ModulePlayer::ModulePlayer(int x, int y)
 {
+	time_t seconds;
+	time(&seconds);
+	srand((unsigned int)seconds);
+
 	air = rand() % 4;
 
 	switch (air)

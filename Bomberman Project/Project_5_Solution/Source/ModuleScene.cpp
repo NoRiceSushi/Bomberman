@@ -126,6 +126,7 @@ bool ModuleScene::isDownEmpty(int x, int y)
 	}
 }
 
+
 //void ModuleScene::DestroyLines() {
 //	{
 //		for (int i = 0; i < 12; i++)
