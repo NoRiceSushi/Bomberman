@@ -5,6 +5,11 @@ bool Module::Init()
 	return true;
 }
 
+Module::Module(bool startEnabled) : isEnabled(startEnabled)
+{
+
+}
+
 bool Module::Start()
 {
 	return true;
