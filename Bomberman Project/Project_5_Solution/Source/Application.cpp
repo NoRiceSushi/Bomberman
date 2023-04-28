@@ -27,9 +27,9 @@ Application::Application()
 	modules[4] = players = new ModulePlayers(true);
 	modules[5] = audio = new ModuleAudio(true);
 	modules[6] = particles = new ModuleParticles(true);
-	modules[7] = menu = new ModuleMenu(false);
+	modules[7] = menu = new ModuleMenu(true);
 	modules[8] = fade = new ModuleFade(true);
-	modules[9] = gameover = new ModuleGameOver(false);
+	modules[9] = gameover = new ModuleGameOver(true);
 	modules[9] = player = new ModulePlayer(true);
 	modules[10] = render = new ModuleRender(true);
 
