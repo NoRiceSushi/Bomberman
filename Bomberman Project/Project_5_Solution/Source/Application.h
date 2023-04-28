@@ -45,7 +45,7 @@ public:
 
 	// All the modules stored individually
 
-
+	ModulePlayer* player = nullptr;
 	ModuleWindow* window = nullptr;
 	ModuleInput* input = nullptr;
 	ModuleTextures* textures = nullptr;

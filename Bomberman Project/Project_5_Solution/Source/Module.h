@@ -6,6 +6,7 @@
 class Module
 {
 public:
+	Module(bool startEnabled);
 
 	//Called at the beginning of the application execution
 	virtual bool Init();
@@ -25,6 +26,11 @@ public:
 
 	//Called at the end of the application
 	virtual bool CleanUp();
+
+	inline bool IsEnabled() const { return isEnabled; }
+
+private:
+	bool isEnabled = true;
 };
 
 #endif // __MODULE_H__

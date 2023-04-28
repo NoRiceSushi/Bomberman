@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleFade.h" />
     <ClInclude Include="ModuleGameOver.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="SceneIntro.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
