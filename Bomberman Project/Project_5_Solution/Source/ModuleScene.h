@@ -27,6 +27,9 @@ public:
 	bool isLeftEmpty(int x, int y);
 	bool isRightEmpty(int x, int y);
 	bool isDownEmpty(int x, int y);
+
+	void DestroyLines();
+	int Score = 0;
 private:
 	
 	char map[12][8];

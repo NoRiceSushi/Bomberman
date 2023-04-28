@@ -126,120 +126,120 @@ bool ModuleScene::isDownEmpty(int x, int y)
 	}
 }
 
-void ModuleScene::DestroyLines() {
-	{
-		for (int i = 0; i < 12; i++)
-		{
-			for (int j = 0; j < 8; j++)
-			{
-
-				if (map[i][j] == '0')
-				{
-				}
-
-				else if (map[i][j] == 'A')
-				{
-					if (map[i][j+1]=='A')
-					{
-						if (map[i][j+2]=='A')
-						{
-							Score += 100;
-						}
-						if (map[i][j -1] == 'A')
-						{
-							Score += 100;
-
-							if (map[i][j - 2] == 'A')
-							{
-								Score += 100;
-							}
-						}
-					}
-
-					else if (map[i][j - 1] == 'A')
-					{
-						if (map[i][j - 2] == 'A')
-						{
-							Score += 100;
-						}
-					}
-
-					else if (map[i+1][j] == 'A')
-					{
-						if (map[i+2][j] == 'A')
-						{
-							Score += 100;
-						}
-						if (map[i-1][j] == 'A')
-						{
-							Score += 100;
-
-							if (map[i-2][j] == 'A')
-							{
-								Score += 100;
-							}
-						}
-					}
-
-					else if (map[i-1][j] == 'A')
-					{
-						if (map[i-2][j] == 'A')
-						{
-							Score += 100;
-						}
-					}
-
-					else if (map[i + 1][j+1] == 'A')
-					{
-						if (map[i + 2][j+2] == 'A')
-						{
-							Score += 100;
-						}
-						if (map[i - 1][j-1] == 'A')
-						{
-							Score += 100;
-
-							if (map[i - 2][j-2] == 'A')
-							{
-								Score += 100;
-							}
-						}
-					}
-
-					else if (map[i - 1][j-1] == 'A')
-					{
-						if (map[i - 2][j-2] == 'A')
-						{
-							Score += 100;
-						}
-					}
-
-					else if (map[i - 1][j+1] == 'A')
-					{
-						if (map[i - 2][j+2] == 'A')
-						{
-							Score += 100;
-						}
-						if (map[i + 1][j-1] == 'A')
-						{
-							Score += 100;
-
-							if (map[i - 2][j+2] == 'A')
-							{
-								Score += 100;
-							}
-						}
-					}
-
-					else if (map[i + 1][j-1] == 'A')
-					{
-						if (map[i + 2][j-2] == 'A')
-						{
-							Score += 100;
-						}
-					}
-				}
-			}
-		}
-	}
-}
+//void ModuleScene::DestroyLines() {
+//	{
+//		for (int i = 0; i < 12; i++)
+//		{
+//			for (int j = 0; j < 8; j++)
+//			{
+//
+//				if (map[i][j] == '0')
+//				{
+//				}
+//
+//				else if (map[i][j] == 'A')
+//				{
+//					if (map[i][j+1]=='A')
+//					{
+//						if (map[i][j+2]=='A')
+//						{
+//							Score += 100;
+//						}
+//						if (map[i][j -1] == 'A')
+//						{
+//							Score += 100;
+//
+//							if (map[i][j - 2] == 'A')
+//							{
+//								Score += 100;
+//							}
+//						}
+//					}
+//
+//					else if (map[i][j - 1] == 'A')
+//					{
+//						if (map[i][j - 2] == 'A')
+//						{
+//							Score += 100;
+//						}
+//					}
+//
+//					else if (map[i+1][j] == 'A')
+//					{
+//						if (map[i+2][j] == 'A')
+//						{
+//							Score += 100;
+//						}
+//						if (map[i-1][j] == 'A')
+//						{
+//							Score += 100;
+//
+//							if (map[i-2][j] == 'A')
+//							{
+//								Score += 100;
+//							}
+//						}
+//					}
+//
+//					else if (map[i-1][j] == 'A')
+//					{
+//						if (map[i-2][j] == 'A')
+//						{
+//							Score += 100;
+//						}
+//					}
+//
+//					else if (map[i + 1][j+1] == 'A')
+//					{
+//						if (map[i + 2][j+2] == 'A')
+//						{
+//							Score += 100;
+//						}
+//						if (map[i - 1][j-1] == 'A')
+//						{
+//							Score += 100;
+//
+//							if (map[i - 2][j-2] == 'A')
+//							{
+//								Score += 100;
+//							}
+//						}
+//					}
+//
+//					else if (map[i - 1][j-1] == 'A')
+//					{
+//						if (map[i - 2][j-2] == 'A')
+//						{
+//							Score += 100;
+//						}
+//					}
+//
+//					else if (map[i - 1][j+1] == 'A')
+//					{
+//						if (map[i - 2][j+2] == 'A')
+//						{
+//							Score += 100;
+//						}
+//						if (map[i + 1][j-1] == 'A')
+//						{
+//							Score += 100;
+//
+//							if (map[i - 2][j+2] == 'A')
+//							{
+//								Score += 100;
+//							}
+//						}
+//					}
+//
+//					else if (map[i + 1][j-1] == 'A')
+//					{
+//						if (map[i + 2][j-2] == 'A')
+//						{
+//							Score += 100;
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//}

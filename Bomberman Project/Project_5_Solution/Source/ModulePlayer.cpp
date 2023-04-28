@@ -213,12 +213,6 @@ update_status ModulePlayer::Update()
 				p[1].position.y += speed;
 				p[2].position.y += speed;
 			}
-			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
-			{
-				p[0].position.y -= 2;
-				p[1].position.y -= 2;
-				p[2].position.y -= 2;
-			}
 			else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 			{
 				for (int i = 0; i < 3; i++)
@@ -262,8 +256,9 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
 			}
+			
 
-			//ModulePlayer::ModulePlayer();
+			//Eliminar lineas
 		}
 	}
 
