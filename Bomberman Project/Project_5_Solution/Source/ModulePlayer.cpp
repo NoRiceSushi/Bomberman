@@ -201,7 +201,7 @@ update_status ModulePlayer::Update()
 				p[1].position.x -= 16;
 				p[2].position.x -= 16;
 			}
-			else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && App->scene->isRightEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN && App->scene->isRightEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isRightEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 			{
 				p[0].position.x += 16;
 				p[1].position.x += 16;
@@ -213,13 +213,13 @@ update_status ModulePlayer::Update()
 				p[1].position.y += speed;
 				p[2].position.y += speed;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{
 				p[0].position.y -= 2;
 				p[1].position.y -= 2;
 				p[2].position.y -= 2;
 			}
-			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN)
 			{
 				for (int i = 0; i < 3; i++)
 				{
