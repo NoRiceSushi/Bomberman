@@ -1,9 +1,14 @@
 #include "ModuleScene.h"
-
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
+#include "ModuleFade.h"
+#include "ModuleInput.h"
+#include "ModuleGameOver.h"
+#include "SDL/include/SDL_scancode.h"
+#include "ModulePlayer.h"
+#include "Animation.h"
 
 #include<iostream>
 
@@ -24,6 +29,32 @@ using namespace std;
 */
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
+
+	AnimBorders.PushBack({ 351, 2, 141, 204 });
+	AnimBorders.PushBack({ 350, 208, 141, 204 });
+	AnimBorders.PushBack({ 350, 414 , 141, 204 });
+	AnimBorders.PushBack({ 350, 620, 141, 204 });
+	AnimBorders.PushBack({ 48, 787, 141, 204 });
+	AnimBorders.PushBack({ 48, 580, 141, 204 });
+	AnimBorders.PushBack({ 206, 413, 141, 204 });
+	AnimBorders.PushBack({ 206, 620, 141, 204 });
+	AnimBorders.PushBack({ 206,826 , 141, 204 });
+	AnimBorders.PushBack({ 350, 826, 141, 204 });
+	AnimBorders.PushBack({ 350, 826, 141, 204 });
+	AnimBorders.PushBack({ 206, 826, 141, 204 });
+	AnimBorders.PushBack({ 206, 620, 141, 204 });
+	AnimBorders.PushBack({ 206, 413, 141, 204 });
+	AnimBorders.PushBack({ 48, 580, 141, 204 });
+	AnimBorders.PushBack({ 48, 787, 141, 204 });
+	AnimBorders.PushBack({ 350, 620, 141, 204 });
+	AnimBorders.PushBack({ 350, 414 , 141, 204 });
+	AnimBorders.PushBack({ 350, 208, 141, 204 });
+	AnimBorders.PushBack({ 351, 2, 141, 204 });
+	AnimBorders.PushBack({ 351, 2, 141, 204 });
+	AnimBorders.PushBack({ 351, 2, 141, 204 });
+	AnimBorders.speed = 0.8f;
+
+
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 8; j++)
@@ -46,12 +77,18 @@ bool ModuleScene::Start()
 
 	bgTexture = App->textures->Load("Assets/background.png");
 	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
+	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	currentAnimation = &AnimBorders;
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 	return ret;
 }
 
 update_status ModuleScene::Update()
 {
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->gameover, 40);
+	}
 
 	for (int i = 0; i < 12; i++) {
 		for (int j = 0; j < 8; j++) {
@@ -60,14 +97,22 @@ update_status ModuleScene::Update()
 		cout << endl;
 	}
 	cout << endl; cout << endl; cout << endl; cout << endl;
+
+	/*currentAnimation = &AnimBorders;
+
+	currentAnimation->Update();*/
+	currentAnimation->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleScene::PostUpdate()
 {
+	
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
+	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+	App->render->Blit(bgBorders, 19, 10, &rect);
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
-
+	
 	return update_status::UPDATE_CONTINUE;
 }
 

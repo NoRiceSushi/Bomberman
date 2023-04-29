@@ -31,6 +31,10 @@ bool ModuleGameOver::Start()
 
 update_status ModuleGameOver::Update()
 {
+	if (App->input->keys[SDL_SCANCODE_L] == KEY_STATE::KEY_DOWN)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->scene, 40);
+	}
 	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
 	//{
 	//	gameover_png = App->textures->Load("Assets/Game_over.png");
@@ -45,7 +49,6 @@ update_status ModuleGameOver::PostUpdate()
 {
 	// Draw everything --------------------------------------
 
-	App->render->Blit(gameover_png, 0, 0, 0, 10);
-
+	App->render->Blit(gameover_png, 0, 0, 0, 0);
 	return update_status::UPDATE_CONTINUE;
 }

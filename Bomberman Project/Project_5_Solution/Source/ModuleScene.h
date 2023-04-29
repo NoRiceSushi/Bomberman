@@ -59,6 +59,10 @@ public:
 
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;
+	SDL_Texture* bgBorders = nullptr;
+
+	Animation* currentAnimation = nullptr;
+	Animation AnimBorders;
 };
 
 #endif
