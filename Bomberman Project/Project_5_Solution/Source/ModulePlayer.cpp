@@ -263,7 +263,7 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
 			}
 
-			//ModulePlayer::ModulePlayer();
+			
 		}
 	}
 

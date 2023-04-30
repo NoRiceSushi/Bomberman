@@ -33,7 +33,11 @@ public:
 
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* gameover_png = nullptr;
-	
+	SDL_Texture* SpriteSheetOP_png = nullptr;
+
+	Animation* currentAnimation = nullptr;
+	Animation AnimLose;
+	Animation AnimWin;
 
 };
 
