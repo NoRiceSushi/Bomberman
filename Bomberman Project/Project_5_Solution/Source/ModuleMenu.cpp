@@ -1,4 +1,5 @@
 #include "ModuleMenu.h"
+#include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL_scancode.h"
 #include "Application.h"
@@ -8,6 +9,11 @@
 #include "ModuleScene.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
+#include "SDL/include/SDL.h"
+
+#include "SDL/include/SDL_audio.h"
+#include "SDL_mixer/include/SDL_mixer.h"
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 ModuleMenu::ModuleMenu(bool startEnabled) : Module(startEnabled)
 {
@@ -31,6 +37,9 @@ bool ModuleMenu::Start()
         menuTexture = App->textures->Load("Assets/menu.png");
         continueTexture = App->textures->Load("Assets/continue.png");
         exitTexture = App->textures->Load("Assets/exit.png");
+        sfx_Menu = App->audio->LoadFx("Assets/sfx/sfx_Menu.wav");
+        
+       
 
     }
 
@@ -43,11 +52,14 @@ update_status ModuleMenu::Update()
 {
     if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_STATE::KEY_DOWN)
     {
+        App->audio->PlayFx(sfx_Menu);
         isMenuOpen = true;
+        
     }
 
     if (App->input->keys[SDL_SCANCODE_N] == KEY_STATE::KEY_DOWN)
     {
+        App->audio->PlayFx(sfx_Menu);
         isMenuOpen = false;
     }
 
@@ -73,7 +85,7 @@ update_status ModuleMenu::Update()
 
         if (mouseState & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-
+            App->audio->PlayFx(sfx_Menu);
 
             LOG("siii");
             if (mousePos.x - 200 >= continueRect.x &&
@@ -91,6 +103,7 @@ update_status ModuleMenu::Update()
                 mousePos.y - 223 >= exitRect.y &&
                 mousePos.y - 223 < exitRect.y + exitRect.h - 43)
             {
+                App->audio->PlayFx(sfx_Menu);
                 LOG("Exit button clicked");
                 return update_status::UPDATE_STOP;
             }
@@ -128,7 +141,7 @@ update_status ModuleMenu::PostUpdate()
 
         int mouseX;
         int mouseY;
-
+        
         Uint32 mouseState = SDL_GetMouseState(&mouseX, &mouseY);
 
         SDL_Point mousePos = { mouseX, mouseY };
@@ -136,21 +149,27 @@ update_status ModuleMenu::PostUpdate()
         if (mousePos.x - 200 >= continueRect.x && mousePos.x - 200 < continueRect.x + continueRect.w - 125 &&
             mousePos.y - 130 >= continueRect.y && mousePos.y - 130 < continueRect.y + continueRect.h - 22)
         {
+           
             // Crear un objeto SDL_Rect para el rectángulo amarillo
             SDL_Rect highlightRect = { continueRect.x + 200, continueRect.y + 140, continueRect.w - 125, continueRect.h - 22 };
 
             // Dibujar el rectángulo amarillo
             App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
+            
+           
         }
 
         if (mousePos.x - 220 >= exitRect.x && mousePos.x - 220 < exitRect.x + exitRect.w - 99 &&
             mousePos.y - 223 >= exitRect.y && mousePos.y - 223 < exitRect.y + exitRect.h - 43)
         {
+            
             // Crear un objeto SDL_Rect para el rectángulo amarillo
             SDL_Rect highlightRect = { exitRect.x + 220, exitRect.y + 223, exitRect.w - 99, exitRect.h - 43 };
 
             // Dibujar el rectángulo amarillo
             App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
+            
+            
         }
 
     }

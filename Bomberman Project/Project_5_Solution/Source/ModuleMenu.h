@@ -44,7 +44,7 @@ public:
 	SDL_Rect continueRect;
 	SDL_Rect exitRect;
 
-
+	uint sfx_Menu = 0;
 
 	bool isMouseOverContinue = false;
 	bool isMouseOverExit = false;
