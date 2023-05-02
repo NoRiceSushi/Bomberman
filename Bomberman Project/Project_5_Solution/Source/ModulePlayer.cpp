@@ -316,7 +316,7 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
 				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
-
+				if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) win = true;
 
 			}
 		}
