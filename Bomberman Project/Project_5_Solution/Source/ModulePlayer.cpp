@@ -297,7 +297,7 @@ update_status ModulePlayer::Update()
 			}
 			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
 			{
-
+				win = true;
 			}
 			if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
 			{
@@ -318,10 +318,10 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
 
 
-				if (App->scene->ReadTile(4,0)!='0'|| App->scene->ReadTile(5, 0) != '0')
-				{
-
-				}
+			if (App->scene->ReadTile(3,2)==false|| App->scene->ReadTile(4, 2) ==false)
+			{
+				win = true;
+			}
 			}
 		}
 	}
