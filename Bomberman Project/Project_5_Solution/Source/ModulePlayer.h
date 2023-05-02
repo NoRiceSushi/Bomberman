@@ -39,10 +39,9 @@ public:
 		Animation upAnim;
 		Animation downAnim;
 	};
-	int piedra = 0;
-	int verde = 0;
+
 	struct Puyo p[3];
-	int speed = 2;
+	int speed = 1;
 	int air = 0;
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
