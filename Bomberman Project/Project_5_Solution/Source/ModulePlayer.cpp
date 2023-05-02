@@ -170,7 +170,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	if (App->menu->isMenuOpen == false&& win ==false) {
+	if (App->menu->isMenuOpen == false&& win ==false && App->score->coins!=0) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 			p[0].active = false;
@@ -318,13 +318,12 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
 
 
-			if (App->scene->ReadTile(3,2)==false|| App->scene->ReadTile(4, 2) ==false)
-			{
-				win = true;
-			}
 			}
 		}
+
+
 	}
+
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -339,6 +338,7 @@ update_status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, p[1].position.x, p[1].position.y - rect.h, &rect);
 		rect = p[2].currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, p[2].position.x, p[2].position.y - rect.h, &rect);
+
 	}
 	return update_status::UPDATE_CONTINUE;
 }
