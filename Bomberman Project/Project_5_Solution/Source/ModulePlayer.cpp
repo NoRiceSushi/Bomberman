@@ -14,6 +14,8 @@
 
 int bomba = 0;
 int verde = 0;
+bool win = false;
+
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -168,7 +170,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	if (App->menu->isMenuOpen == false) {
+	if (App->menu->isMenuOpen == false&& win ==false) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 			p[0].active = false;
@@ -296,6 +298,10 @@ update_status ModulePlayer::Update()
 			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
 			{
 
+			}
+			if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
+			{
+				win = true;
 			}
 			if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN&& verde==0)
 			{
