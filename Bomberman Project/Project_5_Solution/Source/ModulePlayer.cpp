@@ -16,6 +16,22 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	air = rand() % 4;
 
+	ModulePlayer::Rock();
+
+	if (piedra==10)
+	{
+		piedra = 0;
+
+		p[0].position.x = 73;
+		p[0].position.y = 32;
+		p[0].downAnim.PushBack({ 0, 5 * 16, 16,16 });
+
+		p[0].color == 'P';
+	}
+
+	else
+	{
+
 	switch (air)
 	{
 	case 0:
@@ -109,6 +125,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 			break;
 		}
 	}
+}
 	p[0].currentAnimation = &p[0].downAnim;
 	p[1].currentAnimation = &p[1].downAnim;
 	p[2].currentAnimation = &p[2].downAnim;
@@ -195,6 +212,11 @@ update_status ModulePlayer::Update()
 
 		if (p[0].active == true && p[1].active == true && p[2].active == true)
 		{
+			if (verde==0 && App->input->keys[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN)
+			{
+				verde++;
+			}
+
 			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && App->scene->isLeftEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 			{
 				p[0].position.x -= 16;
@@ -324,4 +346,8 @@ void ModulePlayer::Activation() {
 			p[0].active = false;
 		}
 	}
+}
+
+void ModulePlayer::Rock() {
+	piedra++;
 }
