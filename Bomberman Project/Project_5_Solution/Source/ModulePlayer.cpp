@@ -12,22 +12,40 @@
 
 #include "SDL/include/SDL_scancode.h"
 
+int bomba = 0;
+int verde = 0;
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	air = rand() % 4;
 
-	ModulePlayer::Rock();
+	ModulePlayer::Bomb();
 
-	if (piedra==10)
+	if (bomba==5)
 	{
-		piedra = 0;
+		bomba = 0;
 
 		p[0].position.x = 73;
 		p[0].position.y = 32;
-		p[0].downAnim.PushBack({ 0, 5 * 16, 16,16 });
+		p[0].downAnim.PushBack({ 0, 6 * 16, 16,16 });
 
-		p[0].color == 'P';
+		p[0].color = 'X';
+
+		p[1].position.x = 73;
+		p[1].position.y = 32;
+		p[1].downAnim.PushBack({ 0, 6 * 16, 16,16 });
+
+		p[1].color = 'X';
+
+		p[2].position.x = 73;
+		p[2].position.y = 32;
+		p[2].downAnim.PushBack({ 0, 6 * 16, 16,16 });
+
+		p[2].color = 'X';
+
+		p[0].currentAnimation = &p[0].downAnim;
+		p[1].currentAnimation = &p[1].downAnim;
+		p[2].currentAnimation = &p[2].downAnim;
 	}
 
 	else
@@ -243,7 +261,7 @@ update_status ModulePlayer::Update()
 				p[1].position.y -= 2;
 				p[2].position.y -= 2;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN&& App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN&& App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X')
 			{
 				for (int i = 0; i < 3; i++)
 				{
@@ -275,7 +293,14 @@ update_status ModulePlayer::Update()
 					}
 				}
 			}
+			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
+			{
 
+			}
+			if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN&& verde==0)
+			{
+				verde++;
+			}
 		}
 
 
@@ -285,9 +310,13 @@ update_status ModulePlayer::Update()
 				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
 				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
 				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
-			}
 
-			
+
+				if (App->scene->ReadTile(4,0)!='0'|| App->scene->ReadTile(5, 0) != '0')
+				{
+
+				}
+			}
 		}
 	}
 
@@ -350,6 +379,6 @@ void ModulePlayer::Activation() {
 	}
 }
 
-void ModulePlayer::Rock() {
-	piedra++;
+void ModulePlayer::Bomb() {
+	bomba++;
 }

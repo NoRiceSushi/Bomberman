@@ -17,7 +17,7 @@ public:
 	bool Start() override;
 	update_status Update() override;
 	update_status PostUpdate() override;
-	void Rock();
+	void Bomb();
 	void Activation();
 
 public:
@@ -40,8 +40,6 @@ public:
 		Animation downAnim;
 	};
 
-	int piedra = 0;
-	int verde = 0;
 	struct Puyo p[3];
 	int speed = 2;
 	int air = 0;
