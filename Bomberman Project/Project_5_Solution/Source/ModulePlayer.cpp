@@ -8,6 +8,7 @@
 #include "ModuleScene.h"
 #include "SDL/include/SDL.h"
 #include "ModuleMenu.h"
+#include "ModuleScore.h"
 
 #include "SDL/include/SDL_scancode.h"
 
@@ -234,6 +235,7 @@ update_status ModulePlayer::Update()
 				p[0].position.y += speed;
 				p[1].position.y += speed;
 				p[2].position.y += speed;
+				App->score->score++;
 			}
 			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{

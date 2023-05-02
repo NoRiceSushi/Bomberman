@@ -6,13 +6,16 @@
 #include "ModulePlayer.h"
 #include "ModuleScene.h"
 #include "ModuleParticles.h"
-#include "ModuleRender.h"
 #include "ModuleMenu.h"
 #include "ModuleAudio.h"
 #include "ModulePlayers.h"
 #include "ModulePlayer.h"
 #include "ModuleFade.h"
 #include "ModuleGameOver.h"
+#include "ModuleFonts.h"
+#include "ModuleScore.h"
+
+#include "ModuleRender.h"
 
 Application::Application()
 {
@@ -30,8 +33,10 @@ Application::Application()
 	modules[7] = menu = new ModuleMenu(true);
 	modules[8] = fade = new ModuleFade(true);
 	modules[9] = gameover = new ModuleGameOver(false);
-	modules[9] = player = new ModulePlayer(true);
-	modules[10] = render = new ModuleRender(true);
+	modules[10] = player = new ModulePlayer(true);
+	modules[11] = fonts = new ModuleFonts(true);
+	modules[12] = score = new ModuleScore(true);
+	modules[13] = render = new ModuleRender(true);
 
 }
 
