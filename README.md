@@ -31,4 +31,6 @@
  
 - Only in prototype:
     · Q Button: Make the piece stop falling.
-    · F2 Button: Allow the game to create green puyos.
+    · F2 button: Insta lose.
+    · F3 Button: Insta win.
+    · F4 Button: Allow the game to create green puyos.
