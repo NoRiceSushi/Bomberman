@@ -163,7 +163,7 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
-	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotate.wav");
+	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rota.wav");
 
 	bool ret = true;
 
