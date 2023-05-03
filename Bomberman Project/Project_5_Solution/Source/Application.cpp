@@ -20,6 +20,9 @@
 #include "ClearStage1.h"
 
 
+
+
+
 Application::Application()
 {
 	// The order in which the modules are added is very important.
