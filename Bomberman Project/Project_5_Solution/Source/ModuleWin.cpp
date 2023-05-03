@@ -13,6 +13,7 @@
 #include "SDL_mixer/include/SDL_mixer.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 #include "ModuleWin.h"
+#include "ModuleMenu.h"
 
 ModuleWin::ModuleWin(bool startEnabled) : Module(startEnabled)
 {
@@ -26,7 +27,7 @@ ModuleWin::ModuleWin(bool startEnabled) : Module(startEnabled)
 	AnimWin.PushBack({ 86,208, 118, 101 });
 	AnimWin.PushBack({ 86, 105, 118, 101 });
 	AnimWin.PushBack({ 86, 2, 118, 101 });
-	AnimWin.speed = 1.2f;
+	AnimWin.speed = 0.5f;
 }
 
 ModuleWin::~ModuleWin()
@@ -75,8 +76,10 @@ update_status ModuleWin::Update()
 // Update: draw background
 update_status ModuleWin::PostUpdate()
 {
-	// Draw everything --------------------------------------
-	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(SpriteSheetOP_png, 31, 70, &rect);
-	return update_status::UPDATE_CONTINUE;
+	if (!App->menu->isMenuOpen) {
+		// Draw everything --------------------------------------
+		SDL_Rect rect = currentAnimation->GetCurrentFrame();
+		App->render->Blit(SpriteSheetOP_png, 31, 70, &rect);
+	}
+		return update_status::UPDATE_CONTINUE;
 }

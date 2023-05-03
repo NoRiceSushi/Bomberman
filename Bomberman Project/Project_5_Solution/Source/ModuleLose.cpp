@@ -13,6 +13,7 @@
 #include "SDL_mixer/include/SDL_mixer.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 #include "ModuleLose.h"
+#include "ModuleMenu.h"
 
 ModuleLose::ModuleLose(bool startEnabled) : Module(startEnabled)
 {
@@ -33,7 +34,7 @@ ModuleLose::ModuleLose(bool startEnabled) : Module(startEnabled)
 	AnimLose.PushBack({ 2, 136, 82, 65 });
 	AnimLose.PushBack({ 2, 69, 82, 65 });
 	AnimLose.PushBack({ 2, 2, 82, 65 });
-	AnimLose.speed = 1.2f;
+	AnimLose.speed = 0.5f;
 }
 
 ModuleLose::~ModuleLose()
@@ -82,8 +83,10 @@ update_status ModuleLose::Update()
 // Update: draw background
 update_status ModuleLose::PostUpdate()
 {
-	// Draw everything --------------------------------------
-	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(SpriteSheetOP_png, 49, 80, &rect);
+	if (!App->menu->isMenuOpen) {
+		// Draw everything --------------------------------------
+		SDL_Rect rect = currentAnimation->GetCurrentFrame();
+		App->render->Blit(SpriteSheetOP_png, 49, 80, &rect);
+	}
 	return update_status::UPDATE_CONTINUE;
 }
