@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 #include <stdio.h>
 #include "..//External_Libraries/SDL_image/include/SDL_image.h"
 #include <sstream>
@@ -33,7 +34,7 @@ bool ModuleScore::Start()
 
 	bool ret = true;
 
-
+	sfx_coin = App->audio->LoadFx("Assets/sfx/sfx_coins.wav");
 	char lookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/test.png", lookupTable, 1);
 
@@ -47,8 +48,12 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_C] != KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN) App->score->coins += 1;
-	cout << coins << endl;
+	if (App->input->keys[SDL_SCANCODE_C] != KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
+	{
+		App->audio->PlayFx(sfx_coin);
+		App->score->coins += 1;
+		cout << coins << endl;
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

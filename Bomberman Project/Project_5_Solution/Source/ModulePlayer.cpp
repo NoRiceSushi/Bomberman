@@ -163,6 +163,7 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
+	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotate.wav");
 
 	bool ret = true;
 
@@ -188,8 +189,9 @@ update_status ModulePlayer::Update()
 		if (p[2].position.y == 208 || App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) != true || p[2].active != true) {
 			p[2].active = false;
 			ModulePlayer::Activation();
+			
 		}
-
+		
 
 		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) == true && p[0].active == true)
 		{
@@ -262,12 +264,14 @@ update_status ModulePlayer::Update()
 			}
 			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{
+			
 				p[0].position.y -= 2;
 				p[1].position.y -= 2;
 				p[2].position.y -= 2;
 			}
 			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN&& App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X')
 			{
+				App->audio->PlayFx(sfx_rotate);
 				for (int i = 0; i < 3; i++)
 				{
 					if (p[i].position.x == minX)

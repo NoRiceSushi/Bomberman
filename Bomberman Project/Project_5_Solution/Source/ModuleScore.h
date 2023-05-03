@@ -29,6 +29,7 @@ public:
 	char scoreText[MAX_SCORE_LENGTH + sizeof(char)];
 
 	uint coins = 00;
+	uint sfx_coin = 0;
 };
 
 #endif // __MODULE_SCORE_H__
