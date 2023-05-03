@@ -95,6 +95,12 @@ update_status ModuleScene::Update()
 	{
 		App->fade->EnableOnly(this, (Module*)App->win);
 	}
+	for (int i = 0; i < 8; i++) {
+		if (App->scene->ReadTile(i, 5) == false) {
+			App->audio->PlayMusic("Assets/audio/23_Danger.ogg", 1.0f);
+
+		}
+	}
 	
 
 	for (int i = 0; i < 12; i++) {
@@ -105,19 +111,25 @@ update_status ModuleScene::Update()
 	}
 	cout << endl; cout << endl; cout << endl; cout << endl;
 
-	/*currentAnimation = &AnimBorders;
+	/*currentAnimation = &AnimBorders;*/
 
-	currentAnimation->Update();*/
+
 	currentAnimation->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleScene::PostUpdate()
 {
-	
+	/*for (int i = 0; i < 8; i++) {
+		if (App->scene->ReadTile(i, 5) == false) {
+			App->audio->PlayMusic("Assets/audio/23_Danger.ogg", 1.0f);
+
+		}
+	}*/
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	App->render->Blit(bgBorders, 19, 10, &rect);
+	
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
 	
 	return update_status::UPDATE_CONTINUE;
