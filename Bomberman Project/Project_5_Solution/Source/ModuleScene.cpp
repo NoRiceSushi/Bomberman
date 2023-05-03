@@ -8,6 +8,7 @@
 #include "ModuleGameOver.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayer.h"
+#include "SDL/include/SDL.h"
 #include "Animation.h"
 
 #include<iostream>
@@ -41,6 +42,7 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBorders.PushBack({ 206,826 , 141, 204 });
 	AnimBorders.PushBack({ 350, 826, 141, 204 });
 	AnimBorders.PushBack({ 350, 826, 141, 204 });
+	AnimBorders.PushBack({ 350, 826, 141, 204 });
 	AnimBorders.PushBack({ 206, 826, 141, 204 });
 	AnimBorders.PushBack({ 206, 620, 141, 204 });
 	AnimBorders.PushBack({ 206, 413, 141, 204 });
@@ -52,7 +54,7 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
-	AnimBorders.speed = 0.8f;
+	AnimBorders.speed = 1.0f;
 
 
 	for (int i = 0; i < 12; i++)
@@ -85,10 +87,15 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->gameover, 40);
+		App->fade->EnableOnly(this, (Module*)App->lose);
 	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
+	{
+		App->fade->EnableOnly(this, (Module*)App->win);
+	}
+	
 
 	for (int i = 0; i < 12; i++) {
 		for (int j = 0; j < 8; j++) {

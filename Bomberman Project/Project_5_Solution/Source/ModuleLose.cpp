@@ -12,38 +12,45 @@
 #include "ModuleScore.h"
 #include "SDL_mixer/include/SDL_mixer.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
-#include "ModuleWin.h"
+#include "ModuleLose.h"
 
-ModuleWin::ModuleWin(bool startEnabled) : Module(startEnabled)
+ModuleLose::ModuleLose(bool startEnabled) : Module(startEnabled)
 {
-	AnimWin.PushBack({ 86, 2, 118, 101 });
-	AnimWin.PushBack({ 86, 105, 118, 101 });
-	AnimWin.PushBack({ 86,208, 118, 101 });
-	AnimWin.PushBack({ 86, 311, 118, 101 });
-	AnimWin.PushBack({ 86, 414, 118, 101 });
-	AnimWin.PushBack({ 86, 414, 118, 101 });
-	AnimWin.PushBack({ 86, 311, 118, 101 });
-	AnimWin.PushBack({ 86,208, 118, 101 });
-	AnimWin.PushBack({ 86, 105, 118, 101 });
-	AnimWin.PushBack({ 86, 2, 118, 101 });
-	AnimWin.speed = 1.2f;
+	AnimLose.PushBack({ 2, 2, 82, 65 });
+	AnimLose.PushBack({ 2, 69, 82, 65 });
+	AnimLose.PushBack({ 2, 136, 82, 65 });
+	AnimLose.PushBack({ 2, 203, 82, 65 });
+	AnimLose.PushBack({ 2, 270, 82, 65 });
+	AnimLose.PushBack({ 2, 337, 82, 65 });
+	AnimLose.PushBack({ 2, 404, 82, 65 });
+	AnimLose.PushBack({ 2, 471, 82, 65 });
+	AnimLose.PushBack({ 2, 538, 82, 65 });
+	AnimLose.PushBack({ 2, 471, 82, 65 });
+	AnimLose.PushBack({ 2, 404, 82, 65 });
+	AnimLose.PushBack({ 2, 337, 82, 65 });
+	AnimLose.PushBack({ 2, 270, 82, 65 });
+	AnimLose.PushBack({ 2, 203, 82, 65 });
+	AnimLose.PushBack({ 2, 136, 82, 65 });
+	AnimLose.PushBack({ 2, 69, 82, 65 });
+	AnimLose.PushBack({ 2, 2, 82, 65 });
+	AnimLose.speed = 1.2f;
 }
 
-ModuleWin::~ModuleWin()
+ModuleLose::~ModuleLose()
 {
 
 }
 
 // Load assets
-bool ModuleWin::Start()
+bool ModuleLose::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
 	App->score->Disable();
-	currentAnimation = &AnimWin;
+	currentAnimation = &AnimLose;
 	SpriteSheetOP_png = App->textures->Load("Assets/SpriteSheetOP.png");
-	App->audio->PlayMusic("Assets/audio/18_Win.ogg", 1.0f);
-
+	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
+	
 	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
 	//{
 	//	gameover_png = App->textures->Load("Assets/Game_over.png");
@@ -54,7 +61,7 @@ bool ModuleWin::Start()
 	return true;
 }
 
-update_status ModuleWin::Update()
+update_status ModuleLose::Update()
 {
 	currentAnimation->Update();
 
@@ -66,17 +73,17 @@ update_status ModuleWin::Update()
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
-		App->fade->FadeToBlack(this, (Module*)App->clearstage1, 30);
+		App->fade->FadeToBlack(this, (Module*)App->gameover, 30);
 		return update_status::UPDATE_CONTINUE;
 	}
-
+	
 }
 
 // Update: draw background
-update_status ModuleWin::PostUpdate()
+update_status ModuleLose::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(SpriteSheetOP_png, 31, 70, &rect);
+	App->render->Blit(SpriteSheetOP_png, 49, 80, &rect);
 	return update_status::UPDATE_CONTINUE;
 }

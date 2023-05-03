@@ -29,6 +29,7 @@ public:
 	// Starts the fade process which has two steps, fade_out and fade_in
 	// After the first step, the modules should be switched
 	bool FadeToBlack(Module* toDisable, Module* toEnable, float frames = 60);
+	bool EnableOnly(Module* toDisable, Module* toEnable );
 
 private:
 

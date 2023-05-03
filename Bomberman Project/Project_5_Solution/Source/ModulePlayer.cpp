@@ -9,7 +9,10 @@
 #include "SDL/include/SDL.h"
 #include "ModuleMenu.h"
 #include "ModuleScore.h"
-
+#include "ModuleAudio.h"
+#include "ModuleFade.h"
+#include "ModuleGameOver.h"
+#include "Animation.h"
 #include "SDL/include/SDL_scancode.h"
 
 int bomba = 0;

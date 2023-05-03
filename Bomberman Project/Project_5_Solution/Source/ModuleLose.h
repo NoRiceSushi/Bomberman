@@ -1,5 +1,5 @@
-#ifndef __MODULEWIN_H__
-#define __MODULEWIN_H__
+#ifndef __MODULELOSE_H__
+#define __MODULELOSE_H__
 
 #include "Module.h"
 #include "Animation.h"
@@ -9,14 +9,14 @@
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
 
-class ModuleWin : public Module
+class ModuleLose : public Module
 {
 public:
 	//Constructor
-	ModuleWin(bool startEnabled);
+	ModuleLose(bool startEnabled);
 
 	//Destructor
-	~ModuleWin();
+	~ModuleLose();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
@@ -40,8 +40,9 @@ public:
 	SDL_Texture* SpriteSheetOP_png = nullptr;
 
 	Animation* currentAnimation = nullptr;
-	Animation AnimWin;
+	Animation AnimLose;
 
 };
 
 #endif 
+

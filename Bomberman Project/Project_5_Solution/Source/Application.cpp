@@ -14,8 +14,11 @@
 #include "ModuleGameOver.h"
 #include "ModuleFonts.h"
 #include "ModuleScore.h"
-
+#include "ModuleLose.h"
 #include "ModuleRender.h"
+#include "ModuleWin.h"
+#include "ClearStage1.h"
+
 
 Application::Application()
 {
@@ -36,7 +39,10 @@ Application::Application()
 	modules[10] = player = new ModulePlayer(true);
 	modules[11] = fonts = new ModuleFonts(true);
 	modules[12] = score = new ModuleScore(true);
-	modules[13] = render = new ModuleRender(true);
+	modules[13] = lose = new ModuleLose(false);
+	modules[14] = win = new ModuleWin(false);
+	modules[15] = clearstage1 = new ClearStage1(false);
+	modules[16] = render = new ModuleRender(true);
 
 }
 

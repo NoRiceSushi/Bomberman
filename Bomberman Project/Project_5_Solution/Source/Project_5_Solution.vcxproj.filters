@@ -17,6 +17,9 @@
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{ab9009c6-e7a7-45bf-99f5-1902c61d79d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{782650af-5512-4dfe-8d14-e15e8ba89e45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -67,9 +70,6 @@
     <ClInclude Include="ModuleAudio.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleGameOver.h">
-      <Filter>Source Files\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleFade.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
@@ -81,6 +81,18 @@
     </ClInclude>
     <ClInclude Include="ModuleScore.h">
       <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGameOver.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWin.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLose.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearStage1.h">
+      <Filter>Source Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +135,6 @@
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleGameOver.cpp">
-      <Filter>Source Files\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleMenu.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
@@ -140,6 +149,18 @@
     </ClCompile>
     <ClCompile Include="ModuleScore.cpp">
       <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGameOver.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWin.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleLose.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearStage1.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

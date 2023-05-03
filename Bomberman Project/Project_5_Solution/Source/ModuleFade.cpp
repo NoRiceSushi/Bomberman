@@ -87,3 +87,9 @@ bool ModuleFade::FadeToBlack(Module* moduleToDisable, Module* moduleToEnable, fl
 
 	return ret;
 }
+
+bool ModuleFade::EnableOnly(Module* moduleToDisable, Module* moduleToEnable)
+{
+	moduleToEnable->Enable();
+return true;
+}

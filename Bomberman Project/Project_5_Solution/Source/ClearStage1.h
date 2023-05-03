@@ -1,22 +1,20 @@
-#ifndef __MODULEWIN_H__
-#define __MODULEWIN_H__
+#ifndef __CLEARSTAGE1_H__
+#define __CLEARSTAGE1_H__
 
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
-#include "SDL/include/SDL_scancode.h"
-#include "SDL/include/SDL.h"
-#include "SDL_mixer/include/SDL_mixer.h"
+
 struct SDL_Texture;
 
-class ModuleWin : public Module
+class ClearStage1 : public Module
 {
 public:
 	//Constructor
-	ModuleWin(bool startEnabled);
+	ClearStage1(bool startEnabled);
 
 	//Destructor
-	~ModuleWin();
+	~ClearStage1();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
@@ -33,14 +31,8 @@ public:
 public:
 	iPoint position;
 
-	Uint32 timerStart = 0;
-	bool timerStarted = false;
 	// The scene sprite sheet loaded into an SDL_Texture
-
-	SDL_Texture* SpriteSheetOP_png = nullptr;
-
-	Animation* currentAnimation = nullptr;
-	Animation AnimWin;
+	SDL_Texture* Stage_Clear_png = nullptr;
 
 };
 

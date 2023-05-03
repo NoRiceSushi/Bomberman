@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 14
+#define NUM_MODULES 17
 
 class Module;
 class ModuleWindow;
@@ -20,6 +20,9 @@ class ModuleFade;
 class ModuleGameOver;
 class ModuleFonts;
 class ModuleScore;
+class ModuleLose;
+class ModuleWin;
+class ClearStage1;
 
 
 class Application
@@ -62,6 +65,9 @@ public:
 	ModuleGameOver* gameover = nullptr;
 	ModuleFonts* fonts = nullptr;
 	ModuleScore* score = nullptr;
+	ModuleLose* lose = nullptr;
+	ModuleWin* win = nullptr;
+	ClearStage1* clearstage1 = nullptr;
 	ModuleRender* render = nullptr;
 };
 
