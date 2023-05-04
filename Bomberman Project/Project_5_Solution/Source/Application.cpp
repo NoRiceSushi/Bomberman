@@ -100,7 +100,7 @@ update_status Application::Update()
 
 	return ret;
 
-	//SDL_Delay(16.666f);
+	SDL_Delay(16.666f);
 
 	//return ret;
 }
