@@ -34,7 +34,7 @@ ModuleLose::ModuleLose(bool startEnabled) : Module(startEnabled)
 	AnimLose.PushBack({ 2, 136, 82, 65 });
 	AnimLose.PushBack({ 2, 69, 82, 65 });
 	AnimLose.PushBack({ 2, 2, 82, 65 });
-	AnimLose.speed = 0.5f;
+	AnimLose.speed = 0.3f;
 }
 
 ModuleLose::~ModuleLose()
@@ -70,11 +70,11 @@ update_status ModuleLose::Update()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart < 1300) {
+	if (SDL_GetTicks() - timerStart < 3000) {
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
-		App->fade->FadeToBlack(this, (Module*)App->gameover, 30);
+		App->fade->FadeToBlack(this, (Module*)App->gameover, 70);
 		return update_status::UPDATE_CONTINUE;
 	}
 	

@@ -54,7 +54,7 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
-	AnimBorders.speed = 0.7f;
+	AnimBorders.speed = 0.2f;
 
 
 	for (int i = 0; i < 12; i++)
@@ -95,7 +95,7 @@ update_status ModuleScene::Update()
 	{
 		App->fade->EnableOnly(this, (Module*)App->win);
 	}
-	
+
 	
 
 	for (int i = 0; i < 12; i++) {

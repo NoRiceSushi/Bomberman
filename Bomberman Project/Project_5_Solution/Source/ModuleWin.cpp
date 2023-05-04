@@ -27,7 +27,7 @@ ModuleWin::ModuleWin(bool startEnabled) : Module(startEnabled)
 	AnimWin.PushBack({ 86,208, 118, 101 });
 	AnimWin.PushBack({ 86, 105, 118, 101 });
 	AnimWin.PushBack({ 86, 2, 118, 101 });
-	AnimWin.speed = 0.5f;
+	AnimWin.speed = 0.4f;
 }
 
 ModuleWin::~ModuleWin()
@@ -63,11 +63,11 @@ update_status ModuleWin::Update()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart < 1300) {
+	if (SDL_GetTicks() - timerStart <3000) {
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
-		App->fade->FadeToBlack(this, (Module*)App->clearstage1, 30);
+		App->fade->FadeToBlack(this, (Module*)App->clearstage1, 70);
 		return update_status::UPDATE_CONTINUE;
 	}
 
