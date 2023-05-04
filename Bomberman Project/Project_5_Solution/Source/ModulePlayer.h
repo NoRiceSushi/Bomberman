@@ -41,7 +41,7 @@ public:
 	};
 
 	struct Puyo p[3];
-	int speed = 2;
+	float speed = 0.5;
 	int air = 0;
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;

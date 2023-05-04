@@ -260,19 +260,19 @@ update_status ModulePlayer::Update()
 				p[1].position.x += 16;
 				p[2].position.x += 16;
 			}
-			 if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
+			 if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true  && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true &&App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y-32) / 16) == true)
 			{
-				p[0].position.y += speed;
-				p[1].position.y += speed;
-				p[2].position.y += speed;
+				p[0].position.y += speed * 8;
+				p[1].position.y += speed * 8;
+				p[2].position.y += speed * 8;
 				App->score->score++;
 			}
 			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{
 			
-				p[0].position.y -= 2;
-				p[1].position.y -= 2;
-				p[2].position.y -= 2;
+				p[0].position.y -= speed;
+				p[1].position.y -= speed;
+				p[2].position.y -= speed;
 			}
 			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN&& App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X')
 			{
