@@ -76,13 +76,17 @@ bool ModuleScene::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+
 	bgTexture = App->textures->Load("Assets/background.png");
 	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
-	
+	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
 	currentAnimation = &AnimBorders;
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+	App->fade->EnableOnly(this, (Module*)App->score);
+	App->fade->EnableOnly(this, (Module*)App->player);
+	App->fade->EnableOnly(this, (Module*)App->players); 
 	return ret;
+
 }
 
 update_status ModuleScene::Update()

@@ -63,7 +63,7 @@ update_status ModuleWin::Update()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart <3000) {
+	if (SDL_GetTicks() - timerStart <2000) {
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
