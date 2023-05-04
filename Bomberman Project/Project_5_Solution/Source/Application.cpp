@@ -41,16 +41,16 @@ Application::Application()
 	modules[5] = players = new ModulePlayers(true);
 	modules[6] = particles = new ModuleParticles(true);
 	modules[7] = menu = new ModuleMenu(true);
-	modules[8] = fade = new ModuleFade(true);
-	modules[9] = gameover = new ModuleGameOver(false);
-	modules[10] = player = new ModulePlayer(false);
-	modules[11] = fonts = new ModuleFonts(true);
-	modules[12] = score = new ModuleScore(false);
-	modules[13] = lose = new ModuleLose(false);
-	modules[14] = win = new ModuleWin(false);
-	modules[15] = clearstage1 = new ClearStage1(false);
-	modules[16] = sceneIntro = new SceneIntro(false);
-	modules[17] = introInfo = new IntroInfo(true);
+	modules[8] = gameover = new ModuleGameOver(false);
+	modules[9] = player = new ModulePlayer(false);
+	modules[10] = fonts = new ModuleFonts(true);
+	modules[11] = score = new ModuleScore(false);
+	modules[12] = lose = new ModuleLose(false);
+	modules[13] = win = new ModuleWin(false);
+	modules[14] = clearstage1 = new ClearStage1(false);
+	modules[15] = sceneIntro = new SceneIntro(false);
+	modules[16] = introInfo = new IntroInfo(true);
+	modules[17] = fade = new ModuleFade(true);
 	modules[18] = render = new ModuleRender(true);
 
 

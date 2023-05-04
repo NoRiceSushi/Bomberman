@@ -42,7 +42,20 @@ bool ModuleGameOver::Start()
 
 update_status ModuleGameOver::Update()
 {
-	return update_status::UPDATE_CONTINUE;
+
+	if (!timerStarted) {
+		timerStarted = true;
+		timerStart = SDL_GetTicks();
+	}
+	if (SDL_GetTicks() - timerStart < 4000) {
+		return update_status::UPDATE_CONTINUE;
+	}
+	else {
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
+		return update_status::UPDATE_CONTINUE;
+	}
+	
+	
 }
 
 // Update: draw background
