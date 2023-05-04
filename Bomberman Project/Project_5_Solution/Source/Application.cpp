@@ -34,21 +34,23 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = scene = new ModuleScene(false);
 	modules[4] = audio = new ModuleAudio(true);
-
-	modules[5] = sceneIntro = new SceneIntro(true);
+	
+	
 	//modules[4] = puyo = new Puyo();
-	modules[6] = players = new ModulePlayers(false);
-	modules[7] = particles = new ModuleParticles(true);
-	modules[8] = menu = new ModuleMenu(true);
-	modules[9] = fade = new ModuleFade(true);
-	modules[10] = gameover = new ModuleGameOver(false);
-	modules[11] = player = new ModulePlayer(false);
-	modules[12] = fonts = new ModuleFonts(true);
-	modules[13] = score = new ModuleScore(false);
-	modules[14] = lose = new ModuleLose(false);
-	modules[15] = win = new ModuleWin(false);
-	modules[16] = clearstage1 = new ClearStage1(false);
-	modules[17] = render = new ModuleRender(true);
+	modules[5] = players = new ModulePlayers(false);
+	modules[6] = particles = new ModuleParticles(true);
+	modules[7] = menu = new ModuleMenu(true);
+	modules[8] = fade = new ModuleFade(true);
+	modules[9] = gameover = new ModuleGameOver(false);
+	modules[10] = player = new ModulePlayer(false);
+	modules[11] = fonts = new ModuleFonts(true);
+	modules[12] = score = new ModuleScore(false);
+	modules[13] = lose = new ModuleLose(false);
+	modules[14] = win = new ModuleWin(false);
+	modules[15] = clearstage1 = new ClearStage1(false);
+	modules[16] = sceneIntro = new SceneIntro(false);
+	modules[17] = introInfo = new IntroInfo(true);
+	modules[18] = render = new ModuleRender(true);
 
 }
 

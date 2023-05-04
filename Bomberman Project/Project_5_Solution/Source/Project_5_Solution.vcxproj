@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="IntroInfo.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleFade.h" />
     <ClInclude Include="ModuleFonts.h" />
@@ -104,6 +105,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="ClearStage1.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="IntroInfo.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleFade.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
