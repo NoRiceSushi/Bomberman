@@ -30,7 +30,8 @@
     · W Button: Rotate the piece on clock direction.<br>
     · S Button: Make the piece move faster.<br>
     · Escape Button: Enter the menu.<br>
-    · N Button: Close the menu.<br><br>
+    · N Button: Close the menu.<br>
+    · C Button: Insert coin.<br><br>
  
 - Only in prototype:<br>
     · Q Button: Make the piece stop falling.<br>
