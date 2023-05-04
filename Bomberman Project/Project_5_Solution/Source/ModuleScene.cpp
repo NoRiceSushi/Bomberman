@@ -54,7 +54,7 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
-	AnimBorders.speed = 1.0f;
+	AnimBorders.speed = 0.7f;
 
 
 	for (int i = 0; i < 12; i++)
