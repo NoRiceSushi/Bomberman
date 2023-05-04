@@ -95,12 +95,7 @@ update_status ModuleScene::Update()
 	{
 		App->fade->EnableOnly(this, (Module*)App->win);
 	}
-	for (int i = 0; i < 8; i++) {
-		if (App->scene->ReadTile(i, 5) == false) {
-			App->audio->PlayMusic("Assets/audio/23_Danger.ogg", 1.0f);
-
-		}
-	}
+	
 	
 
 	for (int i = 0; i < 12; i++) {
