@@ -100,6 +100,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ClearStage1.h" />
     <ClInclude Include="SceneIntro.h" />
+    <ClInclude Include="StudioNames.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
+    <ClCompile Include="StudioNames.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

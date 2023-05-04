@@ -20,6 +20,7 @@
 #include "ClearStage1.h"
 #include "SceneIntro.h"
 #include "IntroInfo.h"
+#include "StudioNames.h"
 
 
 
@@ -50,8 +51,9 @@ Application::Application()
 	modules[14] = win = new ModuleWin(false);
 	modules[15] = clearstage1 = new ClearStage1(false);
 	modules[16] = sceneIntro = new SceneIntro(false);
-	modules[17] = introInfo = new IntroInfo(true);
-	modules[18] = render = new ModuleRender(true);
+	modules[17] = studio = new StudioNames(false);
+	modules[18] = introInfo = new IntroInfo(true);
+	modules[19] = render = new ModuleRender(true);
 
 
 
