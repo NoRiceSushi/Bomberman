@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFade.h"
+#include "SceneIntro.h"
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 
@@ -25,8 +26,7 @@ bool IntroInfo::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/StartingScreen.png");
-	App->audio->PlayMusic("Assets/Music/02_Title.ogg", 1.0f);
+	bgTexture = App->textures->Load("Assets/descriptionBomberman.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
