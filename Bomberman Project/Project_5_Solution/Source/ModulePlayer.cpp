@@ -1,5 +1,5 @@
 #include "ModulePlayer.h"
-#include <ctime>
+#include <time.h>
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -20,8 +20,10 @@ int verde = 0;
 bool win = false;
 
 
+
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
-{
+{	
+	srand(time(0));
 	air = rand() % 4;
 
 	ModulePlayer::Bomb();
@@ -213,34 +215,6 @@ update_status ModulePlayer::Update()
 			p[2].position.y += speed;
 		}
 
-		int minX = 1000;
-		int maxX = 0;
-		int minY = 1000;
-		int maxY = 0;
-
-		for (int i = 0; i < 3; i++)
-		{
-			if (p[i].position.x > maxX)
-			{
-				maxX = p[i].position.x;
-			}
-
-			if (p[i].position.x < minX)
-			{
-				minX = p[i].position.x;
-			}
-
-			if (p[i].position.y > maxY)
-			{
-				maxY = p[i].position.y;
-			}
-
-			if (p[i].position.y < minY)
-			{
-				minY = p[i].position.y;
-			}
-		}
-
 		if (p[0].active == true && p[1].active == true && p[2].active == true)
 		{
 			if (verde==0 && App->input->keys[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN)
@@ -276,7 +250,34 @@ update_status ModulePlayer::Update()
 			}
 			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X')
 			{
-				
+				int minX = 1000;
+				int maxX = 0;
+				int minY = 1000;
+				int maxY = 0;
+
+				for (int i = 0; i < 3; i++)
+				{
+					if (p[i].position.x > maxX)
+					{
+						maxX = p[i].position.x;
+					}
+
+					if (p[i].position.x < minX)
+					{
+						minX = p[i].position.x;
+					}
+
+					if (p[i].position.y > maxY)
+					{
+						maxY = p[i].position.y;
+					}
+
+					if (p[i].position.y < minY)
+					{
+						minY = p[i].position.y;
+					}
+				}
+
 				for (int i = 0; i < 3; i++)
 				{
 					if (p[i].position.x == minX)
@@ -304,29 +305,6 @@ update_status ModulePlayer::Update()
 							p[i].position.x -= 16;
 						}
 
-					}
-				}
-
-				for (int i = 0; i < 3; i++)
-				{
-					if (p[i].position.x > maxX)
-					{
-						maxX = p[i].position.x;
-					}
-
-					if (p[i].position.x < minX)
-					{
-						minX = p[i].position.x;
-					}
-
-					if (p[i].position.y > maxY)
-					{
-						maxY = p[i].position.y;
-					}
-
-					if (p[i].position.y < minY)
-					{
-						minY = p[i].position.y;
 					}
 				}
 			}
