@@ -51,7 +51,7 @@ Application::Application()
 	modules[14] = clearstage1 = new ClearStage1(false);
 
 	modules[15] = sceneIntro = new SceneIntro(false);
-	modules[16] = studio = new StudioNames(true);
+	modules[16] = studio = new StudioNames(false);
 	modules[17] = introInfo = new IntroInfo(true);
 	
 	modules[18] = fade = new ModuleFade(true);
