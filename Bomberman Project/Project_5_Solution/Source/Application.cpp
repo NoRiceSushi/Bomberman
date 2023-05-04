@@ -18,6 +18,10 @@
 #include "ModuleRender.h"
 #include "ModuleWin.h"
 #include "ClearStage1.h"
+#include "SceneIntro.h"
+
+
+
 
 
 Application::Application()
@@ -29,20 +33,22 @@ Application::Application()
 	modules[1] = input = new ModuleInput(true);
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = scene = new ModuleScene(true);
+	modules[4] = audio = new ModuleAudio(true);
+
+	modules[5] = sceneIntro = new SceneIntro(true);
 	//modules[4] = puyo = new Puyo();
-	modules[4] = players = new ModulePlayers(true);
-	modules[5] = audio = new ModuleAudio(true);
-	modules[6] = particles = new ModuleParticles(true);
-	modules[7] = menu = new ModuleMenu(true);
-	modules[8] = fade = new ModuleFade(true);
-	modules[9] = gameover = new ModuleGameOver(false);
-	modules[10] = player = new ModulePlayer(true);
-	modules[11] = fonts = new ModuleFonts(true);
-	modules[12] = score = new ModuleScore(true);
-	modules[13] = lose = new ModuleLose(false);
-	modules[14] = win = new ModuleWin(false);
-	modules[15] = clearstage1 = new ClearStage1(false);
-	modules[16] = render = new ModuleRender(true);
+	modules[6] = players = new ModulePlayers(true);
+	modules[7] = particles = new ModuleParticles(true);
+	modules[8] = menu = new ModuleMenu(true);
+	modules[9] = fade = new ModuleFade(true);
+	modules[10] = gameover = new ModuleGameOver(false);
+	modules[11] = player = new ModulePlayer(true);
+	modules[12] = fonts = new ModuleFonts(true);
+	modules[13] = score = new ModuleScore(true);
+	modules[14] = lose = new ModuleLose(false);
+	modules[15] = win = new ModuleWin(false);
+	modules[16] = clearstage1 = new ClearStage1(false);
+	modules[17] = render = new ModuleRender(true);
 
 }
 

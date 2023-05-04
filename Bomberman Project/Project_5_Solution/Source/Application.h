@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 17
+#define NUM_MODULES 18
 
 class Module;
 class ModuleWindow;
@@ -23,6 +23,7 @@ class ModuleScore;
 class ModuleLose;
 class ModuleWin;
 class ClearStage1;
+class SceneIntro;
 
 
 class Application
@@ -69,6 +70,7 @@ public:
 	ModuleWin* win = nullptr;
 	ClearStage1* clearstage1 = nullptr;
 	ModuleRender* render = nullptr;
+	SceneIntro* sceneIntro = nullptr;
 };
 
 // Global var made extern for Application ---
