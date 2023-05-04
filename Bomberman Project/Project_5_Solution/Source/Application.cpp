@@ -19,6 +19,7 @@
 #include "ModuleWin.h"
 #include "ClearStage1.h"
 #include "SceneIntro.h"
+#include "IntroInfo.h"
 
 
 

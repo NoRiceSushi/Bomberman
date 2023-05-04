@@ -1,5 +1,5 @@
-#ifndef __INTRO_INFO_H__
-#define __INTRO_INFO_H__
+#ifndef __INTROINFO_H__
+#define __INTROINFO_H__
 
 #include "Module.h"
 #include "Animation.h"
