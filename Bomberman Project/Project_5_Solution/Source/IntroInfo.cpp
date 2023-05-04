@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFade.h"
 #include "SceneIntro.h"
+#include "StudioNames.h"
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 
