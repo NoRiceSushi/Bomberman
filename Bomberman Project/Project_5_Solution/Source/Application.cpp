@@ -18,6 +18,7 @@
 #include "ModuleRender.h"
 #include "ModuleWin.h"
 #include "ClearStage1.h"
+#include "SceneIntro.h"
 
 
 
