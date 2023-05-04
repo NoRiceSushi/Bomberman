@@ -33,6 +33,7 @@ Application::Application()
 	modules[1] = input = new ModuleInput(true);
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = scene = new ModuleScene(true);
+	//modules[4] = sceneintro = new SceneIntro(true);
 	//modules[4] = puyo = new Puyo();
 	modules[4] = players = new ModulePlayers(true);
 	modules[5] = audio = new ModuleAudio(true);
