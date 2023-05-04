@@ -14,8 +14,7 @@
     
     · Shuohao Huang [@NoRiceSushi] (Intro Dessigner)<br><br>
 
-+ Short description of the game:<br><br>
-
++ Short description of the game:<br>
   Bomberman Panic Bomber is a puzzle game developed by Hudson Soft and released for the Neo Geo arcade system. The game features the classic
   Bomberman gameplay of strategically placing bombs to defeat enemies and clear obstacles, but with a unique twist: instead of controlling
   a character directly, players control a cursor to drop bombs onto the game board. The objective is to create chains of explosions by
