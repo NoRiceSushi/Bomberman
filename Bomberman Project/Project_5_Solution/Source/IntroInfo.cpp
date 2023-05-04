@@ -1,4 +1,4 @@
-#include "SceneIntro.h"
+#include "IntroInfo.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -6,28 +6,27 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFade.h"
+#include "SceneIntro.h"
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 
-SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
+IntroInfo::IntroInfo(bool startEnabled) : Module(startEnabled)
 {
 
 }
-
-SceneIntro::~SceneIntro()
+IntroInfo::~IntroInfo()
 {
 
 }
 
 // Load assets
-bool SceneIntro::Start()
+bool IntroInfo::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/StartingScreen.png");
-	App->audio->PlayMusic("Assets/Music/02_Title.ogg", 1.0f); 
+	bgTexture = App->textures->Load("Assets/descriptionBomberman.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -35,7 +34,7 @@ bool SceneIntro::Start()
 	return ret;
 }
 
-update_status SceneIntro::Update()
+update_status IntroInfo::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
@@ -46,7 +45,7 @@ update_status SceneIntro::Update()
 }
 
 // Update: draw background
-update_status SceneIntro::PostUpdate()
+update_status IntroInfo::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
