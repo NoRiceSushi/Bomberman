@@ -34,9 +34,6 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = scene = new ModuleScene(true);
 	modules[4] = audio = new ModuleAudio(true);
-
-	
-	//modules[4] = puyo = new Puyo();
 	modules[5] = players = new ModulePlayers(true);
 	modules[6] = particles = new ModuleParticles(true);
 	modules[7] = menu = new ModuleMenu(true);
