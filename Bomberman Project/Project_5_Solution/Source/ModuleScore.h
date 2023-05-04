@@ -4,6 +4,8 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "Animation.h"
+#include "p2Point.h"
 #include "SDL/include/SDL.h"
 #pragma comment( lib, "SDL/libx86/SDL2.lib")
 #pragma comment( lib, "SDL/libx86/SDL2main.lib")
@@ -26,6 +28,12 @@ public:
 	int scoreFont = -1;
 
 	SDL_Texture* textureCoins = nullptr;
+	
+	SDL_Texture* insertCoins = nullptr;
+	Animation* coinCurrentAnim = nullptr;
+	Animation Blink;
+	Animation Out;
+
 	char scoreText[MAX_SCORE_LENGTH + sizeof(char)];
 
 	uint coins = 00;

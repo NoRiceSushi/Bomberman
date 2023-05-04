@@ -8,14 +8,28 @@
 #include <sstream>
 #include <string.h>
 #include <iostream>
+#include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModuleMenu.h"
+#include "Animation.h"
 using namespace std;
 
 ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 {
+	//blink animation
+	Blink.PushBack({0,40,96,8});
+	Blink.PushBack({ 0,40,96,8 });
+	Blink.PushBack({ 0,40,96,8 });
+	Blink.PushBack({ 0,32,96,8 });
+	Blink.loop = true;
+	Blink.speed = 0.1;
+
+	Out.PushBack({ 0,32,96,8 });
+	Out.loop = false;
+
+
 }
 
 
@@ -40,7 +54,8 @@ bool ModuleScore::Start()
 
 	textureCoins = App->textures->Load("Assets/Credits.png");
 
-
+	insertCoins = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	coinCurrentAnim = &Blink;
 
 	return ret;
 
@@ -54,6 +69,10 @@ update_status ModuleScore::Update()
 		App->score->coins += 1;
 		cout << coins << endl;
 	}
+	if (coins == 0) { coinCurrentAnim = &Blink; }
+	else coinCurrentAnim = &Out;
+
+	coinCurrentAnim->Update();
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -61,11 +80,16 @@ update_status ModuleScore::Update()
 update_status ModuleScore::PostUpdate()
 {
 	if (App->menu->isMenuOpen == false) {
+
+		SDL_Rect rect = coinCurrentAnim->GetCurrentFrame();
+
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%6d", score);
 		App->fonts->BlitText(20, 16, scoreFont, scoreText);
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%2d", coins);
 		App->fonts->BlitText(282, 209, scoreFont, scoreText);
-		App->render->Blit(textureCoins, 216, 209, 0, 0);
+		App->render->Blit(textureCoins, 216, 209, 0, 2);
+
+		App->render->Blit(insertCoins, 110, 90,&rect);
 	}
 	return update_status::UPDATE_CONTINUE;
 }
