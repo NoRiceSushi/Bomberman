@@ -26,6 +26,8 @@ bool SceneIntro::Start()
 
 	bool ret = true;
 
+	bgTexture = App->textures->Load("Assets/descriptionBomberman.png");
+	bgTexture = App->textures->Load("Assets/SSWstudionames.png");
 	bgTexture = App->textures->Load("Assets/StartingScreen.png");
 	App->audio->PlayMusic("Assets/Music/02_Title.ogg", 1.0f); 
 
