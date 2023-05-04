@@ -85,6 +85,15 @@ bool ModuleScene::Start()
 	App->fade->EnableOnly(this, (Module*)App->score);
 	App->fade->EnableOnly(this, (Module*)App->player);
 	App->fade->EnableOnly(this, (Module*)App->players); 
+
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			map[i][j] = '0';
+		}
+	}
+
 	return ret;
 
 }
