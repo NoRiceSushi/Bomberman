@@ -82,7 +82,11 @@ bool ModuleScene::Start()
 	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
 	currentAnimation = &AnimBorders;
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+	App->fade->EnableOnly(this, (Module*)App->score);
+	App->fade->EnableOnly(this, (Module*)App->player);
+	App->fade->EnableOnly(this, (Module*)App->players); 
 	return ret;
+
 }
 
 update_status ModuleScene::Update()

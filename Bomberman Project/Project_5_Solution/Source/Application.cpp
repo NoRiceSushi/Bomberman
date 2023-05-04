@@ -32,19 +32,19 @@ Application::Application()
 	modules[0] = window = new ModuleWindow(true);
 	modules[1] = input = new ModuleInput(true);
 	modules[2] = textures = new ModuleTextures(true);
-	modules[3] = scene = new ModuleScene(true);
+	modules[3] = scene = new ModuleScene(false);
 	modules[4] = audio = new ModuleAudio(true);
 
 	modules[5] = sceneIntro = new SceneIntro(true);
 	//modules[4] = puyo = new Puyo();
-	modules[6] = players = new ModulePlayers(true);
+	modules[6] = players = new ModulePlayers(false);
 	modules[7] = particles = new ModuleParticles(true);
 	modules[8] = menu = new ModuleMenu(true);
 	modules[9] = fade = new ModuleFade(true);
 	modules[10] = gameover = new ModuleGameOver(false);
-	modules[11] = player = new ModulePlayer(true);
+	modules[11] = player = new ModulePlayer(false);
 	modules[12] = fonts = new ModuleFonts(true);
-	modules[13] = score = new ModuleScore(true);
+	modules[13] = score = new ModuleScore(false);
 	modules[14] = lose = new ModuleLose(false);
 	modules[15] = win = new ModuleWin(false);
 	modules[16] = clearstage1 = new ClearStage1(false);
