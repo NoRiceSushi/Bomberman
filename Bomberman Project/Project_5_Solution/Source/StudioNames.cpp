@@ -38,7 +38,7 @@ update_status StudioNames::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->introInfo, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
 
 	return update_status::UPDATE_CONTINUE;
