@@ -22,8 +22,8 @@
   setting off multiple bombs at once, which can clear large sections of the board and   earn bonus points.<br><br>
 
 + Starting Controls:<br>
-    · Space Button: Next scene.
-    · R Button: Restart the game.
+    · Space Button: Next scene.<br>
+    · R Button: Restart the game.<br><br>
 
 + Gameplay Controls:<br>
     · A Button: Move the piece to the left.<br>
