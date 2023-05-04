@@ -105,7 +105,7 @@ update_status ModuleMenu::Update()
             {
                 App->audio->PlayFx(sfx_Menu);
                 LOG("Exit button clicked");
-                return update_status::UPDATE_STOP;
+                return update_status::UPDATE_ERROR;
             }
 
         }

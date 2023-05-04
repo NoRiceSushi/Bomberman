@@ -109,7 +109,16 @@ update_status ModuleScene::Update()
 		App->fade->EnableOnly(this, (Module*)App->win);
 	}
 
-	
+	if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
+	{
+		for (int i = 0; i < 12; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				map[i][j] = '0';
+			}
+		}
+	}
 
 	for (int i = 0; i < 12; i++) {
 		for (int j = 0; j < 8; j++) {
