@@ -21,7 +21,11 @@
   a character directly, players control a cursor to drop bombs onto the game board. The objective is to create chains of explosions by
   setting off multiple bombs at once, which can clear large sections of the board and   earn bonus points.<br><br>
 
-+ Controls:<br>
++ Starting Controls:<br>
+    · Space Button: Next scene.
+    · R Button: Restart the game.
+
++ Gameplay Controls:<br>
     · A Button: Move the piece to the left.<br>
     · D Button: Move the piece to the right.<br>
     · W Button: Rotate the piece on clock direction.<br>
