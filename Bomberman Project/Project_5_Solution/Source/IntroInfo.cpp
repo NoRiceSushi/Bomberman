@@ -37,12 +37,11 @@ bool IntroInfo::Start()
 
 update_status IntroInfo::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->studio, 90);
-	}
+
+	App->fade->FadeToBlack(this, (Module*)App->studio, 90);
 
 	return update_status::UPDATE_CONTINUE;
+
 }
 
 // Update: draw background
