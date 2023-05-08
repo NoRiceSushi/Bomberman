@@ -18,7 +18,7 @@
 int bomba = 0;
 int verde = 0;
 bool win = false;
-
+float contadorW = 0;
 
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
@@ -234,7 +234,7 @@ update_status ModulePlayer::Update()
 				p[1].position.x += 16;
 				p[2].position.x += 16;
 			}
-			 if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true  && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true &&App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y-32) / 16) == true)
+			 if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 42) / 16) == true  && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 42) / 16) == true &&App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y-42) / 16) == true)
 			{
 				p[0].position.y += speed * 8;
 				p[1].position.y += speed * 8;
@@ -248,64 +248,110 @@ update_status ModulePlayer::Update()
 				p[1].position.y -= speed;
 				p[2].position.y -= speed;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X')
+			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN&& App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true&&p[0].color!='X'||(contadorW != 0))
 			{
 				int minX = 1000;
 				int maxX = 0;
 				int minY = 1000;
 				int maxY = 0;
 
-				for (int i = 0; i < 3; i++)
+				if (p[0].position.x > maxX)
 				{
-					if (p[i].position.x > maxX)
-					{
-						maxX = p[i].position.x;
-					}
-
-					if (p[i].position.x < minX)
-					{
-						minX = p[i].position.x;
-					}
-
-					if (p[i].position.y > maxY)
-					{
-						maxY = p[i].position.y;
-					}
-
-					if (p[i].position.y < minY)
-					{
-						minY = p[i].position.y;
-					}
+					maxX = p[0].position.x;
 				}
 
-				for (int i = 0; i < 3; i++)
+				if (p[0].position.x < minX)
 				{
-					if (p[i].position.x == minX)
-					{
-						if (p[i].position.y == maxY)
-						{
-							p[i].position.y -= 16;
-						}
+					minX = p[0].position.x;
+				}
 
-						else
-						{
-							p[i].position.x += 16;
-						}
+				if (p[0].position.y > maxY)
+				{
+					maxY = p[0].position.y;
+				}
+
+				if (p[0].position.y < minY)
+				{
+					minY = p[0].position.y;
+				}
+
+				if (p[1].position.x > maxX)
+				{
+					maxX = p[1].position.x;
+				}
+
+				if (p[1].position.x < minX)
+				{
+					minX = p[1].position.x;
+				}
+
+				if (p[1].position.y > maxY)
+				{
+					maxY = p[1].position.y;
+				}
+
+				if (p[1].position.y < minY)
+				{
+					minY = p[1].position.y;
+				}
+
+				if (p[2].position.x > maxX)
+				{
+					maxX = p[2].position.x;
+				}
+
+				if (p[2].position.x < minX)
+				{
+					minX = p[2].position.x;
+				}
+
+				if (p[2].position.y > maxY)
+				{
+					maxY = p[2].position.y;
+				}
+
+				if (p[2].position.y < minY)
+				{
+					minY = p[2].position.y;
+				}
+
+			for (int i = 0; i < 3; i++)
+			{
+				if (p[i].position.x == minX)
+				{
+					if (p[i].position.y == maxY)
+					{
+						p[i].position.y -= speed;
+						contadorW += speed;
 					}
 
 					else
 					{
-						if (p[i].position.y == minY)
-						{
-							p[i].position.y += 16;
-						}
-
-						else
-						{
-							p[i].position.x -= 16;
-						}
-
+						p[i].position.x += speed;
+						contadorW += speed;
 					}
+				}
+
+				else
+				{
+					if (p[i].position.y == minY)
+					{
+						p[i].position.y += speed;
+						contadorW += speed;
+					}
+
+					else
+					{
+						p[i].position.x -= speed;
+						contadorW += speed;
+					}
+
+				}
+			}
+
+				if (contadorW>=16)
+				{
+					contadorW = 0;
 				}
 			}
 			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
@@ -338,7 +384,6 @@ update_status ModulePlayer::Update()
 
 
 	}
-
 	return update_status::UPDATE_CONTINUE;
 }
 
