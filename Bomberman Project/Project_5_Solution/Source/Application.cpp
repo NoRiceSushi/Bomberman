@@ -67,6 +67,7 @@ Application::~Application()
 	{
 		//Important: when deleting a pointer, set it to nullptr afterwards
 		//It allows us for null check in other parts of the code
+		//hola
 		delete modules[i];
 		modules[i] = nullptr;
 	}
