@@ -21,6 +21,7 @@
 #include "SceneIntro.h"
 #include "IntroInfo.h"
 #include "StudioNames.h"
+#include "ModuleBombazo.h"
 
 
 
@@ -36,8 +37,8 @@ Application::Application()
 	modules[2] = textures = new ModuleTextures(true);
 	modules[3] = scene = new ModuleScene(false);
 	modules[4] = audio = new ModuleAudio(true);
-	
-	
+
+
 	//modules[4] = puyo = new Puyo();
 	modules[5] = players = new ModulePlayers(true);
 	modules[6] = particles = new ModuleParticles(true);
@@ -53,9 +54,9 @@ Application::Application()
 	modules[15] = sceneIntro = new SceneIntro(false);
 	modules[16] = studio = new StudioNames(false);
 	modules[17] = introInfo = new IntroInfo(true);
-	
-	modules[18] = fade = new ModuleFade(true);
-	modules[19] = render = new ModuleRender(true);
+	modules[18] = Bombazo = new ModuleBombazo(false);
+	modules[19] = fade = new ModuleFade(true);
+	modules[20] = render = new ModuleRender(true);
 
 
 
@@ -67,7 +68,6 @@ Application::~Application()
 	{
 		//Important: when deleting a pointer, set it to nullptr afterwards
 		//It allows us for null check in other parts of the code
-		//hola
 		delete modules[i];
 		modules[i] = nullptr;
 	}

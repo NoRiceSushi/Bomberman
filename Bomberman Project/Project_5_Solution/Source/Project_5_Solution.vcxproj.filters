@@ -103,6 +103,7 @@
     <ClInclude Include="StudioNames.h">
       <Filter>Source Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleBombazo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -179,6 +180,9 @@
     </ClCompile>
     <ClCompile Include="StudioNames.cpp">
       <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBombazo.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

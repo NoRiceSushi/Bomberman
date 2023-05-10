@@ -6,10 +6,12 @@
 #include "Animation.h"
 
 #define MAX_PLAYERS 200
+#define MAX_BOMBAZOS 20
 
 struct SDL_Texture;
 
 class ModulePlayer;
+class ModuleBombazo;
 struct EnemySpawnpoint
 {
     int x = 48 + 25;
@@ -61,7 +63,10 @@ private:
 
     EnemySpawnpoint spawnQueue[MAX_PLAYERS];
 
+    EnemySpawnpoint spawnQueue2[MAX_BOMBAZOS];
+
     ModulePlayer* players[MAX_PLAYERS] = { nullptr };
+    ModuleBombazo* bombazo[MAX_BOMBAZOS] = { nullptr };
 };
 
 #endif // !__MODULE_PLAYERS_H__

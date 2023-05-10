@@ -78,6 +78,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="IntroInfo.h" />
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="ModuleBombazo.h" />
     <ClInclude Include="ModuleFade.h" />
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleGameOver.h" />
@@ -108,6 +109,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="IntroInfo.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="ModuleBombazo.cpp" />
     <ClCompile Include="ModuleFade.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleGameOver.cpp" />
