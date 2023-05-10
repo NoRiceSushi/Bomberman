@@ -84,7 +84,8 @@ bool ModuleScene::Start()
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 	App->fade->EnableOnly(this, (Module*)App->score);
 	App->fade->EnableOnly(this, (Module*)App->player);
-	App->fade->EnableOnly(this, (Module*)App->players); 
+	App->fade->EnableOnly(this, (Module*)App->players);
+	App->fade->EnableOnly(this, (Module*)App->Bombazo);
 
 	for (int i = 0; i < 12; i++)
 	{
@@ -146,9 +147,9 @@ update_status ModuleScene::PostUpdate()
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	App->render->Blit(bgBorders, 19, 10, &rect);
-	
+
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
-	
+
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -158,7 +159,7 @@ void ModuleScene::SetTile(int x, int y, char value)
 }
 
 bool ModuleScene::ReadTile(int x, int y) {
-	if (map[y][x]=='0')
+	if (map[y][x] == '0')
 	{
 		return true;
 	}
@@ -170,7 +171,7 @@ bool ModuleScene::ReadTile(int x, int y) {
 
 bool ModuleScene::isLeftEmpty(int x, int y)
 {
-	if (map[y+1][x-1] == '0' && x > 0)
+	if (map[y + 1][x - 1] == '0' && x > 0)
 	{
 		return true;
 	}
@@ -183,7 +184,7 @@ bool ModuleScene::isLeftEmpty(int x, int y)
 
 bool ModuleScene::isRightEmpty(int x, int y)
 {
-	if (map[y+1][x+1] == '0' && x < 7)
+	if (map[y + 1][x + 1] == '0' && x < 7)
 	{
 		return true;
 	}
@@ -196,7 +197,7 @@ bool ModuleScene::isRightEmpty(int x, int y)
 
 bool ModuleScene::isDownEmpty(int x, int y)
 {
-	if (map[y+2][x] == '0' && y < 10)
+	if (map[y + 2][x] == '0' && y < 10)
 	{
 		return true;
 	}
@@ -221,23 +222,23 @@ void ModuleScene::DestroyLines() {
 
 				else if (map[i][j] == 'A')
 				{
-					if (map[i][j+1]=='A')
+					if (map[i][j + 1] == 'A')
 					{
-						if (map[i][j+2]=='A')
+						if (map[i][j + 2] == 'A')
 						{
 							map[i][j] = '0';
-							map[i][j+1] = '0';
-							map[i][j+2] = '0';
+							map[i][j + 1] = '0';
+							map[i][j + 2] = '0';
 						}
-						if (map[i][j -1] == 'A')
+						if (map[i][j - 1] == 'A')
 						{
 							map[i][j] = '0';
-							map[i][j+1] = '0';
-							map[i][j-1] = '0';
+							map[i][j + 1] = '0';
+							map[i][j - 1] = '0';
 
 							if (map[i][j - 2] == 'A')
 							{
-								map[i][j-2] = '0';
+								map[i][j - 2] = '0';
 							}
 						}
 					}
@@ -247,89 +248,89 @@ void ModuleScene::DestroyLines() {
 						if (map[i][j - 2] == 'A')
 						{
 							map[i][j] = '0';
-							map[i][j-1] = '0';
-							map[i][j-2] = '0';
+							map[i][j - 1] = '0';
+							map[i][j - 2] = '0';
 						}
 					}
 
-					else if (map[i+1][j] == 'A')
+					else if (map[i + 1][j] == 'A')
 					{
-						if (map[i+2][j] == 'A')
+						if (map[i + 2][j] == 'A')
 						{
 							Score += 100;
 						}
-						if (map[i-1][j] == 'A')
+						if (map[i - 1][j] == 'A')
 						{
 							Score += 100;
 
-							if (map[i-2][j] == 'A')
+							if (map[i - 2][j] == 'A')
 							{
 								Score += 100;
 							}
 						}
 					}
 
-					else if (map[i-1][j] == 'A')
+					else if (map[i - 1][j] == 'A')
 					{
-						if (map[i-2][j] == 'A')
+						if (map[i - 2][j] == 'A')
 						{
 							Score += 100;
 						}
 					}
 
-					else if (map[i + 1][j+1] == 'A')
+					else if (map[i + 1][j + 1] == 'A')
 					{
-						if (map[i + 2][j+2] == 'A')
+						if (map[i + 2][j + 2] == 'A')
 						{
 							Score += 100;
 						}
-						if (map[i - 1][j-1] == 'A')
+						if (map[i - 1][j - 1] == 'A')
 						{
 							Score += 100;
 
-							if (map[i - 2][j-2] == 'A')
+							if (map[i - 2][j - 2] == 'A')
 							{
 								Score += 100;
 							}
 						}
 					}
 
-					else if (map[i - 1][j-1] == 'A')
+					else if (map[i - 1][j - 1] == 'A')
 					{
-						if (map[i - 2][j-2] == 'A')
+						if (map[i - 2][j - 2] == 'A')
 						{
 							Score += 100;
 						}
 					}
 
-					else if (map[i - 1][j+1] == 'A')
+					else if (map[i - 1][j + 1] == 'A')
 					{
-						if (map[i - 2][j+2] == 'A')
+						if (map[i - 2][j + 2] == 'A')
 						{
 							map[i][j] = '0';
 							map[i - 1][j + 1] == '0';
-							map[i-2][j+2] = '0';
+							map[i - 2][j + 2] = '0';
 						}
-						if (map[i + 1][j-1] == 'A')
+						if (map[i + 1][j - 1] == 'A')
 						{
 							map[i][j] = '0';
 							map[i - 1][j + 1] == '0';
-							map[i+1][j-1] = '0';
+							map[i + 1][j - 1] = '0';
 
-							if (map[i - 2][j+2] == 'A')
+							if (map[i - 2][j + 2] == 'A')
 							{
-								map[i-2][j+2] = '0';
+								map[i - 2][j + 2] = '0';
 							}
 						}
 					}
 
-					else if (map[i + 1][j-1] == 'A'&&i<7&&j<11)
+					else if (map[i + 1][j - 1] == 'A' && i < 7 && j < 11)
 					{
-						if (map[i + 2][j-2] == 'A'&&i < 6&&j<11)
+						if (map[i + 2][j - 2] == 'A' && i < 6 && j < 11)
 						{
 							map[i][j] = '0';
-							map[i+1][j-1] = '0';
-							map[i+2][j-2] = '0';
+							map[i + 1][j - 1] = '0';
+							map[i + 2][j - 2] = '0';
 						}
 					}
 				}
