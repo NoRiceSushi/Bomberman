@@ -9,19 +9,28 @@
 #include "ModuleScore.h"
 #include "SDL/include/SDL_scancode.h"
 
+int contador = 0;
+
 ModulePlayers::ModulePlayers(bool startEnabled) : Module(startEnabled)
 {
-    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    if (contador != 10)
     {
-        players[i] = nullptr;
+        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        {
+            players[i] = nullptr;
 
+        }
     }
 
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
+    else
     {
-        bombazo[i] = nullptr;
+        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
+        {
+            bombazo[i] = nullptr;
 
+        }
     }
+
 }
 
 ModulePlayers::~ModulePlayers()
@@ -35,26 +44,35 @@ bool ModulePlayers::Start()
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
 
-    for (uint i = 0; i < MAX_PLAYERS; ++i)
-    {
-        if (players[i] != nullptr)
-        {
 
-            players[i]->Start();
+    if (contador != 10)
+    {
+        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        {
+            if (players[i] != nullptr)
+            {
+
+                players[i]->Start();
+
+            }
 
         }
-
     }
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
-        if (bombazo[i] != nullptr)
-        {
 
-            bombazo[i]->Start();
+    else
+    {
+        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
+        {
+            if (bombazo[i] != nullptr)
+            {
+
+                bombazo[i]->Start();
+
+            }
 
         }
-
     }
+
 
 
 
@@ -168,109 +186,132 @@ bool ModulePlayers::AddEnemy(int x, int y)
 void ModulePlayers::HandleEnemiesSpawn()
 {
     // Iterate all the enemies queue
-    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    if (contador != 10)
     {
-
+        for (uint i = 0; i < MAX_PLAYERS; ++i)
         {
 
-            // Spawn a new enemy if the screen has reached a spawn position
-
             {
-                LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
-                SpawnEnemy(spawnQueue[i]);
-                // Removing the newly spawned enemy from the queue
+                // Spawn a new enemy if the screen has reached a spawn position
+
+                {
+                    LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+                    SpawnEnemy(spawnQueue[i]);
+                    // Removing the newly spawned enemy from the queue
+                }
+
+
             }
-
-
         }
     }
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
 
+    else
+    {
+        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
         {
 
-            // Spawn a new enemy if the screen has reached a spawn position
-
             {
-                LOG("Spawning enemy at %d", spawnQueue2[i].x * SCREEN_SIZE);
 
-                SpawnEnemy(spawnQueue2[i]);
-                // Removing the newly spawned enemy from the queue
+                // Spawn a new enemy if the screen has reached a spawn position
+
+                {
+                    LOG("Spawning enemy at %d", spawnQueue2[i].x * SCREEN_SIZE);
+
+                    SpawnEnemy(spawnQueue2[i]);
+                    // Removing the newly spawned enemy from the queue
+                }
+
+
             }
-
-
         }
     }
+
+
 }
 
 void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
 {
-    for (uint i = 0; i < MAX_PLAYERS; ++i)
-    {
-        if (players[i] == nullptr)
-        {
-            if (players[i] == players[0])
-            {
-                players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
-                players[i]->texture = texture;
-            }
-            else
+
+    if (contador != 10)
+    {
+
+
+
+        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        {
+            if (players[i] == nullptr)
             {
-                if (players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
+                if (players[i] == players[0])
                 {
                     players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
                     players[i]->texture = texture;
+
+                    contador++;
                 }
+                else
+                {
+                    if (players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
+                    {
+                        players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
+
+                        players[i]->texture = texture;
+
+                        contador++;
+                    }
+                }
+                break;
+
+
+            }
+
+        }
+    }
+
+    else
+    {
+        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
+        {
+
+
+            if (bombazo[i] == nullptr)
+            {
+
+
+
+
+                if (bombazo[i] == bombazo[0])
+                {
+                    bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
+
+                    bombazo[i]->texture = texture;
+
+
+                }
+                else
+                {
+
+                    {
+                        bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
+
+                        bombazo[i]->texture = texture;
+
+
+                    }
+                }
+
+                contador = 0;
+
+
             }
 
             break;
-        }
-    }
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
-        if (bombazo[i] == nullptr && players[i] == nullptr)
-        {
-            if (players[i] == players[0])
-            {
-                players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
-
-                players[i]->texture = texture;
-            }
-
-            else
-            {
-                {
-
-
-                    if ((App->score->coins == 5) && players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
-                    {
-
-
-
-                        if (bombazo[i] == bombazo[0])
-                        {
-                            bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
-
-                            bombazo[i]->texture = texture;
-                        }
-                        else
-                        {
-
-                            {
-                                bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
-
-                                bombazo[i]->texture = texture;
-                            }
-                        }
-                    }
-
-                }
-
-            }
 
         }
     }
+
+
 }

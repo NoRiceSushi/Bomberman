@@ -30,7 +30,7 @@ ModuleBombazo::ModuleBombazo(bool startEnabled) : Module(startEnabled)
 
 	position.x = 73;
 	position.y = 32;
-	downAnim.PushBack({ 0, 6 * 16, 16,16 });
+	downAnim.PushBack({ 128, 86, 28,25 });
 
 
 

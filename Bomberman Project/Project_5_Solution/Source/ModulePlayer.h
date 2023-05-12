@@ -46,6 +46,7 @@ public:
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
 	uint sfx_rotate = 0;
+
 };
 
 #endif //!__MODULE_PLAYER_H__

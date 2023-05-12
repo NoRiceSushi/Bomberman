@@ -59,6 +59,8 @@ public:
     int enemyDestroyedFx = 0;
 
 
+
+
 private:
 
     EnemySpawnpoint spawnQueue[MAX_PLAYERS];
