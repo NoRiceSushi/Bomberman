@@ -33,6 +33,9 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	readyOut.PushBack({ 0,32,80,16 });
 
 	rect2 = { 0,72, 80, 16 };
+	rectBomb = {0,80,32,112};
+	rectExplosion = {0,160,128,288};
+
 }
 
 
@@ -62,6 +65,11 @@ bool ModuleScore::Start()
 
 	ready = App->textures->Load("Assets/Numeros+SpritesLetras.png");
 	readyAnim = &readyOut;
+
+	bombazaText = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	bombaAnim = &bombaOut;
+
+	explosionText = App->textures->Load("Assets/Numeros+SpritesLetras.png");
 
 	position.x = 50;
 	position.y = 260;
@@ -93,6 +101,9 @@ update_status ModuleScore::Update()
 	//{
 	//	readyOnPos = true;
 	//}
+	if (readyOnPos && positionBomba.x<110) {
+		positionBomba.x += posSpeed;
+	}
 
 
 	coinCurrentAnim->Update();
@@ -112,10 +123,18 @@ update_status ModuleScore::PostUpdate()
 		App->fonts->BlitText(282, 209, scoreFont, scoreText);
 		App->render->Blit(textureCoins, 216, 209, 0, 2);
 		App->render->Blit(insertCoins, 110, 90,&rect1);
+<<<<<<< Updated upstream
 
 		if (!readyScreenEnd) {
+=======
+		
+		if (!readyOnPos) {
+>>>>>>> Stashed changes
 			App->render->Blit(ready, position.x, position.y, &rect2);
 		}
+
+		App->render->Blit(bombazaText, 50, 0, &rectBomb);
+		App->render->Blit(explosionText, 50, 110, &rectExplosion);
 	}
 	return update_status::UPDATE_CONTINUE;
 }

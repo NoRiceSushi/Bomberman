@@ -30,6 +30,7 @@ public:
 	bool readyScreenEnd;
 	float posSpeed;
 	bool readyOnPos;
+	iPoint positionBomba;
 
 	SDL_Texture* textureCoins = nullptr;
 	
@@ -43,6 +44,17 @@ public:
 	Animation readyIn;
 	Animation readyOut;
 
+	SDL_Texture* bombazaText = nullptr;
+	SDL_Texture* explosionText = nullptr;
+
+	Animation* bombaAnim = nullptr;
+	Animation bombaIdle;
+	Animation bombaOut;
+
+	Animation* explosionAnim = nullptr;
+	Animation explosionBomb;
+	Animation explosionOut;
+
 	char scoreText[MAX_SCORE_LENGTH + sizeof(char)];
 
 	uint coins = 00;
@@ -50,6 +62,8 @@ public:
 
 	SDL_Rect rect1;
 	SDL_Rect rect2;
+	SDL_Rect rectBomb;
+	SDL_Rect rectExplosion;
 };
 
 #endif // __MODULE_SCORE_H__
