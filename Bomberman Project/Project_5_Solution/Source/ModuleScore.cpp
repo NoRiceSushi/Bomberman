@@ -123,8 +123,13 @@ update_status ModuleScore::PostUpdate()
 		App->fonts->BlitText(282, 209, scoreFont, scoreText);
 		App->render->Blit(textureCoins, 216, 209, 0, 2);
 		App->render->Blit(insertCoins, 110, 90,&rect1);
+<<<<<<< Updated upstream
 
 		if (!readyScreenEnd) {
+=======
+		
+		if (!readyOnPos) {
+>>>>>>> Stashed changes
 			App->render->Blit(ready, position.x, position.y, &rect2);
 		}
 
