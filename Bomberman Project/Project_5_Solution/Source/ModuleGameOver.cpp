@@ -8,6 +8,7 @@
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL.h"
 #include "ModulePlayer.h"
+#include "ModulePlayers.h"
 #include "ModuleFade.h"
 #include "ModuleScore.h"
 #include "ModuleLose.h"
@@ -29,7 +30,10 @@ bool ModuleGameOver::Start()
 	bool ret = true;
 	gameover_png = App->textures->Load("Assets/Game_over.png");
 	App->audio->PlayMusic("Assets/audio/24_Game_Over.ogg", 1.0f);
-
+	App->players->Disable();
+	App->player->Disable();
+	App->lose->Disable();
+	App->scene->Disable();
 	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)
 	//{
 	//	gameover_png = App->textures->Load("Assets/Game_over.png");

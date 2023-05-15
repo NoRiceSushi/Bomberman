@@ -32,6 +32,7 @@ public:
 		bool active = true;
 		int col;
 		char color = '0';
+		int pos;
 
 		Animation* currentAnimation = nullptr;
 
