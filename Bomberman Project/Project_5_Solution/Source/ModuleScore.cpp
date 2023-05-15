@@ -18,21 +18,32 @@ using namespace std;
 
 ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 {
-	//blink animation
+	//insertcoin blink animation
 	Blink.PushBack({0,40,96,8});
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,32,96,8 });
 	Blink.loop = true;
 	Blink.speed = 0.1;
-
+	//insertcoin out
 	Out.PushBack({ 0,32,96,8 });
 	Out.loop = false;
 
+	//ready anim in
 	readyIn.PushBack({ 0,72,80,16 });
+	//ready anim out
 	readyOut.PushBack({ 0,32,80,16 });
-
 	rect2 = { 0,72, 80, 16 };
+
+	//bomb anim idle
+	bombaIdle.PushBack({0,112,48,48});
+	bombaIdle.PushBack({ 0,160,48,48 });
+	bombaIdle.PushBack({ 0,208,48,48 });
+	//bombaIdle.loop = true;
+	//bombaIdle.speed = 0.1;
+	//bomb anim out
+	bombaIdle.PushBack({ 0,256,48,48 });
+
 	rectBomb = {0,80,32,112};
 	rectExplosion = {0,160,128,288};
 
@@ -77,6 +88,9 @@ bool ModuleScore::Start()
 	readyOnPos = false;
 	posSpeed = 7;
 
+	positionBomba.x = 50;
+	positionBomba.y = 0;
+
 	return ret;
 
 
@@ -97,10 +111,7 @@ update_status ModuleScore::Update()
 		if (posSpeed > 1) { posSpeed -= 0.2; }
 		if (position.y >= 110 && position.y <= 114) readyOnPos = true;
 	}
-	//else
-	//{
-	//	readyOnPos = true;
-	//}
+
 	if (readyOnPos && positionBomba.x<110) {
 		positionBomba.x += posSpeed;
 	}
@@ -108,6 +119,8 @@ update_status ModuleScore::Update()
 
 	coinCurrentAnim->Update();
 	readyAnim->Update();
+	bombaAnim->Update();
+	explosionAnim->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -122,21 +135,21 @@ update_status ModuleScore::PostUpdate()
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%2d", coins);
 		App->fonts->BlitText(282, 209, scoreFont, scoreText);
 		App->render->Blit(textureCoins, 216, 209, 0, 2);
-		App->render->Blit(insertCoins, 110, 90,&rect1);
-<<<<<<< Updated upstream
+		App->render->Blit(insertCoins, 110, 90, &rect1);
 
 		if (!readyScreenEnd) {
-=======
-		
-		if (!readyOnPos) {
->>>>>>> Stashed changes
-			App->render->Blit(ready, position.x, position.y, &rect2);
-		}
 
-		App->render->Blit(bombazaText, 50, 0, &rectBomb);
+
+			if (!readyScreenEnd) {
+
+				App->render->Blit(ready, position.x, position.y, &rect2);
+			}
+
+		}
+		App->render->Blit(bombazaText, positionBomba.x,positionBomba.y, &rectBomb);
 		App->render->Blit(explosionText, 50, 110, &rectExplosion);
 	}
-	return update_status::UPDATE_CONTINUE;
+		return update_status::UPDATE_CONTINUE;
 }
 
 
