@@ -27,7 +27,7 @@ public:
 	uint score = 000000;
 	int scoreFont = -1;
 	iPoint position;
-	bool readyScreenEnd;
+	bool readyScreen;
 	float posSpeed;
 	bool readyOnPos;
 
