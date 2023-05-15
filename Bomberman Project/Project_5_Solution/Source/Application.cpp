@@ -47,14 +47,16 @@ Application::Application()
 	modules[9] = player = new ModulePlayer(false);
 	modules[10] = fonts = new ModuleFonts(true);
 	modules[11] = score = new ModuleScore(false);
-	modules[12] = lose = new ModuleLose(false);
-	modules[13] = win = new ModuleWin(false);
-	modules[14] = clearstage1 = new ClearStage1(false);
+	
+	modules[12] = win = new ModuleWin(false);
+	modules[13] = clearstage1 = new ClearStage1(false);
 
-	modules[15] = sceneIntro = new SceneIntro(false);
-	modules[16] = studio = new StudioNames(false);
-	modules[17] = introInfo = new IntroInfo(true);
-	modules[18] = Bombazo = new ModuleBombazo(false);
+	modules[14] = sceneIntro = new SceneIntro(false);
+	modules[15] = studio = new StudioNames(false);
+	modules[16] = introInfo = new IntroInfo(true);
+	modules[17] = Bombazo = new ModuleBombazo(false);
+
+	modules[18] = lose = new ModuleLose(false);
 	modules[19] = fade = new ModuleFade(true);
 	modules[20] = render = new ModuleRender(true);
 
