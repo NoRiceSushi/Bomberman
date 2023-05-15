@@ -1,5 +1,3 @@
-GIRO
-da0d123
 #include "ModulePlayer.h"
 #include <time.h>
 #include "Application.h"
@@ -17,45 +15,57 @@ da0d123
 #include "Animation.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayers.h"
-<<<<<<< HEAD
-=======
+#include <iostream>
 
->>>>>>> parent of 4605757 (fix mainbranch)
 int bomba = 0;
 int verde = 0;
 bool win = false;
 float contadorW = 0;
-int girar;
 
+int girar;
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	srand(time(0));
 	air = rand() % 4;
+
 	ModulePlayer::Bomb();
+
 	if (bomba != 10)
 	{
+
+
+
 		if (bomba == 5)
 		{
 			bomba = 0;
+
 			p[0].position.x = 73;
 			p[0].position.y = 32;
 			p[0].downAnim.PushBack({ 0, 6 * 16, 16,16 });
+
 			p[0].color = 'X';
+
 			p[1].position.x = 73;
 			p[1].position.y = 32;
 			p[1].downAnim.PushBack({ 0, 6 * 16, 16,16 });
+
 			p[1].color = 'X';
+
 			p[2].position.x = 73;
 			p[2].position.y = 32;
 			p[2].downAnim.PushBack({ 0, 6 * 16, 16,16 });
+
 			p[2].color = 'X';
+
 			p[0].currentAnimation = &p[0].downAnim;
 			p[1].currentAnimation = &p[1].downAnim;
 			p[2].currentAnimation = &p[2].downAnim;
 		}
+
 		else
 		{
+
 			switch (air)
 			{
 			case 0:
@@ -139,6 +149,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 				break;
 			}
+
 			for (int i = 0; i < 3; i++)
 			{
 				switch (p[i].col)
@@ -166,55 +177,67 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	p[1].currentAnimation = &p[1].downAnim;
 	p[2].currentAnimation = &p[2].downAnim;
 }
+
 ModulePlayer::~ModulePlayer()
 {
+
 }
+
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotation.wav");
+
 	bool ret = true;
+
+
+
 	return ret;
 }
 
 update_status ModulePlayer::Update()
 {
-<<<<<<< HEAD
-	if (App->menu->isMenuOpen == false && App->score->coins != 0) {
-=======
-	if (App->menu->isMenuOpen == false && App->score->coins != 0 && App->score->readyOnPos==true) {
->>>>>>> parent of 4605757 (fix mainbranch)
+	if (App->menu->isMenuOpen == false && App->score->coins != 0 && App->score->readyScreenEnd == true) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 			p[0].active = false;
 			ModulePlayer::Activation();
 		}
+
 		if (p[1].position.y == 208 || App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) != true || p[1].active != true) {
 			p[1].active = false;
 			ModulePlayer::Activation();
 		}
+
 		if (p[2].position.y == 208 || App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) != true || p[2].active != true) {
 			p[2].active = false;
 			ModulePlayer::Activation();
+
 		}
+
+
 		if (p[0].position.y < 208 && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) == true && p[0].active == true)
 		{
 			p[0].position.y += speed;
 		}
+
 		if (p[1].position.y < 208 && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 48) / 16) == true && p[1].active == true)
 		{
 			p[1].position.y += speed;
 		}
+
 		if (p[2].position.y < 208 && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 48) / 16) == true && p[2].active == true)
 		{
 			p[2].position.y += speed;
 		}
+
 		if (p[0].active == true && p[1].active == true && p[2].active == true)
 		{
 			if (verde == 0 && App->input->keys[SDL_SCANCODE_Y] == KEY_STATE::KEY_DOWN)
 			{
 				verde++;
 			}
+
 			if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN && App->scene->isLeftEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isLeftEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true)
 			{
 				p[0].position.x -= 16;
@@ -232,10 +255,11 @@ update_status ModulePlayer::Update()
 				p[0].position.y += speed * 8;
 				p[1].position.y += speed * 8;
 				p[2].position.y += speed * 8;
-				App->score->score++; App->audio->PlayFx(sfx_rotate);
+				App->score->score++;
 			}
 			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{
+
 				p[0].position.y -= speed;
 				p[1].position.y -= speed;
 				p[2].position.y -= speed;
@@ -248,200 +272,112 @@ update_status ModulePlayer::Update()
 				}
 				else
 				{
-<<<<<<< HEAD
-
 					contadorW += 1;
 
 					if (p[0].pos == 0)
 					{
 						p[0].position.x += 1;
 					}
-
 					if (p[0].pos == 1)
 					{
 						p[0].position.y += 1;
 					}
-
 					if (p[0].pos == 2)
 					{
 						p[0].position.x -= 1;
 					}
-
 					if (p[0].pos == 3)
 					{
 						p[0].position.y -= 1;
 					}
 
+
+
 					if (p[1].pos == 0)
 					{
 						p[1].position.x += 1;
 					}
-
 					if (p[1].pos == 1)
 					{
 						p[1].position.y += 1;
 					}
-
 					if (p[1].pos == 2)
 					{
 						p[1].position.x -= 1;
 					}
-
 					if (p[1].pos == 3)
 					{
 						p[1].position.y -= 1;
 					}
-=======
-				contadorW += 1;
 
-				if (p[0].pos == 0)
-				{
-					p[0].position.x += 1;
-				}
-				if (p[0].pos == 1)
-				{
-					p[0].position.y += 1;
-				}
-				if (p[0].pos == 2)
-				{
-					p[0].position.x -= 1;
-				}
-				if (p[0].pos == 3)
-				{
-					p[0].position.y -= 1;
-				}
-
-
-
-				if (p[1].pos == 0)
-				{
-					p[1].position.x += 1;
-				}
-				if (p[1].pos == 1)
-				{
-					p[1].position.y += 1;
-				}
-				if (p[1].pos == 2)
-				{
-					p[1].position.x -= 1;
-				}
-				if (p[1].pos == 3)
-				{
-					p[1].position.y -= 1;
-				}
->>>>>>> parent of 4605757 (fix mainbranch)
-
-				if (p[2].pos == 0)
-				{
-					p[2].position.x += 1;
-				}
-				if (p[2].pos == 1)
-				{
-					p[2].position.y += 1;
-				}
-				if (p[2].pos == 2)
-				{
-					p[2].position.x -= 1;
-				}
-				if (p[2].pos == 3)
-				{
-					p[2].position.y -= 1;
-				}
-				if (contadorW >= 16)
-				{
-					girar = 0;
-					contadorW = 0;
-					for (int i = 0; i < 4; i++)
+					if (p[2].pos == 0)
 					{
-<<<<<<< HEAD
 						p[2].position.x += 1;
 					}
-
 					if (p[2].pos == 1)
 					{
 						p[2].position.y += 1;
 					}
-
 					if (p[2].pos == 2)
 					{
 						p[2].position.x -= 1;
 					}
-
 					if (p[2].pos == 3)
 					{
 						p[2].position.y -= 1;
 					}
-
 					if (contadorW >= 16)
 					{
 						girar = 0;
 						contadorW = 0;
 						for (int i = 0; i < 4; i++)
-=======
-						p[i].pos++;
-						if (p[i].pos == 4)
->>>>>>> parent of 4605757 (fix mainbranch)
 						{
-							p[i].pos = 0;
+							p[i].pos++;
+							if (p[i].pos == 4)
+							{
+								p[i].pos = 0;
+							}
 						}
 					}
-				}
-<<<<<<< HEAD
-			}
-=======
 
-			}
-				
-				
->>>>>>> parent of 4605757 (fix mainbranch)
-			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
-			{
-				win = true;
-			}
-			if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
-			{
-				win = true;
-			}
-			if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN && verde == 0)
-			{
-				verde++;
-<<<<<<< HEAD
-			}
-		}
-		else
-		{
-			if (p[0].active == false && p[1].active == false && p[2].active == false) {
-				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
-				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
-				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
-				if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) {
+				}
+
+
+				if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
+				{
 					win = true;
-					App->fade->EnableOnly(this, (Module*)App->lose);
 				}
-=======
->>>>>>> parent of 4605757 (fix mainbranch)
-			}
-		}
-
-
-		else
-		{
-			if (p[0].active == false && p[1].active == false && p[2].active == false) {
-				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
-				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
-				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
-				if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) {
+				if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
+				{
 					win = true;
-					App->fade->EnableOnly(this, (Module*)App->lose);
 				}
-
+				if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN && verde == 0)
+				{
+					verde++;
+				}
 			}
+
+
+			else
+			{
+				if (p[0].active == false && p[1].active == false && p[2].active == false) {
+					App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
+					App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
+					App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+					if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) {
+						win = true;
+						App->fade->EnableOnly(this, (Module*)App->lose);
+					}
+
+				}
+			}
+
+
 		}
-
-
 	}
-	return update_status::UPDATE_CONTINUE;
+		return update_status::UPDATE_CONTINUE;
 }
+
 update_status ModulePlayer::PostUpdate()
 {
 	if (p[0].currentAnimation != nullptr)
@@ -452,44 +388,53 @@ update_status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, p[1].position.x, p[1].position.y - rect.h, &rect);
 		rect = p[2].currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, p[2].position.x, p[2].position.y - rect.h, &rect);
+
 	}
 	return update_status::UPDATE_CONTINUE;
 }
+
 void ModulePlayer::Activation() {
+
 	if (p[0].active == false)
 	{
 		if (p[0].position.x == p[1].position.x)
 		{
 			p[1].active = false;
 		}
+
 		if (p[0].position.x == p[2].position.x)
 		{
 			p[2].active = false;
 		}
 	}
+
 	if (p[1].active == false)
 	{
 		if (p[1].position.x == p[0].position.x)
 		{
 			p[0].active = false;
 		}
+
 		if (p[1].position.x == p[2].position.x)
 		{
 			p[2].active = false;
 		}
 	}
+
 	if (p[2].active == false)
 	{
 		if (p[2].position.x == p[1].position.x)
 		{
 			p[1].active = false;
 		}
+
 		if (p[2].position.x == p[0].position.x)
 		{
 			p[0].active = false;
 		}
 	}
 }
+
 void ModulePlayer::Bomb() {
 	bomba++;
 }

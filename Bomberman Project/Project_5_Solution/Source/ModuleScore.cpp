@@ -65,7 +65,7 @@ bool ModuleScore::Start()
 
 	position.x = 50;
 	position.y = 260;
-	readyScreen = false;
+	readyScreenEnd = false;
 	readyOnPos = false;
 	posSpeed = 7;
 
@@ -113,7 +113,7 @@ update_status ModuleScore::PostUpdate()
 		App->render->Blit(textureCoins, 216, 209, 0, 2);
 		App->render->Blit(insertCoins, 110, 90,&rect1);
 
-		if (!readyOnPos) {
+		if (!readyScreenEnd) {
 			App->render->Blit(ready, position.x, position.y, &rect2);
 		}
 	}
