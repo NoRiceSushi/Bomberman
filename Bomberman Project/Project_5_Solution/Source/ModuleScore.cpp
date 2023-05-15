@@ -87,7 +87,7 @@ update_status ModuleScore::Update()
 	if (coins > 0 && position.y >= 110 && readyOnPos == false) {
 		position.y -= posSpeed;
 		if (posSpeed > 1) { posSpeed -= 0.2; }
-		if (position.y >= 110 && position.y <= 120) readyOnPos = true;
+		if (position.y >= 110 && position.y <= 114) readyOnPos = true;
 	}
 	//else
 	//{
