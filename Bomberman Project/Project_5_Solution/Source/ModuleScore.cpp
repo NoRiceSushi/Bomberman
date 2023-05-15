@@ -18,22 +18,38 @@ using namespace std;
 
 ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 {
-	//blink animation
+	//insertcoin blink animation
 	Blink.PushBack({0,40,96,8});
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,32,96,8 });
 	Blink.loop = true;
-	Blink.speed = 0.1;
+	Blink.speed = 0.1f;
 
+	//insertcoin out
 	Out.PushBack({ 0,32,96,8 });
 	Out.loop = false;
 
+	//ready anim in
 	readyIn.PushBack({ 0,72,80,16 });
+	readyIn.loop = false;
+	//ready anim out
 	readyOut.PushBack({ 0,32,80,16 });
+	readyOut.loop = false;
+
+	//bomb anim idle
+	bombaIdle.PushBack({ 0,112,48,48 });
+	bombaIdle.PushBack({ 48,112,48,48 });
+	bombaIdle.PushBack({ 96,112,48,48 });
+	bombaIdle.PushBack({ 48,112,48,48 });
+	bombaIdle.loop = true;
+	bombaIdle.speed = 0.05f;
+	//bomb anim out
+	bombaOut.PushBack({ 0,256,48,48 });
+	bombaOut.loop = false;
 
 	rect2 = { 0,72, 80, 16 };
-	rectBomb = {0,80,32,112};
+	rectBomb = {0,112,48,48 };
 	rectExplosion = {0,160,128,288};
 
 }
@@ -66,16 +82,19 @@ bool ModuleScore::Start()
 	ready = App->textures->Load("Assets/Numeros+SpritesLetras.png");
 	readyAnim = &readyOut;
 
-	bombazaText = App->textures->Load("Assets/Numeros+SpritesLetras.png");
-	bombaAnim = &bombaOut;
+	bombazaText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
+	bombaAnim = &bombaIdle;
 
-	explosionText = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	explosionText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
 
 	position.x = 50;
 	position.y = 260;
 	readyScreenEnd = false;
 	readyOnPos = false;
 	posSpeed = 7;
+	posSpeedBomba = 8.6f;
+	positionBomba.x = 72;
+	positionBomba.y = -96;
 
 	return ret;
 
@@ -97,17 +116,20 @@ update_status ModuleScore::Update()
 		if (posSpeed > 1) { posSpeed -= 0.2; }
 		if (position.y >= 110 && position.y <= 114) readyOnPos = true;
 	}
-	//else
-	//{
-	//	readyOnPos = true;
-	//}
-	if (readyOnPos && positionBomba.x<110) {
-		positionBomba.x += posSpeed;
+
+	if (readyOnPos == true ) {
+		if (positionBomba.y < 92) {
+			positionBomba.y += posSpeedBomba;
+			if (posSpeedBomba > 1) { posSpeedBomba -= 0.2; }
+			bombaAnim = &bombaIdle;
+		}
 	}
 
 
 	coinCurrentAnim->Update();
 	readyAnim->Update();
+	bombaAnim->Update();
+	//explosionAnim->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -116,6 +138,7 @@ update_status ModuleScore::PostUpdate()
 	if (!App->menu->isMenuOpen) {
 
 		rect1 = coinCurrentAnim->GetCurrentFrame();
+		rectBomb = bombaAnim->GetCurrentFrame();
 
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%6d", score);
 		App->fonts->BlitText(20, 16, scoreFont, scoreText);
@@ -128,8 +151,8 @@ update_status ModuleScore::PostUpdate()
 			App->render->Blit(ready, position.x, position.y, &rect2);
 		}
 
-		App->render->Blit(bombazaText, 50, 0, &rectBomb);
-		App->render->Blit(explosionText, 50, 110, &rectExplosion);
+		App->render->Blit(bombazaText, positionBomba.x, positionBomba.y, &rectBomb);
+		//App->render->Blit(explosionText, 50, 110, &rectExplosion);
 	}
 	return update_status::UPDATE_CONTINUE;
 }

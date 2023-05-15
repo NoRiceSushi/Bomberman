@@ -29,6 +29,7 @@ public:
 	iPoint position;
 	bool readyScreenEnd;
 	float posSpeed;
+	float posSpeedBomba;
 	bool readyOnPos;
 	iPoint positionBomba;
 
