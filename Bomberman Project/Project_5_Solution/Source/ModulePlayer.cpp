@@ -15,6 +15,7 @@
 #include "Animation.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayers.h"
+#include <iostream>
 
 int bomba = 0;
 int verde = 0;
@@ -196,7 +197,7 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-	if (App->menu->isMenuOpen == false && App->score->coins != 0 && App->score->readyOnPos==true) {
+	if (App->menu->isMenuOpen == false && App->score->coins != 0 && App->score->readyOnPos == true) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 			p[0].active = false;
@@ -271,109 +272,110 @@ update_status ModulePlayer::Update()
 				}
 				else
 				{
-				contadorW += 1;
+					contadorW += 1;
 
-				if (p[0].pos == 0)
-				{
-					p[0].position.x += 1;
-				}
-				if (p[0].pos == 1)
-				{
-					p[0].position.y += 1;
-				}
-				if (p[0].pos == 2)
-				{
-					p[0].position.x -= 1;
-				}
-				if (p[0].pos == 3)
-				{
-					p[0].position.y -= 1;
-				}
-
-
-
-				if (p[1].pos == 0)
-				{
-					p[1].position.x += 1;
-				}
-				if (p[1].pos == 1)
-				{
-					p[1].position.y += 1;
-				}
-				if (p[1].pos == 2)
-				{
-					p[1].position.x -= 1;
-				}
-				if (p[1].pos == 3)
-				{
-					p[1].position.y -= 1;
-				}
-
-				if (p[2].pos == 0)
-				{
-					p[2].position.x += 1;
-				}
-				if (p[2].pos == 1)
-				{
-					p[2].position.y += 1;
-				}
-				if (p[2].pos == 2)
-				{
-					p[2].position.x -= 1;
-				}
-				if (p[2].pos == 3)
-				{
-					p[2].position.y -= 1;
-				}
-				if (contadorW >= 16)
-				{
-					girar = 0;
-					contadorW = 0;
-					for (int i = 0; i < 4; i++)
+					if (p[0].pos == 0)
 					{
-						p[i].pos++;
-						if (p[i].pos == 4)
+						p[0].position.x += 1;
+					}
+					if (p[0].pos == 1)
+					{
+						p[0].position.y += 1;
+					}
+					if (p[0].pos == 2)
+					{
+						p[0].position.x -= 1;
+					}
+					if (p[0].pos == 3)
+					{
+						p[0].position.y -= 1;
+					}
+
+
+
+					if (p[1].pos == 0)
+					{
+						p[1].position.x += 1;
+					}
+					if (p[1].pos == 1)
+					{
+						p[1].position.y += 1;
+					}
+					if (p[1].pos == 2)
+					{
+						p[1].position.x -= 1;
+					}
+					if (p[1].pos == 3)
+					{
+						p[1].position.y -= 1;
+					}
+
+					if (p[2].pos == 0)
+					{
+						p[2].position.x += 1;
+					}
+					if (p[2].pos == 1)
+					{
+						p[2].position.y += 1;
+					}
+					if (p[2].pos == 2)
+					{
+						p[2].position.x -= 1;
+					}
+					if (p[2].pos == 3)
+					{
+						p[2].position.y -= 1;
+					}
+					if (contadorW >= 16)
+					{
+						girar = 0;
+						contadorW = 0;
+						for (int i = 0; i < 4; i++)
 						{
-							p[i].pos = 0;
+							p[i].pos++;
+							if (p[i].pos == 4)
+							{
+								p[i].pos = 0;
+							}
 						}
 					}
+
 				}
 
-			}
-				
-				
-			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
-			{
-				win = true;
-			}
-			if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
-			{
-				win = true;
-			}
-			if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN && verde == 0)
-			{
-				verde++;
-			}
-		}
 
-
-		else
-		{
-			if (p[0].active == false && p[1].active == false && p[2].active == false) {
-				App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
-				App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
-				App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
-				if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) {
+				if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
+				{
 					win = true;
-					App->fade->EnableOnly(this, (Module*)App->lose);
 				}
-
+				if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
+				{
+					win = true;
+				}
+				if (App->input->keys[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN && verde == 0)
+				{
+					verde++;
+				}
 			}
+
+
+			else
+			{
+				if (p[0].active == false && p[1].active == false && p[2].active == false) {
+					App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
+					App->scene->SetTile((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16, p[1].color);
+					App->scene->SetTile((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16, p[2].color);
+					if (App->scene->ReadTile(3, 2) == false || App->scene->ReadTile(4, 2) == false) {
+						win = true;
+						App->fade->EnableOnly(this, (Module*)App->lose);
+					}
+
+				}
+			}
+
+
 		}
-
-
 	}
-	return update_status::UPDATE_CONTINUE;
+		return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModulePlayer::PostUpdate()
