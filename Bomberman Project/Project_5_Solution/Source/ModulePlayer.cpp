@@ -20,7 +20,7 @@ int bomba = 0;
 int verde = 0;
 bool win = false;
 float contadorW = 0;
-
+int girar;
 
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
@@ -71,16 +71,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[0].col = rand() % 4 + verde;
 				p[0].position.x = 73;
 				p[0].position.y = 32;
+				p[0].pos = 0;
 				p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
 				p[1].col = rand() % 4 + verde;
 				p[1].position.x = 89;
 				p[1].position.y = 32;
+				p[1].pos = 1;
 				p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
 				p[2].col = rand() % 4 + verde;
 				p[2].position.x = 73;
 				p[2].position.y = 48;
+				p[2].pos = 3;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 				break;
@@ -88,16 +91,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[0].col = rand() % 4 + verde;
 				p[0].position.x = 73;
 				p[0].position.y = 32;
+				p[0].pos = 0;
 				p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
 				p[1].col = rand() % 4 + verde;
 				p[1].position.x = 89;
 				p[1].position.y = 32;
+				p[1].pos = 1;
 				p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
 				p[2].col = rand() % 4 + verde;
 				p[2].position.x = 89;
 				p[2].position.y = 48;
+				p[2].pos = 2;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 				break;
@@ -105,16 +111,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[0].col = rand() % 4 + verde;
 				p[0].position.x = 73;
 				p[0].position.y = 32;
+				p[0].pos = 0;
 				p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
 				p[1].col = rand() % 4 + verde;
 				p[1].position.x = 73;
 				p[1].position.y = 48;
+				p[1].pos = 3;
 				p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
 				p[2].col = rand() % 4 + verde;
 				p[2].position.x = 89;
 				p[2].position.y = 48;
+				p[2].pos = 2;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 				break;
@@ -122,16 +131,19 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[0].col = rand() % 4 + verde;
 				p[0].position.x = 89;
 				p[0].position.y = 32;
+				p[0].pos = 1;
 				p[0].downAnim.PushBack({ 0, p[0].col * 16, 16,16 });
 
 				p[1].col = rand() % 4 + verde;
 				p[1].position.x = 73;
 				p[1].position.y = 48;
+				p[1].pos = 3;
 				p[1].downAnim.PushBack({ 0, p[1].col * 16, 16,16 });
 
 				p[2].col = rand() % 4 + verde;
 				p[2].position.x = 89;
 				p[2].position.y = 48;
+				p[2].pos = 2;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
 
 				break;
@@ -184,11 +196,6 @@ bool ModulePlayer::Start()
 
 update_status ModulePlayer::Update()
 {
-
-	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN)
-	{
-		App->audio->PlayFx(sfx_rotate);
-	}
 	if (App->menu->isMenuOpen == false && App->score->coins != 0) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
@@ -247,7 +254,7 @@ update_status ModulePlayer::Update()
 				p[0].position.y += speed * 8;
 				p[1].position.y += speed * 8;
 				p[2].position.y += speed * 8;
-				App->score->score++;
+				App->score->score++;App->audio->PlayFx(sfx_rotate);
 			}
 			if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_REPEAT)
 			{
@@ -256,110 +263,90 @@ update_status ModulePlayer::Update()
 				p[1].position.y -= speed;
 				p[2].position.y -= speed;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && p[0].color != 'X' || (contadorW != 0))
+			if ((girar!=0)||App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_A] != KEY_STATE::KEY_DOWN && App->input->keys[SDL_SCANCODE_D] != KEY_STATE::KEY_DOWN && App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[1].position.x - 25) / 16, (p[1].position.y - 32) / 16) == true && App->scene->isDownEmpty((p[2].position.x - 25) / 16, (p[2].position.y - 32) / 16) == true && p[0].color != 'X')
 			{
-				int minX = 1000;
-				int maxX = 0;
-				int minY = 1000;
-				int maxY = 0;
-
-				if (p[0].position.x > maxX)
+				if (girar==0){
+				App->audio->PlayFx(sfx_rotate);
+				girar++;
+				}
+				else
 				{
-					maxX = p[0].position.x;
+
+				contadorW+=1;
+
+				if (p[0].pos==0)
+				{
+					p[0].position.x += 1;
+				}
+				
+				if (p[0].pos == 1)
+				{
+					p[0].position.y += 1;
 				}
 
-				if (p[0].position.x < minX)
+				if (p[0].pos == 2)
 				{
-					minX = p[0].position.x;
+					p[0].position.x -= 1;
 				}
 
-				if (p[0].position.y > maxY)
+				if (p[0].pos == 3)
 				{
-					maxY = p[0].position.y;
+					p[0].position.y -= 1;
 				}
 
-				if (p[0].position.y < minY)
+				if (p[1].pos == 0)
 				{
-					minY = p[0].position.y;
+					p[1].position.x += 1;
 				}
 
-				if (p[1].position.x > maxX)
+				if (p[1].pos == 1)
 				{
-					maxX = p[1].position.x;
+					p[1].position.y += 1;
 				}
 
-				if (p[1].position.x < minX)
+				if (p[1].pos == 2)
 				{
-					minX = p[1].position.x;
+					p[1].position.x -= 1;
 				}
 
-				if (p[1].position.y > maxY)
+				if (p[1].pos == 3)
 				{
-					maxY = p[1].position.y;
+					p[1].position.y -= 1;
 				}
 
-				if (p[1].position.y < minY)
+				if (p[2].pos == 0)
 				{
-					minY = p[1].position.y;
+					p[2].position.x += 1;
 				}
 
-				if (p[2].position.x > maxX)
+				if (p[2].pos == 1)
 				{
-					maxX = p[2].position.x;
+					p[2].position.y += 1;
 				}
 
-				if (p[2].position.x < minX)
+				if (p[2].pos == 2)
 				{
-					minX = p[2].position.x;
+					p[2].position.x -= 1;
 				}
 
-				if (p[2].position.y > maxY)
+				if (p[2].pos == 3)
 				{
-					maxY = p[2].position.y;
-				}
-
-				if (p[2].position.y < minY)
-				{
-					minY = p[2].position.y;
-				}
-
-				for (int i = 0; i < 3; i++)
-				{
-					if (p[i].position.x == minX)
-					{
-						if (p[i].position.y == maxY)
-						{
-							p[i].position.y -= speed;
-							contadorW += speed;
-						}
-
-						else
-						{
-							p[i].position.x += speed;
-							contadorW += speed;
-						}
-					}
-
-					else
-					{
-						if (p[i].position.y == minY)
-						{
-							p[i].position.y += speed;
-							contadorW += speed;
-						}
-
-						else
-						{
-							p[i].position.x -= speed;
-							contadorW += speed;
-						}
-
-					}
+					p[2].position.y -= 1;
 				}
 
 				if (contadorW >= 16)
 				{
+					girar = 0;
 					contadorW = 0;
+					for (int i = 0; i < 4; i++)
+					{
+						p[i].pos++;
+						if (p[i].pos==4)
+						{
+							p[i].pos = 0;
+						}
+					}
+				}
 				}
 			}
 			if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
