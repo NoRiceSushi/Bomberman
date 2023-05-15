@@ -29,7 +29,10 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	Out.PushBack({ 0,32,96,8 });
 	Out.loop = false;
 
+	readyIn.PushBack({ 0,72,80,16 });
+	readyOut.PushBack({ 0,32,80,16 });
 
+	rect2 = { 0,72, 80, 16 };
 }
 
 
@@ -57,7 +60,17 @@ bool ModuleScore::Start()
 	insertCoins = App->textures->Load("Assets/Numeros+SpritesLetras.png");
 	coinCurrentAnim = &Blink;
 
+	ready = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	readyAnim = &readyOut;
+
+	position.x = 50;
+	position.y = 260;
+	readyScreen = false;
+	readyOnPos = false;
+	posSpeed = 7;
+
 	return ret;
+
 
 }
 
@@ -67,29 +80,42 @@ update_status ModuleScore::Update()
 	{
 		App->audio->PlayFx(sfx_coin);
 		App->score->coins += 1;
-		cout << coins << endl;
 	}
 	if (coins == 0) { coinCurrentAnim = &Blink; }
 	else coinCurrentAnim = &Out;
 
-	coinCurrentAnim->Update();
+	if (coins > 0 && position.y >= 110 && readyOnPos == false) {
+		position.y -= posSpeed;
+		if (posSpeed > 1) { posSpeed -= 0.2; }
+		if (position.y >= 110 && position.y <= 120) readyOnPos = true;
+	}
+	//else
+	//{
+	//	readyOnPos = true;
+	//}
 
+
+	coinCurrentAnim->Update();
+	readyAnim->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleScore::PostUpdate()
 {
-	if (App->menu->isMenuOpen == false) {
+	if (!App->menu->isMenuOpen) {
 
-		SDL_Rect rect = coinCurrentAnim->GetCurrentFrame();
+		rect1 = coinCurrentAnim->GetCurrentFrame();
 
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%6d", score);
 		App->fonts->BlitText(20, 16, scoreFont, scoreText);
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%2d", coins);
 		App->fonts->BlitText(282, 209, scoreFont, scoreText);
 		App->render->Blit(textureCoins, 216, 209, 0, 2);
+		App->render->Blit(insertCoins, 110, 90,&rect1);
 
-		App->render->Blit(insertCoins, 110, 90,&rect);
+		if (!readyOnPos) {
+			App->render->Blit(ready, position.x, position.y, &rect2);
+		}
 	}
 	return update_status::UPDATE_CONTINUE;
 }

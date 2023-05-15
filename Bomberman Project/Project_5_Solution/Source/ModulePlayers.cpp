@@ -196,7 +196,7 @@ void ModulePlayers::HandleEnemiesSpawn()
                 // Spawn a new enemy if the screen has reached a spawn position
 
                 {
-                    LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+                    //LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
                     SpawnEnemy(spawnQueue[i]);
                     // Removing the newly spawned enemy from the queue
@@ -217,7 +217,7 @@ void ModulePlayers::HandleEnemiesSpawn()
                 // Spawn a new enemy if the screen has reached a spawn position
 
                 {
-                    LOG("Spawning enemy at %d", spawnQueue2[i].x * SCREEN_SIZE);
+                    //LOG("Spawning enemy at %d", spawnQueue2[i].x * SCREEN_SIZE);
 
                     SpawnEnemy(spawnQueue2[i]);
                     // Removing the newly spawned enemy from the queue

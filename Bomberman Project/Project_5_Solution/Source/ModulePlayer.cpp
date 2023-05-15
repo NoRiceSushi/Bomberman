@@ -189,7 +189,7 @@ update_status ModulePlayer::Update()
 	{
 		App->audio->PlayFx(sfx_rotate);
 	}
-	if (App->menu->isMenuOpen == false && App->score->coins != 0) {
+	if (App->menu->isMenuOpen == false && App->score->coins != 0 && App->score->readyOnPos==true) {
 
 		if (p[0].position.y == 208 || App->scene->isDownEmpty((p[0].position.x - 25) / 16, (p[0].position.y - 48) / 16) != true || p[0].active != true) {
 			p[0].active = false;

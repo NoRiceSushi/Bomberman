@@ -26,6 +26,10 @@ public:
 	// Font score index
 	uint score = 000000;
 	int scoreFont = -1;
+	iPoint position;
+	bool readyScreen;
+	float posSpeed;
+	bool readyOnPos;
 
 	SDL_Texture* textureCoins = nullptr;
 	
@@ -34,10 +38,18 @@ public:
 	Animation Blink;
 	Animation Out;
 
+	SDL_Texture* ready = nullptr;
+	Animation* readyAnim = nullptr;
+	Animation readyIn;
+	Animation readyOut;
+
 	char scoreText[MAX_SCORE_LENGTH + sizeof(char)];
 
 	uint coins = 00;
 	uint sfx_coin = 0;
+
+	SDL_Rect rect1;
+	SDL_Rect rect2;
 };
 
 #endif // __MODULE_SCORE_H__
