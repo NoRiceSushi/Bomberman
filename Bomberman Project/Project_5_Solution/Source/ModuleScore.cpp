@@ -54,7 +54,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	bombaIdle.loop = false;
 
 	//bomb anim out
-	bombaOut.PushBack({ 0,256,48,48 });
+	bombaOut.PushBack({ 0,0,0,0 });
 	bombaOut.loop = false;
 
 	//explosion anim
