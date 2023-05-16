@@ -29,6 +29,62 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	srand(time(0));
 	air = rand() % 4;
 
+	////black puyo idle anim
+	//p->idleAnim.PushBack({0,0,16,16});
+	//p->idleAnim.PushBack({ 16,0,16,16 });
+	//p->idleAnim.PushBack({ 32,0,16,16 });
+	//p->idleAnim.PushBack({ 48,0,16,16 });
+	//p->idleAnim.PushBack({ 64,0,16,16 });
+	//p->idleAnim.PushBack({ 80,0,16,16 });
+	//p->idleAnim.PushBack({ 96,0,16,16 });
+	//p->idleAnim.PushBack({ 112,0,16,16 });
+	//p->idleAnim.PushBack({ 128,0,16,16 });
+	//p->idleAnim.PushBack({ 144,0,16,16 });
+	//p->idleAnim.PushBack({ 160,0,16,16 });
+	//p->idleAnim.PushBack({ 176,0,16,16 });
+	//p->idleAnim.PushBack({ 192,0,16,16 });
+	//p->idleAnim.speed = 0.1;
+	//p->idleAnim.loop = false;
+
+	////blue puyo idle anim
+	//p->idleAnim.PushBack({ 0,16,16,16 });
+	//p->idleAnim.PushBack({ 16,16,16,16 });
+	//p->idleAnim.PushBack({ 32,16,16,16 });
+	//p->idleAnim.speed = 0.1;
+	//p->idleAnim.loop = false;
+
+	////white puyo idle anim
+	//p->idleAnim.PushBack({ 0,32,16,16 });
+	//p->idleAnim.PushBack({ 16,32,16,16 });
+	//p->idleAnim.PushBack({ 32,32,16,16 });
+	//p->idleAnim.PushBack({ 48,32,16,16 });
+	//p->idleAnim.PushBack({ 64,32,16,16 });
+	//p->idleAnim.PushBack({ 80,32,16,16 });
+	//p->idleAnim.PushBack({ 96,32,16,16 });
+	//p->idleAnim.PushBack({ 112,32,16,16 });
+	//p->idleAnim.PushBack({ 128,32,16,16 });
+	//p->idleAnim.speed = 0.1;
+	//p->idleAnim.loop = false;
+
+	////red puyo idle anim
+	//p->idleAnim.PushBack({ 0,48,16,16 });
+	//p->idleAnim.PushBack({ 16,48,16,16 });
+	//p->idleAnim.PushBack({ 32,48,16,16 });
+	//p->idleAnim.PushBack({ 48,48,16,16 });
+	//p->idleAnim.PushBack({ 64,48,16,16 });
+	//p->idleAnim.PushBack({ 80,48,16,16 });
+	//p->idleAnim.PushBack({ 96,48,16,16 });
+	//p->idleAnim.PushBack({ 112,48,16,16 });
+	//p->idleAnim.PushBack({ 128,48,16,16 });
+	//p->idleAnim.speed = 0.1;
+	//p->idleAnim.loop = false;
+
+	////green puyo idle anim
+	//p->idleAnim.PushBack({ 0,64,16,16 });
+	//p->idleAnim.PushBack({ 16,64,16,16 });
+	//p->idleAnim.speed = 0.1;
+	//p->idleAnim.loop = false;
+
 	ModulePlayer::Bomb();
 
 	if (bomba != 10)
