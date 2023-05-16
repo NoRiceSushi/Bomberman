@@ -8,6 +8,7 @@
 #include "SDL/include/SDL.h"
 #include "ModuleScore.h"
 #include "SDL/include/SDL_scancode.h"
+#include "ModuleScene.h"
 
 int contador = 0;
 
@@ -90,6 +91,23 @@ update_status ModulePlayers::Update()
         {
             LOG("siiiii");
             players[i]->Update();
+            if (players[i]->p[0].active == false && players[i]->p[1].active == false && players[i]->p[2].active == false)
+            {
+                for (int a = 0; a < 12; a++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
+                        {
+                            delete players[i];
+                            players[i] = nullptr;
+                        }
+                    }
+                }
+
+            }
+
+
         }
 
     }

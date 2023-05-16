@@ -31,7 +31,7 @@ public:
 
 	void DestroyLines();
 	int Score = 0;
-private:
+public:
 	
 	char map[12][8];
 
