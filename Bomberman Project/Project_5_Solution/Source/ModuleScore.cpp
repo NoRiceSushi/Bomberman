@@ -76,9 +76,34 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	explosionOut.PushBack({ 0,0,0,0 });
 	explosionOut.loop = false;
 
+	//go! idle anim
+	goIdle.PushBack({0,288,64,64});
+	goIdle.PushBack({ 64,288,64,64 });
+	goIdle.PushBack({ 128,288,64,64 });
+	goIdle.PushBack({ 192,288,64,64 });
+	goIdle.PushBack({ 256,288,64,64 });
+	goIdle.PushBack({ 320,288,64,64 });
+	goIdle.PushBack({ 384,288,64,64 });
+	goIdle.PushBack({ 448,288,64,64 });
+	goIdle.PushBack({ 384,288,64,64 });
+	goIdle.PushBack({ 320,288,64,64 });
+	goIdle.PushBack({ 256,288,64,64 });
+	goIdle.PushBack({ 192,288,64,64 });
+	goIdle.PushBack({ 128,288,64,64 });
+	goIdle.PushBack({ 64,288,64,64 });
+
+	goIdle.loop = true;
+	goIdle.speed = 0.5;
+
+	//go! out anim
+	goOut.PushBack({ 0,0,0,0 });
+	goOut.loop = false;
+
+
 	rect2 = { 0,72, 80, 16 };
 	rectBomb = {0,112,48,48 };
 	rectExplosion = {0,160,128,288};
+	rectGo = { 0,288,64,64 };
 
 }
 
@@ -116,6 +141,9 @@ bool ModuleScore::Start()
 	explosionText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
 	explosionAnim = &explosionOut;
 
+	goText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
+	goAnim = &goOut;
+
 	position.x = 50;
 	position.y = 260;
 	readyScreenEnd = false;
@@ -123,8 +151,11 @@ bool ModuleScore::Start()
 	bombOnPos = false;
 	posSpeed = 8;
 	posSpeedBomba = 10;
+	posSpeedGo = 0;
 	positionBomba.x = 72;
 	positionBomba.y = -96;
+	positionGo.x = 57;
+	positionGo.y = 92;
 
 	return ret;
 
@@ -159,13 +190,25 @@ update_status ModuleScore::Update()
 		explosionAnim = &explosionBomb;
 		bombaAnim = &bombaOut;
 		readyAnim = &readyOut;
+		goAnim = &goIdle;
 	}
 	if (explosionAnim->HasFinished() && explosionAnim == &explosionBomb) readyScreenEnd = true;
 	
+	if (goAnim == &goIdle) {
+		positionGo.y += posSpeedGo;
+		if (posSpeedGo < 5) {
+			posSpeedGo += 0.025;
+		}
+		if (positionGo.y >= 300) {
+			goAnim = &goOut;
+		}
+	}
+
 	coinCurrentAnim->Update();
 	readyAnim->Update();
 	bombaAnim->Update();
 	explosionAnim->Update();
+	goAnim->Update();
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -177,6 +220,7 @@ update_status ModuleScore::PostUpdate()
 		rect2 = readyAnim->GetCurrentFrame();
 		rectBomb = bombaAnim->GetCurrentFrame();
 		rectExplosion = explosionAnim->GetCurrentFrame();
+		rectGo = goAnim->GetCurrentFrame();
 
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%6d", score);
 		App->fonts->BlitText(20, 16, scoreFont, scoreText);
@@ -190,6 +234,7 @@ update_status ModuleScore::PostUpdate()
 		}
 
 		App->render->Blit(bombazaText, positionBomba.x, positionBomba.y, &rectBomb);
+		App->render->Blit(goText, positionGo.x, positionGo.y, &rectGo);
 		App->render->Blit(explosionText, 20, 60, &rectExplosion);
 	}
 	return update_status::UPDATE_CONTINUE;
