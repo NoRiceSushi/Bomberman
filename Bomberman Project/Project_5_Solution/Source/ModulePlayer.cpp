@@ -119,7 +119,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 			p[2].currentAnimation = &p[2].downAnim;
 		}
 
-		else
+		else if (win==false)
 		{
 
 			switch (air)
@@ -412,13 +412,9 @@ update_status ModulePlayer::Update()
 					verde++;
 				}
 			}
-
-
-			
-
-
 		}
-else
+		
+		else
 			{
 				if (p[0].active == false && p[1].active == false && p[2].active == false) {
 					App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
