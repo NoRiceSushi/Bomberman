@@ -414,7 +414,11 @@ update_status ModulePlayer::Update()
 			}
 
 
-			else
+			
+
+
+		}
+else
 			{
 				if (p[0].active == false && p[1].active == false && p[2].active == false) {
 					App->scene->SetTile((p[0].position.x - 25) / 16, (p[0].position.y - 32) / 16, p[0].color);
@@ -428,9 +432,6 @@ update_status ModulePlayer::Update()
 
 				}
 			}
-
-
-		}
 	}
 		return update_status::UPDATE_CONTINUE;
 }
