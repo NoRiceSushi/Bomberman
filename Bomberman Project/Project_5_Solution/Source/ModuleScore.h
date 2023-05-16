@@ -31,6 +31,7 @@ public:
 	float posSpeed;
 	float posSpeedBomba;
 	bool readyOnPos;
+	bool bombOnPos;
 	iPoint positionBomba;
 
 	SDL_Texture* textureCoins = nullptr;
