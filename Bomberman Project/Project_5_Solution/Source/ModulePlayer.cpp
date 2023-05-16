@@ -229,6 +229,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 			}
 		}
 	}
+
+	girar = 0;
+	contadorW = 0;
+
 	p[0].currentAnimation = &p[0].downAnim;
 	p[1].currentAnimation = &p[1].downAnim;
 	p[2].currentAnimation = &p[2].downAnim;
@@ -431,8 +435,7 @@ update_status ModulePlayer::Update()
 						PrimerGiro = 2;
 					}
 					
-					girar = 0;
-					contadorW = 0;
+					
 				}
 			}
 	}
