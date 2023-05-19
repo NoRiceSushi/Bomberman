@@ -146,12 +146,12 @@ update_status ModuleMenu::PostUpdate()
 
         SDL_Point mousePos = { mouseX, mouseY };
 
-        if (mousePos.x - 200 >= continueRect.x && mousePos.x - 200 < continueRect.x + continueRect.w - 125 &&
+        if (mousePos.x - 400 >= continueRect.x && mousePos.x - 220 < continueRect.x + continueRect.w - 125 &&
             mousePos.y - 130 >= continueRect.y && mousePos.y - 130 < continueRect.y + continueRect.h - 22)
         {
            
             // Crear un objeto SDL_Rect para el rectángulo amarillo
-            SDL_Rect highlightRect = { continueRect.x + 200, continueRect.y + 140, continueRect.w - 125, continueRect.h - 22 };
+            SDL_Rect highlightRect = { 99,70,125,33 };
 
             // Dibujar el rectángulo amarillo
             App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
@@ -164,7 +164,7 @@ update_status ModuleMenu::PostUpdate()
         {
             
             // Crear un objeto SDL_Rect para el rectángulo amarillo
-            SDL_Rect highlightRect = { exitRect.x + 220, exitRect.y + 223, exitRect.w - 99, exitRect.h - 43 };
+            SDL_Rect highlightRect = { 109,111,100,41 };
 
             // Dibujar el rectángulo amarillo
             App->render->DrawRectangle(highlightRect, 255, 255, 0, 255);
