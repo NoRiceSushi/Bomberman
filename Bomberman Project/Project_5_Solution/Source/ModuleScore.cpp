@@ -70,7 +70,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	explosionBomb.PushBack({ 1152,160,128,128 });
 	explosionBomb.PushBack({ 0,0,0,0 });
 	explosionBomb.loop = false;
-	explosionBomb.speed = 0.2f;
+	explosionBomb.speed = 0.4f;
 
 	//explosion out
 	explosionOut.PushBack({ 0,0,0,0 });

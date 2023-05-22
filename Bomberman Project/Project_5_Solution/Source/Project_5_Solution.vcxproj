@@ -81,7 +81,6 @@
     <ClInclude Include="ModuleBombazo.h" />
     <ClInclude Include="ModuleFade.h" />
     <ClInclude Include="ModuleFonts.h" />
-    <ClInclude Include="ModuleFrame.h" />
     <ClInclude Include="ModuleGameOver.h" />
     <ClInclude Include="ModuleLose.h" />
     <ClInclude Include="ModuleMenu.h" />
@@ -114,7 +113,6 @@
     <ClCompile Include="ModuleBombazo.cpp" />
     <ClCompile Include="ModuleFade.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
-    <ClCompile Include="ModuleFrame.cpp" />
     <ClCompile Include="ModuleGameOver.cpp" />
     <ClCompile Include="ModuleLose.cpp" />
     <ClCompile Include="ModuleMenu.cpp" />

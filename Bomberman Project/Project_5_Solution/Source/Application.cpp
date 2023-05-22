@@ -85,6 +85,8 @@ bool Application::Init()
 	// Only active modules will be 'started'
 	for (int i = 0; i < NUM_MODULES && ret; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->Start() : true;
+
+
 	return ret;
 }
 
@@ -106,11 +108,13 @@ update_status Application::Update()
 		return update_status::UPDATE_STOP;
 	}
 
-	return ret;
 
 	SDL_Delay(16.666f);
+	return ret;
 
-	//return ret;
+	
+
+	
 }
 
 bool Application::CleanUp()

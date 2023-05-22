@@ -38,7 +38,7 @@ bool IntroInfo::Start()
 update_status IntroInfo::Update()
 {
 
-	App->fade->FadeToBlack(this, (Module*)App->studio, 90);
+	App->fade->FadeToBlack(this, (Module*)App->studio, 70);
 
 	return update_status::UPDATE_CONTINUE;
 

@@ -51,7 +51,7 @@ update_status ModuleGameOver::Update()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart < 4000) {
+	if (SDL_GetTicks() - timerStart < 3000) {
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
