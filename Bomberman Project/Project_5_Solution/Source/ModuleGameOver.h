@@ -30,10 +30,18 @@ public:
 
 public:
 	iPoint position;
+	iPoint positionLetterG;
+	iPoint positionLetterA;
 	Uint32 timerStart = 0;
 	bool timerStarted = false;
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* gameover_png = nullptr;
+
+	SDL_Texture* letter = nullptr;
+	Animation* LettersAnimation = nullptr;
+	Animation AnimLetters;
+
+	bool LetterAOnPos;
 
 
 };
