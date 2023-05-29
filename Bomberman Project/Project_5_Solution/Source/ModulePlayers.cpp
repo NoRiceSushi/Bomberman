@@ -99,18 +99,14 @@ update_status ModulePlayers::Update()
                     {
                         if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
                         {
-                            /*delete players[i];
-                            players[i] = nullptr;*/
+                            //delete (App->player->p[i]->position.x == (a * 16) + 25 && App->player->p[i].position.y == (j * 16) + 32 );
+
+                            players[i] = nullptr;
                             
                                 App->scene->map[a][j] = '0';
                                 App->scene->map[a][j + 1] = '0';
                                 App->scene->map[a][j + 2] = '0';
-                            
-                           
-                                
-                            
 
-                            
                         }
                         if (App->scene->map[a][j] == App->scene->map[a-1][j] && App->scene->map[a][j] == App->scene->map[a-2][j] && a > 1 && App->scene->map[a][j] != '0')
                         {
