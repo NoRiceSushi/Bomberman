@@ -99,7 +99,7 @@ update_status ModulePlayers::Update()
                     {
                         if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
                         {
-                            //delete (App->player->p[i]->position.x == (a * 16) + 25 && App->player->p[i].position.y == (j * 16) + 32 );
+                            //delete ((Module*)App->player->p[i]->position.x == (a * 16) + 25 && App->player->p[i].position.y == (j * 16) + 32 );
 
                             players[i] = nullptr;
                             

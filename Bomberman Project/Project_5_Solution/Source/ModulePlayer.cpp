@@ -434,8 +434,6 @@ update_status ModulePlayer::Update()
 					{
 						PrimerGiro = 2;
 					}
-					
-					
 				}
 			}
 	}
