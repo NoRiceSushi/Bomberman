@@ -4,12 +4,17 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleFade.h"
+#include "ModulePlayer.h"
+#include "ModulePlayers.h"
 #include "ModuleInput.h"
 #include "ModuleGameOver.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayer.h"
 #include "SDL/include/SDL.h"
 #include "Animation.h"
+#include "SDL/include/SDL_audio.h"
+#include "SDL_mixer/include/SDL_mixer.h"
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 #include<iostream>
 
@@ -30,7 +35,7 @@ using namespace std;
 */
 ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 {
-
+//green anim border
 	AnimBorders.PushBack({ 351, 2, 141, 204 });
 	AnimBorders.PushBack({ 350, 208, 141, 204 });
 	AnimBorders.PushBack({ 350, 414 , 141, 204 });
@@ -57,6 +62,25 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBorders.loop = true;
 	AnimBorders.speed = 0.4f;
 
+	//yellow anim border
+	AnimBordersy.PushBack({ 638, 2, 141, 204 });
+	AnimBordersy.PushBack({ 494, 2, 141, 204 });
+	AnimBordersy.PushBack({ 494, 208, 141, 204 });
+	AnimBordersy.PushBack({ 494, 414 , 141, 204 });
+	AnimBordersy.PushBack({ 494, 620, 141, 204 });
+	AnimBordersy.PushBack({ 494, 826, 141, 204 });
+	AnimBordersy.loop = true;
+	AnimBordersy.speed = 0.3f;
+
+	//red anim border
+	AnimBordersr.PushBack({ 638, 2, 141, 204 });
+	AnimBordersr.PushBack({ 638, 208, 141, 204 });
+	AnimBordersr.PushBack({ 638, 414 , 141, 204 });
+	AnimBordersr.PushBack({ 638, 620, 141, 204 });
+	AnimBordersr.PushBack({ 638, 826, 141, 204 });
+	AnimBordersr.PushBack({ 206, 208, 141, 204 });
+	AnimBordersr.loop = true;
+	AnimBordersr.speed = 0.5f;
 
 	for (int i = 0; i < 12; i++)
 	{
@@ -82,7 +106,10 @@ bool ModuleScene::Start()
 	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
 	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
 	currentAnimation = &AnimBorders;
+	currentAnimY = &AnimBordersy;
+	currentAnimR = &AnimBordersr;
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+
 	App->fade->EnableOnly(this, (Module*)App->score);
 	App->fade->EnableOnly(this, (Module*)App->player);
 	App->fade->EnableOnly(this, (Module*)App->players);
@@ -95,6 +122,7 @@ bool ModuleScene::Start()
 			map[i][j] = '0';
 		}
 	}
+
 
 	return ret;
 
@@ -109,6 +137,11 @@ update_status ModuleScene::Update()
 	if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
 	{
 		App->fade->EnableOnly(this, (Module*)App->win);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN)
+	{
+		App->fade->EnableOnly(this, (Module*)App->timer);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
@@ -131,23 +164,37 @@ update_status ModuleScene::Update()
 	cout << endl; cout << endl; cout << endl; cout << endl;
 
 	/*currentAnimation = &AnimBorders;*/
-
-
+	//for (int i = 0; i < 8; i++) {
+	//	if (App->scene->ReadTile(i, 4) == false) {
+	//		App->fade->EnableOnly(this, (Module*)App->timer);
+	//	}
+	//}
+	currentAnimR->Update();
+	currentAnimY->Update();
 	currentAnimation->Update();
+	
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleScene::PostUpdate()
 {
-	/*for (int i = 0; i < 8; i++) {
-		if (App->scene->ReadTile(i, 5) == false) {
-			App->audio->PlayMusic("Assets/audio/23_Danger.ogg", 1.0f);
 
-		}
-	}*/
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	App->render->Blit(bgBorders, 19, 10, &rect);
+	for (int i = 0; i < 8; i++) {
+		if (App->scene->ReadTile(i, 6) == false) {
+			App->fade->EnableOnly(this, (Module*)App->timer);
+			rect = currentAnimY->GetCurrentFrame();
+			App->render->Blit(bgBorders, 19, 10, &rect);
+		}
+	}
+	for (int i = 0; i < 8; i++) {
+		if (App->scene->ReadTile(i, 4) == false) {
+			rect = currentAnimR->GetCurrentFrame();
+			App->render->Blit(bgBorders, 19, 10, &rect);
+		}
+	}
 
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
 

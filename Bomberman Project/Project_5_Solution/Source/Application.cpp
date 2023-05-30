@@ -22,6 +22,7 @@
 #include "IntroInfo.h"
 #include "StudioNames.h"
 #include "ModuleBombazo.h"
+#include "ModuleTimer.h"
 
 
 
@@ -58,10 +59,8 @@ Application::Application()
 
 	modules[18] = lose = new ModuleLose(false);
 	modules[19] = fade = new ModuleFade(true);
-	modules[20] = render = new ModuleRender(true);
-
-
-
+	modules[20] = timer = new ModuleTimer(false);
+	modules[21] = render = new ModuleRender(true);
 }
 
 Application::~Application()
