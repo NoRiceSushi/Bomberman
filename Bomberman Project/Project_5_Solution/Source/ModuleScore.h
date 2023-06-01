@@ -64,6 +64,22 @@ public:
 	Animation goIdle;
 	Animation goOut;
 
+	SDL_Texture* bomb = nullptr;
+	Animation* bomb1Anim = nullptr;
+	Animation* bomb2Anim = nullptr;
+	Animation* bomb3Anim = nullptr;
+	Animation* bomb4Anim = nullptr;
+	Animation* bomb5Anim = nullptr;
+	Animation* bomb6Anim = nullptr;
+	Animation* bomb7Anim = nullptr;
+	Animation bomb1;
+	Animation bomb2;
+	Animation bomb3;
+	Animation bomb4;
+	Animation bomb5;
+	Animation bomb6;
+	Animation bomb7;
+
 	char scoreText[MAX_SCORE_LENGTH + sizeof(char)];
 
 	uint coins = 00;
@@ -74,6 +90,13 @@ public:
 	SDL_Rect rectBomb;
 	SDL_Rect rectExplosion;
 	SDL_Rect rectGo;
+	SDL_Rect rectbomb1;
+	SDL_Rect rectbomb2;
+	SDL_Rect rectbomb3;
+	SDL_Rect rectbomb4;
+	SDL_Rect rectbomb5;
+	SDL_Rect rectbomb6;
+	SDL_Rect rectbomb7;
 };
 
 #endif // __MODULE_SCORE_H__

@@ -56,7 +56,9 @@ public:
 public:
 
 	iPoint position;
-
+	SDL_Rect rectG;
+	SDL_Rect rectY;
+	SDL_Rect rectR;
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;
 	SDL_Texture* bgBorders = nullptr;

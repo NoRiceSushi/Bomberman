@@ -20,6 +20,9 @@
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{782650af-5512-4dfe-8d14-e15e8ba89e45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Elements">
+      <UniqueIdentifier>{0aafe272-4277-4a31-aff4-e3133276660f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -64,9 +67,6 @@
     <ClInclude Include="Particle.h">
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleMenu.h">
-      <Filter>Source Files\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleAudio.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
@@ -77,9 +77,6 @@
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModuleFonts.h">
-      <Filter>Source Files\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="ModuleScore.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModuleGameOver.h">
@@ -103,11 +100,20 @@
     <ClInclude Include="StudioNames.h">
       <Filter>Source Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleBombazo.h">
-      <Filter>Source Files\Modules</Filter>
+    <ClInclude Include="RedPuyo.h">
+      <Filter>Source Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="ModuleTimer.h">
-      <Filter>Source Files\Modules</Filter>
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleMenu.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleBombazo.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleScore.h">
+      <Filter>Source Files\Elements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +156,6 @@
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleMenu.cpp">
-      <Filter>Source Files\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleFade.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
@@ -160,9 +163,6 @@
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleFonts.cpp">
-      <Filter>Source Files\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="ModuleScore.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleGameOver.cpp">
@@ -186,11 +186,20 @@
     <ClCompile Include="StudioNames.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleBombazo.cpp">
-      <Filter>Source Files\Modules</Filter>
+    <ClCompile Include="RedPuyo.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="ModuleTimer.cpp">
-      <Filter>Source Files\Modules</Filter>
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleMenu.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleBombazo.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleScore.cpp">
+      <Filter>Source Files\Elements</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

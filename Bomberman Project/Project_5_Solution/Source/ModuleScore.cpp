@@ -12,7 +12,10 @@
 #include "SDL/include/SDL_scancode.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
+#include "ModuleTimer.h"
+#include "SDL/include/SDL_audio.h"
 #include "ModuleMenu.h"
+#include "ModuleFade.h"
 #include "Animation.h"
 using namespace std;
 
@@ -24,7 +27,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,32,96,8 });
 	Blink.loop = true;
-	Blink.speed = 0.1f;
+	Blink.speed = 0.4f;
 
 	//insertcoin out
 	Out.PushBack({ 0,32,96,8 });
@@ -50,7 +53,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	bombaIdle.PushBack({ 48,112,48,48 });
 	bombaIdle.PushBack({ 96,112,48,48 });
 	bombaIdle.PushBack({ 48,112,48,48 });
-	bombaIdle.speed = 0.1f;
+	bombaIdle.speed = 0.4f;
 	bombaIdle.loop = false;
 
 	//bomb anim out
@@ -70,7 +73,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	explosionBomb.PushBack({ 1152,160,128,128 });
 	explosionBomb.PushBack({ 0,0,0,0 });
 	explosionBomb.loop = false;
-	explosionBomb.speed = 0.4f;
+	explosionBomb.speed = 0.5f;
 
 	//explosion out
 	explosionOut.PushBack({ 0,0,0,0 });
@@ -99,6 +102,57 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	goOut.PushBack({ 0,0,0,0 });
 	goOut.loop = false;
 
+	//bomb1 
+	bomb1.PushBack({ 0,1031,38,38 });
+	bomb1.PushBack({ 41,1033,38,38 });
+	bomb1.PushBack({ 81,1033,38,38 });
+	bomb1.PushBack({ 41,1033,38,38 });
+	bomb1.loop = true;
+	bomb1.speed = 0.2;
+
+	bomb2.PushBack({ 121,1033,38,38 });
+	bomb2.PushBack({ 161,1033,38,38 });
+	bomb2.PushBack({ 201,1033,38,38 });
+	bomb2.PushBack({ 241,1033,38,38 });
+	bomb2.PushBack({ 201,1033,38,38 });
+	bomb2.PushBack({ 161,1033,38,38 });
+	bomb2.loop = true;
+	bomb2.speed = 0.2;
+
+	bomb3.PushBack({ 281,1033,38,38 });
+	bomb3.PushBack({ 321,1033,38,38 });
+	bomb3.PushBack({ 361,1033,38,38 });
+	bomb3.PushBack({ 321,1033,38,38 });
+	bomb3.loop = true;
+	bomb3.speed = 0.2;
+
+	bomb4.PushBack({ 401,1034,38,36 });
+	bomb4.PushBack({ 441,1033,38,38 });
+	bomb4.PushBack({ 481,1033,38,38 });
+	bomb4.PushBack({ 441,1033,38,38 });
+	bomb4.loop = true;
+	bomb4.speed = 0.2;
+
+	bomb5.PushBack({ 521,1033,38,38 });
+	bomb5.PushBack({ 561,1033,38,38 });
+	bomb5.PushBack({ 601,1033,38,38 });
+	bomb5.PushBack({ 561,1033,38,38 });
+	bomb5.loop = true;
+	bomb5.speed = 0.2;
+
+	bomb6.PushBack({ 642,1033,36,38 });
+	bomb6.PushBack({ 681,1033,38,38 });
+	bomb6.PushBack({ 681,1033,38,38 });
+	bomb6.PushBack({ 681,1033,38,38 });
+	bomb6.loop = true;
+	bomb6.speed = 0.2;
+
+	bomb7.PushBack({ 721,1033,38,38 });
+	bomb7.PushBack({ 762,1033,36,38 });
+	bomb7.PushBack({ 762,1033,36,38 });
+	bomb7.PushBack({ 762,1033,36,38 });
+	bomb7.loop = true;
+	bomb7.speed = 0.2;
 
 	rect2 = { 0,72, 80, 16 };
 	rectBomb = {0,112,48,48 };
@@ -143,6 +197,15 @@ bool ModuleScore::Start()
 
 	goText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
 	goAnim = &goOut;
+
+	bomb = App->textures->Load("Assets/SpriteSheetOP.png");
+	bomb1Anim = &bomb1;
+	bomb2Anim = &bomb2;
+	bomb3Anim = &bomb3;
+	bomb4Anim = &bomb4;
+	bomb5Anim = &bomb5;
+	bomb6Anim = &bomb6;
+	bomb7Anim = &bomb7;
 
 	position.x = 50;
 	position.y = 260;
@@ -203,6 +266,14 @@ update_status ModuleScore::Update()
 			goAnim = &goOut;
 		}
 	}
+	
+	bomb1Anim->Update();
+	bomb2Anim->Update();
+	bomb3Anim->Update();
+	bomb4Anim->Update();
+	bomb5Anim->Update();
+	bomb6Anim->Update();
+	bomb7Anim->Update();
 
 	coinCurrentAnim->Update();
 	readyAnim->Update();
@@ -221,6 +292,43 @@ update_status ModuleScore::PostUpdate()
 		rectBomb = bombaAnim->GetCurrentFrame();
 		rectExplosion = explosionAnim->GetCurrentFrame();
 		rectGo = goAnim->GetCurrentFrame();
+		if (score >= 2100 && score <= 2700)
+		{
+			rectbomb1 = bomb1Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb1);
+		}
+		if (score >= 1500 && score <= 2100)
+		{
+			rectbomb2 = bomb2Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb2);
+		}
+		if (score >= 1000 && score <= 1500)
+		{
+			rectbomb3 = bomb3Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb3);
+		}
+		if (score >= 600 && score <= 1000)
+		{
+			rectbomb4 = bomb4Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb4);
+		}
+		if (score >= 300 && score <= 600)
+		{
+			rectbomb5 = bomb5Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb5);
+		}
+		if (score >= 150 && score <= 300)
+		{
+			rectbomb6 = bomb6Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb6);
+		}
+		if (score >= 50 && score <= 150)
+		{
+			rectbomb7 = bomb7Anim->GetCurrentFrame();
+			App->render->Blit(bomb, 107, 6, &rectbomb7);
+		}
+
+
 
 		sprintf_s(scoreText, MAX_SCORE_LENGTH, "%6d", score);
 		App->fonts->BlitText(20, 16, scoreFont, scoreText);

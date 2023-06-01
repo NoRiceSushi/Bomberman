@@ -180,20 +180,36 @@ update_status ModuleScene::PostUpdate()
 {
 
 	App->render->Blit(bgTexture, -231, 0, 0, 10);
-	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->Blit(bgBorders, 19, 10, &rect);
+	rectG = currentAnimation->GetCurrentFrame();
+	App->render->Blit(bgBorders, 19, 10, &rectG);
+	bool playYellow = false;
 	for (int i = 0; i < 8; i++) {
 		if (App->scene->ReadTile(i, 6) == false) {
-			App->fade->EnableOnly(this, (Module*)App->timer);
-			rect = currentAnimY->GetCurrentFrame();
-			App->render->Blit(bgBorders, 19, 10, &rect);
+			playYellow = true;
+			break;
+		}
+		else {
+			playYellow = false;
 		}
 	}
+	if (playYellow == true) {
+		rectY = currentAnimY->GetCurrentFrame();
+		App->render->Blit(bgBorders, 19, 10, &rectY);
+	}
+	bool playRed = false;
 	for (int i = 0; i < 8; i++) {
 		if (App->scene->ReadTile(i, 4) == false) {
-			rect = currentAnimR->GetCurrentFrame();
-			App->render->Blit(bgBorders, 19, 10, &rect);
+			playRed = true;
+			break;
 		}
+		else {
+			playRed = false;
+		}
+	}
+	if (playRed ==true ) {
+		App->fade->EnableOnly(this, (Module*)App->timer);
+			rectR = currentAnimR->GetCurrentFrame();
+			App->render->Blit(bgBorders, 19, 10, &rectR);
 	}
 
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
