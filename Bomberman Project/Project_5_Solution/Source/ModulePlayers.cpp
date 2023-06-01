@@ -84,13 +84,23 @@ update_status ModulePlayers::Update()
 {
     HandleEnemiesSpawn();
 
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    {
+        if (players[i] != nullptr)
+        {
+
+            players[i]->Update();
+
+
+        }
+
+    }
 
     for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
         if (players[i] != nullptr)
         {
-            LOG("siiiii");
-            players[i]->Update();
+
             if (players[i]->p[0].active == false && players[i]->p[1].active == false && players[i]->p[2].active == false)
             {
                 for (int a = 0; a < 12; a++)
@@ -101,32 +111,58 @@ update_status ModulePlayers::Update()
                         {
                             /*delete ((Module*)App->player->p[i]->position.x == (a * 16) + 25 && App->player->p[i].position.y == (j * 16) + 32 );*/
 
-                            for (int n = 0; n < MAX_PLAYERS; ++n)
-                            {
-                                for (int s = 0; s < 3; s++)
-                                {
-                                    if (players[n]->p[s].position.x == (a * 16) + 25 && players[n]->p[s].position.y == (j * 16) + 32)
-                                    {
-                                        /*delete players[n]->p[s];*/
+                            App->scene->map[a][j] = '0';
+                            App->scene->map[a][j + 1] = '0';
+                            App->scene->map[a][j + 2] = '0';
 
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; s++)
+                                    {
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        {
+
+                                            players[n]->p[s].currentAnimation = nullptr;
+
+
+                                        }
                                     }
                                 }
+
                             }
-                            
-                            
+
+
 
                             /*players[i] = nullptr;*/
+
                             
-                                App->scene->map[a][j] = '0';
-                                App->scene->map[a][j + 1] = '0';
-                                App->scene->map[a][j + 2] = '0';
 
                         }
-                        if (App->scene->map[a][j] == App->scene->map[a-1][j] && App->scene->map[a][j] == App->scene->map[a-2][j] && a > 1 && App->scene->map[a][j] != '0')
+                        if (App->scene->map[a][j] == App->scene->map[a - 1][j] && App->scene->map[a][j] == App->scene->map[a - 2][j] && a > 1 && App->scene->map[a][j] != '0')
                         {
                             App->scene->map[a][j] = '0';
                             App->scene->map[a - 1][j] = '0';
                             App->scene->map[a - 2][j] = '0';
+
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; s++)
+                                    {
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32)
+                                        {
+
+                                            players[n]->p[s] = {};
+
+
+                                        }
+                                    }
+                                }
+
+                            }
                         }
                     }
                 }
@@ -290,8 +326,10 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
             {
                 if (players[i] == players[0])
                 {
+
                     players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
+                    
                     players[i]->texture = texture;
 
                     contador++;

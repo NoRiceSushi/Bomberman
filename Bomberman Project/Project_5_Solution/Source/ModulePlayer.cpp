@@ -442,15 +442,13 @@ update_status ModulePlayer::Update()
 
 update_status ModulePlayer::PostUpdate()
 {
-	if (p[0].currentAnimation != nullptr)
+	for (int i = 0; i < 3; ++i)
 	{
-		SDL_Rect rect = p[0].currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, p[0].position.x, p[0].position.y - rect.h, &rect);
-		rect = p[1].currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, p[1].position.x, p[1].position.y - rect.h, &rect);
-		rect = p[2].currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, p[2].position.x, p[2].position.y - rect.h, &rect);
-
+		if (p[i].currentAnimation != nullptr)
+		{
+			SDL_Rect rect = p[i].currentAnimation->GetCurrentFrame();
+			App->render->Blit(texture, p[i].position.x, p[i].position.y - rect.h, &rect);
+		}
 	}
 	return update_status::UPDATE_CONTINUE;
 }
