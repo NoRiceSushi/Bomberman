@@ -109,8 +109,6 @@ update_status ModulePlayers::Update()
                     {
                         if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
                         {
-                            /*delete ((Module*)App->player->p[i]->position.x == (a * 16) + 25 && App->player->p[i].position.y == (j * 16) + 32 );*/
-
                             App->scene->map[a][j] = '0';
                             App->scene->map[a][j + 1] = '0';
                             App->scene->map[a][j + 2] = '0';
@@ -133,14 +131,32 @@ update_status ModulePlayers::Update()
 
                             }
 
+                            /*for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; s++)
+                                    {
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        {
+                                        
+                                            for (a; a < 12; i++)
+                                            {
+                                                players[n]->p[s].position.y = -16;
+                                            }
+                                        }
+                                    }
+                                }
 
+                            }*/
+                            
 
-                            /*players[i] = nullptr;*/
+                           
 
                             
 
                         }
-                        if (App->scene->map[a][j] == App->scene->map[a - 1][j] && App->scene->map[a][j] == App->scene->map[a - 2][j] && a > 1 && App->scene->map[a][j] != '0')
+                        if (App->scene->map[a][j] == App->scene->map[a - 1][j] && App->scene->map[a][j] == App->scene->map[a - 2][j] && a > 1 && App->scene->map[a][j] != '0'&& a > 1)
                         {
                             App->scene->map[a][j] = '0';
                             App->scene->map[a - 1][j] = '0';
@@ -150,7 +166,7 @@ update_status ModulePlayers::Update()
                             {
                                 if (players[n] != nullptr)
                                 {
-                                    for (int s = 0; s < 3; s++)
+                                    for (int s = 0; s > -3; s--)
                                     {
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32)
                                         {
@@ -164,14 +180,33 @@ update_status ModulePlayers::Update()
 
                             }
                         }
+                        if (App->scene->map[a][j] == App->scene->map[a-1][j] && App->scene->map[a][j] == App->scene->map[a-2][j] && j < 7 && App->scene->map[a][j] != '0')
+                        {
+                            App->scene->map[a][j] = '0';
+                            App->scene->map[a-1][j] = '0';
+                            App->scene->map[a-2][j] = '0';
+
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; s++)
+                                    {
+                                        if (players[n]->p[s].position.x == (i * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        {
+
+                                            players[n]->p[s].currentAnimation = nullptr;
+
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-
             }
-
-
         }
-
     }
     for (uint i = 0; i < MAX_BOMBAZOS; ++i)
     {
