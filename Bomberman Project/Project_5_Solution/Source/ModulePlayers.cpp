@@ -156,35 +156,11 @@ update_status ModulePlayers::Update()
                             
 
                         }
-                        if (App->scene->map[a][j] == App->scene->map[a - 1][j] && App->scene->map[a][j] == App->scene->map[a - 2][j] && a > 1 && App->scene->map[a][j] != '0'&& a > 1)
+                        if (a < 12 && App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && App->scene->map[a][j] != '0')
                         {
                             App->scene->map[a][j] = '0';
-                            App->scene->map[a - 1][j] = '0';
-                            App->scene->map[a - 2][j] = '0';
-
-                            for (uint n = 0; n < MAX_PLAYERS; ++n)
-                            {
-                                if (players[n] != nullptr)
-                                {
-                                    for (int s = 0; s > -3; s--)
-                                    {
-                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32)
-                                        {
-
-                                            players[n]->p[s] = {};
-
-
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-                        if (App->scene->map[a][j] == App->scene->map[a-1][j] && App->scene->map[a][j] == App->scene->map[a-2][j] && j < 7 && App->scene->map[a][j] != '0')
-                        {
-                            App->scene->map[a][j] = '0';
-                            App->scene->map[a-1][j] = '0';
-                            App->scene->map[a-2][j] = '0';
+                            App->scene->map[a + 1][j] = '0';
+                            App->scene->map[a + 2][j] = '0';
 
                             for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
@@ -192,7 +168,7 @@ update_status ModulePlayers::Update()
                                 {
                                     for (int s = 0; s < 3; s++)
                                     {
-                                        if (players[n]->p[s].position.x == (i * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+1) * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+2) * 16) + 32)
                                         {
 
                                             players[n]->p[s].currentAnimation = nullptr;
@@ -201,8 +177,10 @@ update_status ModulePlayers::Update()
                                         }
                                     }
                                 }
+
                             }
                         }
+                       
                     }
                 }
             }
