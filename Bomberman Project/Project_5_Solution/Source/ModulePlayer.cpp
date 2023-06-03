@@ -18,6 +18,7 @@
 #include <iostream>
 
 int bomba = 0;
+int bomba2 = 0;
 int verde = 0;
 bool win = false;
 float contadorW = 0;
@@ -189,6 +190,32 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 			p[2].downAnim.PushBack({ 0, 6 * 16, 16,16 });
 
 			p[2].color = 'X';
+
+			p[0].currentAnimation = &p[0].downAnim;
+			p[1].currentAnimation = &p[1].downAnim;
+			p[2].currentAnimation = &p[2].downAnim;
+		}
+		else if (bomba2 == 8)
+		{
+			bomba2 = 0;
+
+			p[0].position.x = 73;
+			p[0].position.y = 32;
+			p[0].downAnim.PushBack({ 128, 86, 28,25 });
+
+			p[0].color = 'Z';
+
+			p[1].position.x = 73;
+			p[1].position.y = 32;
+			p[1].downAnim.PushBack({ 128, 86, 28,25 });
+
+			p[1].color = 'Z';
+
+			p[2].position.x = 73;
+			p[2].position.y = 32;
+			p[2].downAnim.PushBack({ 128, 86, 28,25 });
+
+			p[2].color = 'Z';
 
 			p[0].currentAnimation = &p[0].downAnim;
 			p[1].currentAnimation = &p[1].downAnim;
@@ -571,4 +598,5 @@ void ModulePlayer::Activation() {
 
 void ModulePlayer::Bomb() {
 	bomba++;
+	bomba2++;
 }
