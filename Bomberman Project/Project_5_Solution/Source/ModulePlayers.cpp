@@ -107,6 +107,37 @@ update_status ModulePlayers::Update()
                 {
                     for (int j = 0; j < 8; j++)
                     {
+                        if (App->scene->map[a][j] == 'Z')
+                        {
+
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; s++)
+                                    {
+
+
+                                        if (players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'X' || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].color == 'X')
+                                        {
+
+                                            players[n]->p[s].currentAnimation = nullptr;
+                                        }
+                                        if (players[n]->p[s].color == 'Z')
+                                        {
+                                            players[n]->p[s].currentAnimation = nullptr;
+                                        }
+
+
+                                        App->scene->map[a][j] = '0';
+                                    }
+                                }
+                            }
+
+
+
+                        }
+
                         if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
                         {
                             App->scene->map[a][j] = '0';
