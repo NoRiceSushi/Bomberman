@@ -36,9 +36,21 @@ public:
 
 		Animation* currentAnimation = nullptr;
 
-		Animation idleAnim;
+		Animation WhiteidleAnim;
+		Animation RedidleAnim;
+		Animation BlueidleAnim;
+		Animation BlackidleAnim;
+		Animation GreenidleAnim;
+
 		Animation upAnim;
 		Animation downAnim;
+
+
+		Animation WhiteOutAnim;
+		Animation RedOutAnim;
+		Animation BlueOutAnim;
+		Animation BlackOutAnim;
+		Animation GreenOutAnim;
 	};
 
 	struct Puyo p[3];

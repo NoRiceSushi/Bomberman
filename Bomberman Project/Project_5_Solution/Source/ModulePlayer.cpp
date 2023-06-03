@@ -29,61 +29,137 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	srand(time(0));
 	air = rand() % 4;
 
-	////black puyo idle anim
-	//p->idleAnim.PushBack({0,0,16,16});
-	//p->idleAnim.PushBack({ 16,0,16,16 });
-	//p->idleAnim.PushBack({ 32,0,16,16 });
-	//p->idleAnim.PushBack({ 48,0,16,16 });
-	//p->idleAnim.PushBack({ 64,0,16,16 });
-	//p->idleAnim.PushBack({ 80,0,16,16 });
-	//p->idleAnim.PushBack({ 96,0,16,16 });
-	//p->idleAnim.PushBack({ 112,0,16,16 });
-	//p->idleAnim.PushBack({ 128,0,16,16 });
-	//p->idleAnim.PushBack({ 144,0,16,16 });
-	//p->idleAnim.PushBack({ 160,0,16,16 });
-	//p->idleAnim.PushBack({ 176,0,16,16 });
-	//p->idleAnim.PushBack({ 192,0,16,16 });
-	//p->idleAnim.speed = 0.1;
-	//p->idleAnim.loop = false;
+	//black puyo idle anim
+	p->BlackidleAnim.PushBack({0,0,16,16});
+	p->BlackidleAnim.PushBack({ 16,0,16,16 });
+	p->BlackidleAnim.PushBack({ 32,0,16,16 });
+	p->BlackidleAnim.PushBack({ 48,0,16,16 });
+	p->BlackidleAnim.PushBack({ 64,0,16,16 });
+	p->BlackidleAnim.PushBack({ 80,0,16,16 });
+	p->BlackidleAnim.PushBack({ 96,0,16,16 });
+	p->BlackidleAnim.PushBack({ 112,0,16,16 });
+	p->BlackidleAnim.PushBack({ 128,0,16,16 });
+	p->BlackidleAnim.PushBack({ 144,0,16,16 });
+	p->BlackidleAnim.PushBack({ 160,0,16,16 });
+	p->BlackidleAnim.PushBack({ 176,0,16,16 });
+	p->BlackidleAnim.PushBack({ 192,0,16,16 });
+	p->BlackidleAnim.speed = 0.1;
+	p->BlackidleAnim.loop = false;
 
-	////blue puyo idle anim
-	//p->idleAnim.PushBack({ 0,16,16,16 });
-	//p->idleAnim.PushBack({ 16,16,16,16 });
-	//p->idleAnim.PushBack({ 32,16,16,16 });
-	//p->idleAnim.speed = 0.1;
-	//p->idleAnim.loop = false;
+	//blue puyo idle anim
+	p->BlueidleAnim.PushBack({ 0,16,16,16 });
+	p->BlueidleAnim.PushBack({ 16,16,16,16 });
+	p->BlueidleAnim.PushBack({ 32,16,16,16 });
+	p->BlueidleAnim.speed = 0.1;
+	p->BlueidleAnim.loop = false;
 
-	////white puyo idle anim
-	//p->idleAnim.PushBack({ 0,32,16,16 });
-	//p->idleAnim.PushBack({ 16,32,16,16 });
-	//p->idleAnim.PushBack({ 32,32,16,16 });
-	//p->idleAnim.PushBack({ 48,32,16,16 });
-	//p->idleAnim.PushBack({ 64,32,16,16 });
-	//p->idleAnim.PushBack({ 80,32,16,16 });
-	//p->idleAnim.PushBack({ 96,32,16,16 });
-	//p->idleAnim.PushBack({ 112,32,16,16 });
-	//p->idleAnim.PushBack({ 128,32,16,16 });
-	//p->idleAnim.speed = 0.1;
-	//p->idleAnim.loop = false;
+	//white puyo idle anim
+	p->WhiteidleAnim.PushBack({ 0,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 16,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 32,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 48,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 64,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 80,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 96,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 112,32,16,16 });
+	p->WhiteidleAnim.PushBack({ 128,32,16,16 });
+	p->WhiteidleAnim.speed = 0.1;
+	p->WhiteidleAnim.loop = false;
 
-	////red puyo idle anim
-	//p->idleAnim.PushBack({ 0,48,16,16 });
-	//p->idleAnim.PushBack({ 16,48,16,16 });
-	//p->idleAnim.PushBack({ 32,48,16,16 });
-	//p->idleAnim.PushBack({ 48,48,16,16 });
-	//p->idleAnim.PushBack({ 64,48,16,16 });
-	//p->idleAnim.PushBack({ 80,48,16,16 });
-	//p->idleAnim.PushBack({ 96,48,16,16 });
-	//p->idleAnim.PushBack({ 112,48,16,16 });
-	//p->idleAnim.PushBack({ 128,48,16,16 });
-	//p->idleAnim.speed = 0.1;
-	//p->idleAnim.loop = false;
+	//red puyo idle anim
+	p->RedidleAnim.PushBack({ 0,48,16,16 });
+	p->RedidleAnim.PushBack({ 16,48,16,16 });
+	p->RedidleAnim.PushBack({ 32,48,16,16 });
+	p->RedidleAnim.PushBack({ 48,48,16,16 });
+	p->RedidleAnim.PushBack({ 64,48,16,16 });
+	p->RedidleAnim.PushBack({ 80,48,16,16 });
+	p->RedidleAnim.PushBack({ 96,48,16,16 });
+	p->RedidleAnim.PushBack({ 112,48,16,16 });
+	p->RedidleAnim.PushBack({ 128,48,16,16 });
+	p->RedidleAnim.speed = 0.1;
+	p->RedidleAnim.loop = false;
 
-	////green puyo idle anim
-	//p->idleAnim.PushBack({ 0,64,16,16 });
-	//p->idleAnim.PushBack({ 16,64,16,16 });
-	//p->idleAnim.speed = 0.1;
-	//p->idleAnim.loop = false;
+	//green puyo idle anim
+	p->GreenidleAnim.PushBack({ 0,64,16,16 });
+	p->GreenidleAnim.PushBack({ 16,64,16,16 });
+	p->GreenidleAnim.speed = 0.1;
+	p->GreenidleAnim.loop = false;
+
+
+	//white puyo out anim
+	p->WhiteOutAnim.PushBack({0,352,16,16});
+	p->WhiteOutAnim.PushBack({ 16,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 32,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 48,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 64,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 80,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 96,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 112,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 128,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 144,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 160,352,16,16 });
+	p->WhiteOutAnim.PushBack({ 176,352,16,16 });
+	p->WhiteidleAnim.speed = 0.1;
+
+	//red puyo out anim
+	p->RedOutAnim.PushBack({ 0,368,16,16 });
+	p->RedOutAnim.PushBack({ 16,368,16,16 });
+	p->RedOutAnim.PushBack({ 32,368,16,16 });
+	p->RedOutAnim.PushBack({ 48,368,16,16 });
+	p->RedOutAnim.PushBack({ 64,368,16,16 });
+	p->RedOutAnim.PushBack({ 80,368,16,16 });
+	p->RedOutAnim.PushBack({ 96,368,16,16 });
+	p->RedOutAnim.PushBack({ 112,368,16,16 });
+	p->RedOutAnim.PushBack({ 128,368,16,16 });
+	p->RedOutAnim.PushBack({ 144,368,16,16 });
+	p->RedOutAnim.PushBack({ 160,368,16,16 });
+	p->RedOutAnim.PushBack({ 176,368,16,16 });
+	p->RedOutAnim.speed = 0.1;
+
+	//blue puyo out anim
+	p->BlueOutAnim.PushBack({ 0,383,16,16 });
+	p->BlueOutAnim.PushBack({ 16,383,16,16 });
+	p->BlueOutAnim.PushBack({ 32,383,16,16 });
+	p->BlueOutAnim.PushBack({ 48,383,16,16 });
+	p->BlueOutAnim.PushBack({ 64,383,16,16 });
+	p->BlueOutAnim.PushBack({ 80,383,16,16 });
+	p->BlueOutAnim.PushBack({ 96,383,16,16 });
+	p->BlueOutAnim.PushBack({ 112,383,16,16 });
+	p->BlueOutAnim.PushBack({ 128,383,16,16 });
+	p->BlueOutAnim.PushBack({ 144,383,16,16 });
+	p->BlueOutAnim.PushBack({ 160,383,16,16 });
+	p->BlueOutAnim.PushBack({ 176,383,16,16 });
+	p->BlueOutAnim.speed = 0.1;
+
+	//black puyo out anim
+	p->BlackOutAnim.PushBack({ 0,398,16,16 });
+	p->BlackOutAnim.PushBack({ 16,398,16,16 });
+	p->BlackOutAnim.PushBack({ 32,398,16,16 });
+	p->BlackOutAnim.PushBack({ 48,398,16,16 });
+	p->BlackOutAnim.PushBack({ 64,398,16,16 });
+	p->BlackOutAnim.PushBack({ 80,398,16,16 });
+	p->BlackOutAnim.PushBack({ 96,398,16,16 });
+	p->BlackOutAnim.PushBack({ 112,398,16,16 });
+	p->BlackOutAnim.PushBack({ 128,398,16,16 });
+	p->BlackOutAnim.PushBack({ 144,398,16,16 });
+	p->BlackOutAnim.PushBack({ 160,398,16,16 });
+	p->BlackOutAnim.PushBack({ 176,398,16,16 });
+	p->BlackOutAnim.speed = 0.1;
+
+	//green puyo out anim
+	p->GreenOutAnim.PushBack({ 0,413,16,16 });
+	p->GreenOutAnim.PushBack({ 16,413,16,16 });
+	p->GreenOutAnim.PushBack({ 32,413,16,16 });
+	p->GreenOutAnim.PushBack({ 48,413,16,16 });
+	p->GreenOutAnim.PushBack({ 64,413,16,16 });
+	p->GreenOutAnim.PushBack({ 80,413,16,16 });
+	p->GreenOutAnim.PushBack({ 96,413,16,16 });
+	p->GreenOutAnim.PushBack({ 112,413,16,16 });
+	p->GreenOutAnim.PushBack({ 128,413,16,16 });
+	p->GreenOutAnim.PushBack({ 144,413,16,16 });
+	p->GreenOutAnim.PushBack({ 160,413,16,16 });
+	p->GreenOutAnim.PushBack({ 176,413,16,16 });
+	p->GreenOutAnim.speed = 0.1;
 
 	ModulePlayer::Bomb();
 
