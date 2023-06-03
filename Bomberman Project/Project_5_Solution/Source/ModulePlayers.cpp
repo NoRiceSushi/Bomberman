@@ -123,7 +123,7 @@ update_status ModulePlayers::Update()
                                         {
 
                                             players[n]->p[s].currentAnimation = nullptr;
-
+                                            App->score->score += 50;
 
                                         }
                                     }
@@ -172,7 +172,7 @@ update_status ModulePlayers::Update()
                                         {
 
                                             players[n]->p[s].currentAnimation = nullptr;
-
+                                            App->score->score += 50;
 
                                         }
                                     }
@@ -196,6 +196,18 @@ update_status ModulePlayers::Update()
 
     }
 
+    if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
+    {
+        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        {
+            if (players[i] != nullptr)
+            {
+                delete players[i];
+                players[i] = nullptr;
+            }
+        }
+    }
+        
 
 
     return update_status::UPDATE_CONTINUE;
