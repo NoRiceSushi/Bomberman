@@ -58,7 +58,7 @@ public:
 	int air = 0;
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
-	uint sfx_rotate = 0;
+
 
 };
 

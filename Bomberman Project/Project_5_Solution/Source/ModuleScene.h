@@ -14,7 +14,7 @@ public:
 	ModuleScene(bool startEnabled);
 
 	~ModuleScene();
-
+	void PlayBackgroundMusic();
 	bool Start() override;
 
 	update_status Update() override;
@@ -30,6 +30,7 @@ public:
 	bool isDownLessEmpty(int x, int y);
 
 	void DestroyLines();
+
 	int Score = 0;
 public:
 	
@@ -59,6 +60,7 @@ public:
 	SDL_Rect rectG;
 	SDL_Rect rectY;
 	SDL_Rect rectR;
+	SDL_Rect rectLevel;
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;
 	SDL_Texture* bgBorders = nullptr;
@@ -66,9 +68,13 @@ public:
 	Animation* currentAnimation = nullptr;
 	Animation* currentAnimY = nullptr;
 	Animation* currentAnimR = nullptr;
+	Animation* currentAnimLevel = nullptr;
 	Animation AnimBorders;
 	Animation AnimBordersy;
 	Animation AnimBordersr;
+	Animation Animlevelup;
+
+	uint sfx_rotate = 0;
 };
 
 #endif

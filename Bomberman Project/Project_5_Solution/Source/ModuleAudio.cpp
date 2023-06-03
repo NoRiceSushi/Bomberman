@@ -124,6 +124,57 @@ bool ModuleAudio::PlayMusic(const char* path, float fade_time)
 	return ret;
 }
 
+bool ModuleAudio::PlayMusico(const char* path, float fade_time)
+{
+	bool ret = true;
+
+	if (music != NULL)
+	{
+		if (fade_time > 0.0f)
+		{
+			// Warning: This call blocks the execution until fade out is done
+			Mix_FadeOutMusic((int)(fade_time * 1000.0f));
+		}
+		else
+		{
+			Mix_HaltMusic();
+		}
+
+		Mix_FreeMusic(music);
+		music = NULL;  // Set the music pointer to NULL to indicate it is not playing
+	}
+
+	music = Mix_LoadMUS(path);
+
+	if (music == NULL)
+	{
+		LOG("Cannot load music %s. Mix_GetError(): %s\n", path, Mix_GetError());
+		ret = false;
+	}
+	else
+	{
+		if (fade_time > 0.0f)
+		{
+			if (Mix_FadeInMusic(music, 0, (int)(fade_time * 1000.0f)) < 0)
+			{
+				LOG("Cannot fade in music %s. Mix_GetError(): %s", path, Mix_GetError());
+				ret = false;
+			}
+		}
+		else
+		{
+			if (Mix_PlayMusic(music, 1) < 0)  // Set the loops parameter to 1 for playing only once
+			{
+				LOG("Cannot play in music %s. Mix_GetError(): %s", path, Mix_GetError());
+				ret = false;
+			}
+		}
+	}
+
+	LOG("Successfully playing %s", path);
+	return ret;
+}
+
 uint ModuleAudio::LoadFx(const char* path)
 {
 	uint ret = 0;

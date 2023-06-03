@@ -82,6 +82,9 @@ ModuleScene::ModuleScene(bool startEnabled) : Module(startEnabled)
 	AnimBordersr.loop = true;
 	AnimBordersr.speed = 0.5f;
 
+	//level up
+	Animlevelup.PushBack({ 102,517,57,46 });
+
 	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 8; j++)
@@ -96,6 +99,10 @@ ModuleScene::~ModuleScene()
 
 }
 
+void ModuleScene::PlayBackgroundMusic()
+{
+	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+}
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
@@ -108,7 +115,13 @@ bool ModuleScene::Start()
 	currentAnimation = &AnimBorders;
 	currentAnimY = &AnimBordersy;
 	currentAnimR = &AnimBordersr;
-	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+	currentAnimLevel = &Animlevelup;
+	//App->audio->PlayMusic("Assets/audio/07_Ready.ogg", 1.0f);
+	//SDL_Delay(5000);
+	//App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+	/*App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);*/
+	
+	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotation.wav");
 
 	App->fade->EnableOnly(this, (Module*)App->score);
 	App->fade->EnableOnly(this, (Module*)App->player);
@@ -123,10 +136,10 @@ bool ModuleScene::Start()
 		}
 	}
 
-
 	return ret;
 
 }
+
 
 update_status ModuleScene::Update()
 {
@@ -141,7 +154,13 @@ update_status ModuleScene::Update()
 
 	if (App->input->keys[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN)
 	{
-		App->fade->EnableOnly(this, (Module*)App->timer);
+		///*App->fade->EnableOnly(this, (Module*)App->timer);*/
+		//App->audio->PlayMusico("Assets/audio/07_Ready.ogg", 1.0f);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN)
+	{
+		App->audio->PlayFx(sfx_rotate);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
@@ -163,14 +182,9 @@ update_status ModuleScene::Update()
 	}
 	cout << endl; cout << endl; cout << endl; cout << endl;
 
-	/*currentAnimation = &AnimBorders;*/
-	//for (int i = 0; i < 8; i++) {
-	//	if (App->scene->ReadTile(i, 4) == false) {
-	//		App->fade->EnableOnly(this, (Module*)App->timer);
-	//	}
-	//}
 	currentAnimR->Update();
 	currentAnimY->Update();
+	currentAnimLevel->Update();
 	currentAnimation->Update();
 	
 	return update_status::UPDATE_CONTINUE;
@@ -211,6 +225,8 @@ update_status ModuleScene::PostUpdate()
 			rectR = currentAnimR->GetCurrentFrame();
 			App->render->Blit(bgBorders, 19, 10, &rectR);
 	}
+	//rectLevel = currentAnimLevel->GetCurrentFrame();
+	//App->render->Blit(bgBorders, 50, 30, &rectLevel);
 
 	App->render->Blit(bgTexture2, 0, 0, 0, 10);
 
