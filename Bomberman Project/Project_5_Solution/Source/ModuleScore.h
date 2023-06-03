@@ -35,7 +35,7 @@ public:
 	bool bombOnPos;
 	iPoint positionBomba;
 	iPoint positionGo;
-
+	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* textureCoins = nullptr;
 	
 	SDL_Texture* insertCoins = nullptr;

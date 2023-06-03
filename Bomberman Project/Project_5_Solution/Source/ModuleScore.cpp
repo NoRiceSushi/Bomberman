@@ -176,7 +176,7 @@ bool ModuleScore::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
-
+	bgTexture = App->textures->Load("Assets/background.png");
 	sfx_coin = App->audio->LoadFx("Assets/sfx/sfx_coins.wav");
 	char lookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/test.png", lookupTable, 1);
@@ -227,6 +227,30 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
+	if (score >= 0 && score <= 150)
+	{
+		App->render->Blit(bgTexture, -103, 0, 0, 0);
+	}
+	if (score >= 50 && score <= 150)
+	{
+		App->render->Blit(bgTexture, -231, 0, 0, 0);
+	}
+	if (score >= 100 && score <= 150)
+	{
+		App->render->Blit(bgTexture, -359, 0, 0, 0);
+	}
+	if (score >= 150 /*&& score <= 150*/)
+	{
+		App->render->Blit(bgTexture, -487, 0, 0, 0);
+	}
+	if (score >= 200 /*&& score <= 150*/)
+	{
+		App->render->Blit(bgTexture, -615, 0, 0, 0);
+	}
+	if (score >= 250/* && score <= 150*/)
+	{
+		App->render->Blit(bgTexture, -743, 0, 0, 0);
+	}
 	if (App->input->keys[SDL_SCANCODE_C] != KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
 	{
 		App->audio->PlayFx(sfx_coin);
