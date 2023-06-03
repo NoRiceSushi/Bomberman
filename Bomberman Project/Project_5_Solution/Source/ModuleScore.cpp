@@ -27,7 +27,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	Blink.PushBack({ 0,40,96,8 });
 	Blink.PushBack({ 0,32,96,8 });
 	Blink.loop = true;
-	Blink.speed = 0.4f;
+	Blink.speed = 0.25f;
 
 	//insertcoin out
 	Out.PushBack({ 0,32,96,8 });
@@ -53,7 +53,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	bombaIdle.PushBack({ 48,112,48,48 });
 	bombaIdle.PushBack({ 96,112,48,48 });
 	bombaIdle.PushBack({ 48,112,48,48 });
-	bombaIdle.speed = 0.4f;
+	bombaIdle.speed = 0.25f;
 	bombaIdle.loop = false;
 
 	//bomb anim out
@@ -73,7 +73,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	explosionBomb.PushBack({ 1152,160,128,128 });
 	explosionBomb.PushBack({ 0,0,0,0 });
 	explosionBomb.loop = false;
-	explosionBomb.speed = 0.5f;
+	explosionBomb.speed = 0.3f;
 
 	//explosion out
 	explosionOut.PushBack({ 0,0,0,0 });
