@@ -164,12 +164,12 @@ update_status ModulePlayers::Update()
 
                             }
 
-                            for (a; a < 12; a++)
+                            /*for (a; a < 12; a++)
                             {
                                 App->scene->map[a][j] = App->scene->map[a + 1][j];
                                 App->scene->map[a][j+1] = App->scene->map[a + 1][j+1];
                                 App->scene->map[a][j+2] = App->scene->map[a + 1][j+2];
-                            }
+                            }*/
 
 
 
@@ -198,7 +198,7 @@ update_status ModulePlayers::Update()
                             
 
                         }
-                        if (a < 12 && App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && App->scene->map[a][j] != '0')
+                        /*if (a < 12 && App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && App->scene->map[a][j] != '0')
                         {
                             App->scene->map[a][j] = '0';
                             App->scene->map[a + 1][j] = '0';
@@ -226,8 +226,50 @@ update_status ModulePlayers::Update()
                             {
                                 App->scene->map[a][j] = App->scene->map[a + 3][j];
                             }
-                        }
+                        }*/
                        
+                    }
+                }
+            }
+        }
+    }
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    {
+        if (players[i] != nullptr)
+        {
+
+            if (players[i]->p[0].active == false && players[i]->p[1].active == false && players[i]->p[2].active == false)
+            {
+                for (int a = 0; a < 12; a++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if ((App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && a < 12 && App->scene->map[a][j] != '0'))
+                        {
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; ++s)
+                                    {
+                                        if ((players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr) ||
+                                            (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a + 1) * 16) + 32 && players[n]->p[s].currentAnimation != nullptr) ||
+                                            (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a + 2) * 16) + 32 && players[n]->p[s].currentAnimation != nullptr))
+                                        {
+                                            outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y - 16, players[n]->p[s].color);
+                                            Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
+                                            players[n]->p[s].currentAnimation = nullptr;
+                                            App->score->score += 50;
+
+                                            App->scene->map[a][j] = '0';
+                                            App->scene->map[a + 1][j] = '0';
+                                            App->scene->map[a + 2][j] = '0';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                     }
                 }
             }
@@ -257,7 +299,7 @@ update_status ModulePlayers::Update()
         
 
 
-    return update_status::UPDATE_CONTINUE;
+        return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModulePlayers::PostUpdate()
