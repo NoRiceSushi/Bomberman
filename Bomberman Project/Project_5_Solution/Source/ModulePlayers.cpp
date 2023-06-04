@@ -207,7 +207,6 @@ update_status ModulePlayers::Update()
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
-
                                         }
                                     }
                                 }
