@@ -100,10 +100,10 @@ ModuleScene::~ModuleScene()
 
 }
 
-void ModuleScene::PlayBackgroundMusic()
-{
-	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
-}
+//void ModuleScene::PlayBackgroundMusic()
+//{
+//	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+//}
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");

@@ -44,7 +44,7 @@ public:
 
 		Animation upAnim;
 		Animation downAnim;
-
+		Animation bomb2;
 
 		Animation WhiteOutAnim;
 		Animation RedOutAnim;
@@ -58,6 +58,7 @@ public:
 	int air = 0;
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
+	SDL_Texture* bgBorders = nullptr;
 
 
 };

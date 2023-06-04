@@ -162,6 +162,18 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	p->GreenOutAnim.PushBack({ 176,413,16,16 });
 	p->GreenOutAnim.speed = 0.1;
 
+	//Bomb explosion animation
+	p->bomb2.PushBack({ 487,1122,79,79 });
+	p->bomb2.PushBack({ 406,1122,79,79 });
+	p->bomb2.PushBack({ 325,1122,79,79 });
+	p->bomb2.PushBack({ 406,1122,79,79 });
+	p->bomb2.PushBack({ 244,1122,79,79 });
+	p->bomb2.PushBack({ 163,1122,79,79 });
+	p->bomb2.PushBack({ 82,1122,79,79 });
+	p->bomb2.PushBack({ 1,1122,79,79 });
+	p->bomb2.loop = true;
+	p->bomb2.speed = 0.2;
+
 	ModulePlayer::Bomb();
 
 	if (bomba != 10)
@@ -351,7 +363,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 
-
+	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
 
 	return ret;
 }

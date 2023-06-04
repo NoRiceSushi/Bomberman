@@ -154,6 +154,9 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	bomb7.loop = true;
 	bomb7.speed = 0.2;
 
+	Animlevelup.PushBack({ 102,517,57,46 });
+
+
 	rect2 = { 0,72, 80, 16 };
 	rectBomb = {0,112,48,48 };
 	rectExplosion = {0,160,128,288};
@@ -198,6 +201,9 @@ bool ModuleScore::Start()
 	goText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
 	goAnim = &goOut;
 
+	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	currentAnimLevel = &Animlevelup;
+	sfx_explosion = App->audio->LoadFx("Assets/sfx/sfx_start_explosion.wav");
 	bomb = App->textures->Load("Assets/SpriteSheetOP.png");
 	bomb1Anim = &bomb1;
 	bomb2Anim = &bomb2;
@@ -212,11 +218,15 @@ bool ModuleScore::Start()
 	readyScreenEnd = false;
 	readyOnPos = false;
 	bombOnPos = false;
+	LevelOnPos = false;
 	posSpeed = 8;
+	posSpeedLevel = 8;
 	posSpeedBomba = 10;
-	posSpeedGo = 0;
+	posSpeedGo = 6;
 	positionBomba.x = 72;
 	positionBomba.y = -96;
+	positionLevel.x = 72;
+	positionLevel.y = -96;
 	positionGo.x = 57;
 	positionGo.y = 92;
 
@@ -227,29 +237,37 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
-	if (score >= 0 && score <= 150)
+	if (score >= 0 && score <= 1000)
 	{
 		App->render->Blit(bgTexture, -103, 0, 0, 0);
 	}
-	if (score >= 50 && score <= 150)
+	if (score >= 1000 && score <= 2000)
 	{
 		App->render->Blit(bgTexture, -231, 0, 0, 0);
 	}
-	if (score >= 100 && score <= 150)
+	if (score >= 2000 && score <= 3000)
 	{
 		App->render->Blit(bgTexture, -359, 0, 0, 0);
 	}
-	if (score >= 150 /*&& score <= 150*/)
+	if (score >= 3000 /*&& score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -487, 0, 0, 0);
 	}
-	if (score >= 200 /*&& score <= 150*/)
+	if (score >= 4000 /*&& score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -615, 0, 0, 0);
 	}
-	if (score >= 250/* && score <= 150*/)
+	if (score >= 5000/* && score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -743, 0, 0, 0);
+	}
+	if (score >= 6000/* && score <= 150*/)
+	{
+		App->render->Blit(bgTexture, -871, 0, 0, 0);
+	}
+	if (score >= 7000/* && score <= 150*/)
+	{
+		App->render->Blit(bgTexture, -999, 0, 0, 0);
 	}
 	if (App->input->keys[SDL_SCANCODE_C] != KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
 	{
@@ -272,12 +290,20 @@ update_status ModuleScore::Update()
 			bombaAnim = &bombaIdle;
 		}
 	}
+	if (score >= 20 && score <= 150) {
+		if (positionBomba.y < 92) {
+			positionBomba.y += posSpeedBomba;
+			if (posSpeedBomba > 1) { posSpeedBomba -= 0.2; }
+			bombaAnim = &bombaIdle;
+		}
+	}
 
 	if (bombaAnim->HasFinished() && bombaAnim == &bombaIdle) {
 		explosionAnim = &explosionBomb;
 		bombaAnim = &bombaOut;
 		readyAnim = &readyOut;
 		goAnim = &goIdle;
+		App->audio->PlayFx(sfx_explosion);
 	}
 	if (explosionAnim->HasFinished() && explosionAnim == &explosionBomb) readyScreenEnd = true;
 	
@@ -290,6 +316,7 @@ update_status ModuleScore::Update()
 			goAnim = &goOut;
 		}
 	}
+
 	
 	bomb1Anim->Update();
 	bomb2Anim->Update();
@@ -298,7 +325,7 @@ update_status ModuleScore::Update()
 	bomb5Anim->Update();
 	bomb6Anim->Update();
 	bomb7Anim->Update();
-
+	currentAnimLevel->Update();
 	coinCurrentAnim->Update();
 	readyAnim->Update();
 	bombaAnim->Update();
@@ -346,10 +373,12 @@ update_status ModuleScore::PostUpdate()
 			rectbomb6 = bomb6Anim->GetCurrentFrame();
 			App->render->Blit(bomb, 107, 6, &rectbomb6);
 		}
-		if (score >= 50 && score <= 150)
+		if (score >= 20 && score <= 150)
 		{
 			rectbomb7 = bomb7Anim->GetCurrentFrame();
-			App->render->Blit(bomb, 107, 6, &rectbomb7);
+			App->render->Blit(bomb, 107, 7, &rectbomb7);
+			/*rectlevel = currentAnimLevel->GetCurrentFrame();
+			App->render->Blit(bgBorders, positionBomba.x, positionBomba.y, &rectlevel);*/
 		}
 
 

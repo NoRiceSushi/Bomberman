@@ -85,40 +85,40 @@ update_status SceneIntro::PostUpdate()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() -  timerStart > 4000 && SDL_GetTicks() - timerStart < 4300) {
+	if (SDL_GetTicks() -  timerStart > 4000 && SDL_GetTicks() - timerStart < 4150) {
 		
 		App->render->Blit(Starting1, 0, 0, NULL);
 		App->audio->PlayFx(sfx_explosion);
 	}
-	else if (SDL_GetTicks() - timerStart > 4300) {
+	else if (SDL_GetTicks() - timerStart > 4150) {
 
 		App->render->Blit(Starting2, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4500) {
+	if (SDL_GetTicks() - timerStart > 4300) {
 
 		App->render->Blit(Starting3, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4700) {
+	if (SDL_GetTicks() - timerStart > 4450) {
 
 		App->render->Blit(Starting4, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4900) {
+	if (SDL_GetTicks() - timerStart > 4600) {
 
 		App->render->Blit(Starting5, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5100) {
+	if (SDL_GetTicks() - timerStart > 4750) {
 
 		App->render->Blit(Starting6, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5300) {
+	if (SDL_GetTicks() - timerStart > 4900) {
 
 		App->render->Blit(Starting7, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5500) {
+	if (SDL_GetTicks() - timerStart > 5050) {
 
 		App->render->Blit(Starting8, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5700) {
+	if (SDL_GetTicks() - timerStart > 5200) {
 
 		App->render->Blit(Starting9, 0, 0, NULL);
 		App->fade->FadeToBlack(this, (Module*)App->scene, 70);
