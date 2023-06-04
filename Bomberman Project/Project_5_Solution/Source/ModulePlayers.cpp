@@ -23,16 +23,6 @@ ModulePlayers::ModulePlayers(bool startEnabled) : Module(startEnabled)
 
         }
     }
-
-    else
-    {
-        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-        {
-            bombazo[i] = nullptr;
-
-        }
-    }
-
 }
 
 ModulePlayers::~ModulePlayers()
@@ -61,19 +51,6 @@ bool ModulePlayers::Start()
         }
     }
 
-    else
-    {
-        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-        {
-            if (bombazo[i] != nullptr)
-            {
-
-                bombazo[i]->Start();
-
-            }
-
-        }
-    }
 
 
 
@@ -164,12 +141,12 @@ update_status ModulePlayers::Update()
 
                             }
 
-                            /*for (a; a < 12; a++)
+                            for (a; a > 0; a--)
                             {
-                                App->scene->map[a][j] = App->scene->map[a + 1][j];
-                                App->scene->map[a][j+1] = App->scene->map[a + 1][j+1];
-                                App->scene->map[a][j+2] = App->scene->map[a + 1][j+2];
-                            }*/
+                                App->scene->map[a][j] = App->scene->map[a - 1][j];
+                                App->scene->map[a][j+1] = App->scene->map[a - 1][j+1];
+                                App->scene->map[a][j+2] = App->scene->map[a - 1][j+2];
+                            }
 
 
 
@@ -271,6 +248,11 @@ update_status ModulePlayers::Update()
                                     }
                                 }
                             }
+
+                            for (a; a > 3; a--)
+                            {
+                                App->scene->map[a][j] = App->scene->map[a - 3][j];
+                            }
                         }
 
                     }
@@ -278,15 +260,7 @@ update_status ModulePlayers::Update()
             }
         }
     }
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
-        if (bombazo[i] != nullptr)
-        {
 
-            bombazo[i]->Update();
-        }
-
-    }
 
     if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
     {
@@ -317,16 +291,6 @@ update_status ModulePlayers::PostUpdate()
 
 
     }
-
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
-        if (bombazo[i] != nullptr)
-        {
-            bombazo[i]->PostUpdate();
-        }
-
-
-    }
     return update_status::UPDATE_CONTINUE;
 }
 
@@ -340,14 +304,6 @@ bool ModulePlayers::CleanUp()
         {
             delete players[i];
             players[i] = nullptr;
-        }
-    }
-    for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-    {
-        if (bombazo[i] != nullptr)
-        {
-            delete bombazo[i];
-            bombazo[i] = nullptr;
         }
     }
 
@@ -469,50 +425,6 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
 
         }
     }
-
-    else
-    {
-        for (uint i = 0; i < MAX_BOMBAZOS; ++i)
-        {
-
-
-            if (bombazo[i] == nullptr)
-            {
-
-
-
-
-                if (bombazo[i] == bombazo[0])
-                {
-                    bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
-
-                    bombazo[i]->texture = texture;
-
-
-                }
-                else
-                {
-
-                    {
-                        bombazo[i] = new ModuleBombazo(true); // use new constructor with boolean parameter
-
-                        bombazo[i]->texture = texture;
-
-
-                    }
-                }
-
-                contador = 0;
-
-
-            }
-
-            break;
-
-        }
-    }
-
-
 }
 
 

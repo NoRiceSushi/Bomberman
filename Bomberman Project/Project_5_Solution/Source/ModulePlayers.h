@@ -70,7 +70,6 @@ private:
     EnemySpawnpoint spawnQueue2[MAX_BOMBAZOS];
 
     ModulePlayer* players[MAX_PLAYERS] = { nullptr };
-    ModuleBombazo* bombazo[MAX_BOMBAZOS] = { nullptr };
 };
 
 #endif // !__MODULE_PLAYERS_H__
