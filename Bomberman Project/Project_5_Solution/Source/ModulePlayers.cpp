@@ -119,7 +119,7 @@ update_status ModulePlayers::Update()
                                     {
 
 
-                                        if (players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z' || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z')
+                                        if (players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z' && players[n]->p[s].active == false || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z' && players[n]->p[s].active == false)
                                         {
 
                                             players[n]->p[s].currentAnimation = nullptr;
@@ -246,6 +246,11 @@ update_status ModulePlayers::Update()
                     {
                         if ((App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && a < 12 && App->scene->map[a][j] != '0' && App->scene->map[a][j] != 'X'))
                         {
+
+                            App->scene->map[a][j] = '0';
+                            App->scene->map[a + 1][j] = '0';
+                            App->scene->map[a + 2][j] = '0';
+
                             for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
                                 if (players[n] != nullptr)
@@ -261,9 +266,7 @@ update_status ModulePlayers::Update()
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
 
-                                            App->scene->map[a][j] = '0';
-                                            App->scene->map[a + 1][j] = '0';
-                                            App->scene->map[a + 2][j] = '0';
+                                            
                                         }
                                     }
                                 }
