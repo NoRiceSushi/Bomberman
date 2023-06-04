@@ -154,6 +154,7 @@ update_status ModulePlayers::Update()
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
+                                            Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x-8, players[n]->p[s].position.y -24);
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
 
@@ -203,6 +204,7 @@ update_status ModulePlayers::Update()
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+1) * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+2) * 16) + 32)
                                         {
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
+                                            Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 32, players[n]->p[s].position.y - 64);
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
 

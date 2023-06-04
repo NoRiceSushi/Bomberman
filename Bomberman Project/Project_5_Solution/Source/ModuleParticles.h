@@ -60,6 +60,8 @@ public:
 	//Template particle for a laser
 	Particle laser;
 
+	Particle Star;
+
 	Particle WhiteOutAnim;
 	Particle GreenOutAnim;
 	Particle BlackOutAnim;

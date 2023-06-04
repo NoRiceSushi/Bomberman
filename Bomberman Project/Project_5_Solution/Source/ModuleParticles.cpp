@@ -122,6 +122,14 @@ bool ModuleParticles::Start()
 	GreenOutAnim.anim.speed = animspeed;
 	GreenOutAnim.anim.loop = false;
 
+	//star anim
+	Star.anim.PushBack({ 0,428,32,32 });
+	Star.anim.PushBack({ 32,428,32,32 });
+	Star.anim.PushBack({ 64,428,32,32 });
+	Star.anim.PushBack({ 96,428,32,32 });
+	Star.anim.PushBack({ 128,428,32,32 });
+	Star.anim.speed = 0.2;
+	Star.anim.loop = false;
 
 	return true;
 }
