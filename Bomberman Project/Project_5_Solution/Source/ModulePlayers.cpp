@@ -9,6 +9,7 @@
 #include "ModuleScore.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModuleScene.h"
+#include "ModuleParticles.h"
 
 int contador = 0;
 
@@ -152,6 +153,7 @@ update_status ModulePlayers::Update()
                                     {
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
+                                            outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
 
@@ -200,7 +202,7 @@ update_status ModulePlayers::Update()
                                     {
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+1) * 16) + 32 || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+2) * 16) + 32)
                                         {
-
+                                            outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
                                             players[n]->p[s].currentAnimation = nullptr;
                                             App->score->score += 50;
 
@@ -451,4 +453,29 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
     }
 
 
+}
+
+
+void ModulePlayers::outAnim(int x,int y,char color) {
+    if (color == 'B')
+    {
+        Particle* newParticle = App->particles->AddParticle(App->particles->WhiteOutAnim, x, y);
+    }
+    if (color == 'A')
+    {
+        Particle* newParticle = App->particles->AddParticle(App->particles->BlueOutAnim, x, y);
+    }
+    if (color == 'R')
+    {
+        Particle* newParticle = App->particles->AddParticle(App->particles->RedOutAnim, x, y);
+    }
+    if (color == 'N')
+    {
+        Particle* newParticle = App->particles->AddParticle(App->particles->BlackOutAnim, x, y);
+    }
+    if (color == 'V')
+    {
+        Particle* newParticle = App->particles->AddParticle(App->particles->GreenOutAnim, x, y);
+    }
+    
 }
