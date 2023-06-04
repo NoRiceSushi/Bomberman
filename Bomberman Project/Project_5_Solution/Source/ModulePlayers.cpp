@@ -164,6 +164,15 @@ update_status ModulePlayers::Update()
 
                             }
 
+                            for (a; a < 12; a++)
+                            {
+                                App->scene->map[a][j] = App->scene->map[a + 1][j];
+                                App->scene->map[a][j+1] = App->scene->map[a + 1][j+1];
+                                App->scene->map[a][j+2] = App->scene->map[a + 1][j+2];
+                            }
+
+
+
                             /*for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
                                 if (players[n] != nullptr)
@@ -212,6 +221,11 @@ update_status ModulePlayers::Update()
                                     }
                                 }
 
+                            }
+
+                            for (a; a < 12; a++)
+                            {
+                                App->scene->map[a][j] = App->scene->map[a + 3][j];
                             }
                         }
                        
