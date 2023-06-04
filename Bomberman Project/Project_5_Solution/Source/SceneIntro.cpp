@@ -20,6 +20,13 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 	Blink.PushBack({ 0,32,96,8 });
 	Blink.loop = true;
 	Blink.speed = 0.25f;
+
+	Fire.PushBack({ 161,517,17,23 });
+	Fire.PushBack({ 161,543,17,20 });
+	Fire.PushBack({ 161,565,17,20 });
+	Fire.PushBack({ 161,543,17,20 });
+	Fire.loop = true;
+	Fire.speed = 0.1f;
 }
 
 SceneIntro::~SceneIntro()
@@ -47,6 +54,8 @@ bool SceneIntro::Start()
 	sfx_explosion = App->audio->LoadFx("Assets/sfx/sfx_start_explosion.wav");
 	InsertA = App->textures->Load("Assets/Numeros+SpritesLetras.png");
 	AnimBlink= &Blink;
+	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	AnimFire = &Fire;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -60,7 +69,7 @@ update_status SceneIntro::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->scene, 70);
 	}
-
+	AnimFire->Update();
 	AnimBlink->Update();
 	return update_status::UPDATE_CONTINUE;
 }
@@ -70,6 +79,8 @@ update_status SceneIntro::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
+	rectFire = AnimFire->GetCurrentFrame();
+	App->render->Blit(bgBorders, 240, 85, &rectFire);
 	if (!timerStarted) {
 		timerStarted = true;
 		timerStart = SDL_GetTicks();

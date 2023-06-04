@@ -30,6 +30,7 @@ public:
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* bgBorders = nullptr;
 	SDL_Texture* InsertA = nullptr;
 	SDL_Texture* Starting1 = nullptr;
 	SDL_Texture* Starting2 = nullptr;
@@ -43,6 +44,9 @@ public:
 	Animation* AnimBlink;
 	Animation Blink;
 	SDL_Rect rectBlink;
+	Animation* AnimFire;
+	Animation Fire;
+	SDL_Rect rectFire;
 
 	Uint32 timerStart = 0;
 	bool timerStarted = false;
