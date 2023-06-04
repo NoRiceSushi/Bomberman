@@ -222,7 +222,7 @@ bool ModuleScore::Start()
 	posSpeed = 8;
 	posSpeedLevel = 8;
 	posSpeedBomba = 10;
-	posSpeedGo = 1;
+	posSpeedGo = 0;
 	positionBomba.x = 72;
 	positionBomba.y = -96;
 	positionLevel.x = 72;
