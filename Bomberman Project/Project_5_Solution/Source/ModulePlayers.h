@@ -58,6 +58,8 @@ public:
 
     int enemyDestroyedFx = 0;
 
+    void outAnim(int x, int y,char color);
+
 
 
 
