@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayers.h"
 #include "ModuleInput.h"
+#include "ModuleScore.h"
 #include "ModuleGameOver.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayer.h"
@@ -119,7 +120,7 @@ bool ModuleScene::Start()
 	//App->audio->PlayMusic("Assets/audio/07_Ready.ogg", 1.0f);
 	//SDL_Delay(5000);
 	//App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
-	/*App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);*/
+	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 	
 	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotation.wav");
 
@@ -192,8 +193,11 @@ update_status ModuleScene::Update()
 
 update_status ModuleScene::PostUpdate()
 {
-
-	App->render->Blit(bgTexture, -231, 0, 0, 10);
+	/*if (score >= 50 && score <= 150)
+	{
+		App->render->Blit(bgTexture, -231, 0, 0, 10);
+	}*/
+	//App->render->Blit(bgTexture, -231, 0, 0, 10);
 	rectG = currentAnimation->GetCurrentFrame();
 	App->render->Blit(bgBorders, 19, 10, &rectG);
 	bool playYellow = false;
