@@ -62,6 +62,7 @@ public:
 
     int animaciones;
 
+    int contador = 0;
 
 private:
 

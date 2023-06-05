@@ -53,6 +53,8 @@ public:
 		Animation GreenOutAnim;
 	};
 
+
+
 	struct Puyo p[3];
 	float speed = 0.5;
 	int air = 0;
