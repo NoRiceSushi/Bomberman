@@ -15,14 +15,13 @@ int contador = 0;
 
 ModulePlayers::ModulePlayers(bool startEnabled) : Module(startEnabled)
 {
-    if (contador != 10)
-    {
-        for (uint i = 0; i < MAX_PLAYERS; ++i)
-        {
-            players[i] = nullptr;
 
-        }
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    {
+        players[i] = nullptr;
+
     }
+
 }
 
 ModulePlayers::~ModulePlayers()
@@ -36,19 +35,18 @@ bool ModulePlayers::Start()
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
 
-    if (contador != 10)
+
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
-        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        if (players[i] != nullptr)
         {
-            if (players[i] != nullptr)
-            {
 
-                players[i]->Start();
-
-            }
+            players[i]->Start();
 
         }
+
     }
+
 
     animaciones = 0;
 
@@ -97,7 +95,7 @@ update_status ModulePlayers::Update()
                                         {
 
                                             players[n]->p[s] = {};
-                                            App->scene->map[a][j] = '0';
+                                            /*App->scene->map[a][j] = '0';*/
                                         }
                                         if (players[n]->p[s].color == 'Z')
                                         {
@@ -106,11 +104,11 @@ update_status ModulePlayers::Update()
                                         }
 
 
-                                        
+
                                     }
                                 }
                             }
-                            
+
 
 
                         }
@@ -127,10 +125,10 @@ update_status ModulePlayers::Update()
                                 {
                                     for (int s = 0; s < 3; s++)
                                     {
-                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
-                                            outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
-                                            Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x-8, players[n]->p[s].position.y -24);
+                                            outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y - 16, players[n]->p[s].color);
+                                            Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
                                             players[n]->p[s] = {};
                                             App->score->score += 50;
 
@@ -143,13 +141,13 @@ update_status ModulePlayers::Update()
                             for (a; a > 0; a--)
                             {
                                 App->scene->map[a][j] = App->scene->map[a - 1][j];
-                                App->scene->map[a][j+1] = App->scene->map[a - 1][j+1];
-                                App->scene->map[a][j+2] = App->scene->map[a - 1][j+2];
+                                App->scene->map[a][j + 1] = App->scene->map[a - 1][j + 1];
+                                App->scene->map[a][j + 2] = App->scene->map[a - 1][j + 2];
                             }
 
 
 
-                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            /*for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
                                 if (players[n] != nullptr)
                                 {
@@ -157,7 +155,7 @@ update_status ModulePlayers::Update()
                                     {
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
-                                        
+
                                             for (a; a > 0; i--)
                                             {
                                                 players[n]->p[s].position.y +=16;
@@ -166,12 +164,12 @@ update_status ModulePlayers::Update()
                                     }
                                 }
 
-                            }
-                            
+                            }*/
 
-                           
 
-                            
+
+
+
 
                         }
                         /*if (a < 12 && App->scene->map[a][j] == App->scene->map[a + 1][j] && App->scene->map[a][j] == App->scene->map[a + 2][j] && App->scene->map[a][j] != '0')
@@ -203,7 +201,7 @@ update_status ModulePlayers::Update()
                                 App->scene->map[a][j] = App->scene->map[a + 3][j];
                             }
                         }*/
-                       
+
                     }
                 }
             }
@@ -226,11 +224,11 @@ update_status ModulePlayers::Update()
                             App->scene->map[a][j] = '0';
                             App->scene->map[a + 1][j] = '0';
                             App->scene->map[a + 2][j] = '0';
-                            
-                            for (a; a > 3; a--)
+
+                            /*for (a; a > 3; a--)
                             {
                                 App->scene->map[a][j] = App->scene->map[a - 3][j];
-                            }
+                            }*/
 
                             for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
@@ -247,13 +245,13 @@ update_status ModulePlayers::Update()
                                             players[n]->p[s] = {};
                                             App->score->score += 50;
 
-                                            
+
                                         }
                                     }
                                 }
                             }
 
-                            
+
                         }
 
                     }
@@ -261,9 +259,10 @@ update_status ModulePlayers::Update()
             }
         }
     }
+    int randompuyo = rand() % 3;
     int randomplayer = rand() % 10;
     if (players[randomplayer] != nullptr) {
-        if (players[randomplayer]->p[0].active==false && players[randomplayer]->p[0].color=='B' && players[randomplayer]->p[0].currentAnimation!= &players[randomplayer]->p[0].WhiteidleAnim)
+        if (players[randomplayer]->p[0].active == false && players[randomplayer]->p[0].color == 'B' && players[randomplayer]->p[0].currentAnimation != &players[randomplayer]->p[0].WhiteidleAnim)
         {
             players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].WhiteidleAnim;
         }
@@ -284,7 +283,7 @@ update_status ModulePlayers::Update()
             players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].GreenidleAnim;
         }
     }
-    
+
 
     /*for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
@@ -328,10 +327,10 @@ update_status ModulePlayers::Update()
                         }
 
                     }*/
-    //            }
-    //        }
-    //    }
-    //}*/
+                    //            }
+                    //        }
+                    //    }
+                    //}*/
 
 
     if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
@@ -345,7 +344,7 @@ update_status ModulePlayers::Update()
             }
         }
     }
-        
+
     /*for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
         if (players[i] != nullptr)
@@ -367,8 +366,8 @@ update_status ModulePlayers::Update()
                                     {
                                         players[n]->p[s].position.y = (a * 16) + 32;
                                     }
-                                    
-                                        
+
+
 
                                 }
                             }
@@ -380,7 +379,7 @@ update_status ModulePlayers::Update()
     }*/
 
 
-        return update_status::UPDATE_CONTINUE;
+    return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModulePlayers::PostUpdate()
@@ -443,28 +442,27 @@ bool ModulePlayers::AddEnemy(int x, int y)
 void ModulePlayers::HandleEnemiesSpawn()
 {
     // Iterate all the enemies queue
-    if (contador != 10)
+
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
-        for (uint i = 0; i < MAX_PLAYERS; ++i)
+
         {
 
+            // Spawn a new enemy if the screen has reached a spawn position
+
             {
+                //LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
-                // Spawn a new enemy if the screen has reached a spawn position
-
-                {
-                    //LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
-
-                    SpawnEnemy(spawnQueue[i]);
-                    // Removing the newly spawned enemy from the queue
-                }
-
-
+                SpawnEnemy(spawnQueue[i]);
+                // Removing the newly spawned enemy from the queue
             }
+
+
         }
     }
 
-    else
+
+
     {
         for (uint i = 0; i < MAX_BOMBAZOS; ++i)
         {
@@ -492,47 +490,46 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
 {
 
 
-    if (contador != 10)
+
+
+
+
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
-
-
-
-        for (uint i = 0; i < MAX_PLAYERS; ++i)
+        if (players[i] == nullptr)
         {
-            if (players[i] == nullptr)
+            if (players[i] == players[0])
             {
-                if (players[i] == players[0])
-                {
 
+                players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
+
+
+                players[i]->texture = texture;
+
+                contador++;
+            }
+            else
+            {
+                if (players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
+                {
                     players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
 
-                    
                     players[i]->texture = texture;
 
                     contador++;
                 }
-                else
-                {
-                    if (players[i - 1]->p[0].active == false && players[i - 1]->p[1].active == false && players[i - 1]->p[2].active == false)
-                    {
-                        players[i] = new ModulePlayer(true); // use new constructor with boolean parameter
-
-                        players[i]->texture = texture;
-
-                        contador++;
-                    }
-                }
-                break;
-
-
             }
+            break;
+
 
         }
+
     }
+
 }
 
 
-void ModulePlayers::outAnim(int x,int y,char color) {
+void ModulePlayers::outAnim(int x, int y, char color) {
     if (color == 'B')
     {
         Particle* newParticle = App->particles->AddParticle(App->particles->WhiteOutAnim, x, y);
@@ -553,5 +550,5 @@ void ModulePlayers::outAnim(int x,int y,char color) {
     {
         Particle* newParticle = App->particles->AddParticle(App->particles->GreenOutAnim, x, y);
     }
-    
+
 }
