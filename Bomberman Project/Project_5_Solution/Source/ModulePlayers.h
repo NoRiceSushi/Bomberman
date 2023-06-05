@@ -60,7 +60,7 @@ public:
 
     void outAnim(int x, int y,char color);
 
-
+    int animaciones;
 
 
 private:

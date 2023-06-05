@@ -43,14 +43,18 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	p->BlackidleAnim.PushBack({ 144,0,16,16 });
 	p->BlackidleAnim.PushBack({ 160,0,16,16 });
 	p->BlackidleAnim.PushBack({ 176,0,16,16 });
-	p->BlackidleAnim.PushBack({ 192,0,16,16 });
+	p->BlackidleAnim.PushBack({ 0,0,16,16 });
 	p->BlackidleAnim.speed = 0.1;
 	p->BlackidleAnim.loop = false;
 
 	//blue puyo idle anim
 	p->BlueidleAnim.PushBack({ 0,16,16,16 });
+	p->BlueidleAnim.PushBack({ 0,16,16,16 });
+	p->BlueidleAnim.PushBack({ 16,16,16,16 });
 	p->BlueidleAnim.PushBack({ 16,16,16,16 });
 	p->BlueidleAnim.PushBack({ 32,16,16,16 });
+	p->BlueidleAnim.PushBack({ 32,16,16,16 });
+	p->BlueidleAnim.PushBack({ 0,16,16,16 });
 	p->BlueidleAnim.speed = 0.1;
 	p->BlueidleAnim.loop = false;
 
@@ -76,13 +80,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	p->RedidleAnim.PushBack({ 80,48,16,16 });
 	p->RedidleAnim.PushBack({ 96,48,16,16 });
 	p->RedidleAnim.PushBack({ 112,48,16,16 });
-	p->RedidleAnim.PushBack({ 128,48,16,16 });
+	p->RedidleAnim.PushBack({ 0,48,16,16 });
 	p->RedidleAnim.speed = 0.1;
 	p->RedidleAnim.loop = false;
 
 	//green puyo idle anim
 	p->GreenidleAnim.PushBack({ 0,64,16,16 });
 	p->GreenidleAnim.PushBack({ 16,64,16,16 });
+	p->GreenidleAnim.PushBack({ 16,64,16,16 });
+	p->GreenidleAnim.PushBack({ 16,64,16,16 });
+	p->GreenidleAnim.PushBack({ 16,64,16,16 });
+	p->GreenidleAnim.PushBack({ 0,64,16,16 });
 	p->GreenidleAnim.speed = 0.1;
 	p->GreenidleAnim.loop = false;
 

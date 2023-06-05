@@ -36,7 +36,6 @@ bool ModulePlayers::Start()
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
 
-
     if (contador != 10)
     {
         for (uint i = 0; i < MAX_PLAYERS; ++i)
@@ -51,9 +50,7 @@ bool ModulePlayers::Start()
         }
     }
 
-
-
-
+    animaciones = 0;
 
     return true;
 }
@@ -262,8 +259,33 @@ update_status ModulePlayers::Update()
             }
         }
     }
+    int randompuyo = rand() % 3;
+    int randomplayer = rand() % 10;
+    if (players[randomplayer] != nullptr) {
+        if (players[randomplayer]->p[0].active==false && players[randomplayer]->p[0].color=='B' && players[randomplayer]->p[0].currentAnimation!= &players[randomplayer]->p[0].WhiteidleAnim)
+        {
+            players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].WhiteidleAnim;
+        }
+        if (players[randomplayer]->p[0].active == false && players[randomplayer]->p[0].color == 'N' && players[randomplayer]->p[0].currentAnimation != &players[randomplayer]->p[0].BlackidleAnim)
+        {
+            players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].BlackidleAnim;
+        }
+        if (players[randomplayer]->p[0].active == false && players[randomplayer]->p[0].color == 'A' && players[randomplayer]->p[0].currentAnimation != &players[randomplayer]->p[0].BlueidleAnim)
+        {
+            players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].BlueidleAnim;
+        }
+        if (players[randomplayer]->p[0].active == false && players[randomplayer]->p[0].color == 'R' && players[randomplayer]->p[0].currentAnimation != &players[randomplayer]->p[0].RedidleAnim)
+        {
+            players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].RedidleAnim;
+        }
+        if (players[randomplayer]->p[0].active == false && players[randomplayer]->p[0].color == 'V' && players[randomplayer]->p[0].currentAnimation != &players[randomplayer]->p[0].GreenidleAnim)
+        {
+            players[randomplayer]->p[0].currentAnimation = &players[randomplayer]->p[0].GreenidleAnim;
+        }
+    }
+    
 
-    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    /*for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
         if (players[i] != nullptr)
         {
@@ -308,7 +330,7 @@ update_status ModulePlayers::Update()
                 }
             }
         }
-    }
+    }*/
 
 
     if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
