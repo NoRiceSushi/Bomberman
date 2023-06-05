@@ -105,6 +105,7 @@ void ModuleScene::PlayBackgroundMusic()
 {
 	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 }
+
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
@@ -143,7 +144,7 @@ bool ModuleScene::Start()
 update_status ModuleScene::Update()
 {	
 	if (App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN && !musicPlay) {
-			App->scene->PlayBackgroundMusic();
+			PlayBackgroundMusic();
 			musicPlay = true;
 	}
 
@@ -154,12 +155,6 @@ update_status ModuleScene::Update()
 	if (App->input->keys[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN)
 	{
 		App->fade->EnableOnly(this, (Module*)App->win);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_8] == KEY_STATE::KEY_DOWN)
-	{
-		///*App->fade->EnableOnly(this, (Module*)App->timer);*/
-		//App->audio->PlayMusico("Assets/audio/07_Ready.ogg", 1.0f);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_DOWN)

@@ -82,46 +82,50 @@ update_status SceneIntro::PostUpdate()
 	rectFire = AnimFire->GetCurrentFrame();
 	App->render->Blit(bgBorders, 240, 85, &rectFire);
 	if (!timerStarted) {
+		timerStart = 0;
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() -  timerStart > 4000 && SDL_GetTicks() - timerStart < 4150) {
-		
+	if (SDL_GetTicks() - timerStart > 4000 && SDL_GetTicks() - timerStart < 4150) {
+
 		App->render->Blit(Starting1, 0, 0, NULL);
 		App->audio->PlayFx(sfx_explosion);
 	}
-	else if (SDL_GetTicks() - timerStart > 4150) {
+	else if (SDL_GetTicks() - timerStart > 4149 && SDL_GetTicks() - timerStart < 4300) {
 
 		App->render->Blit(Starting2, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4300) {
+	if (SDL_GetTicks() - timerStart > 4299 && SDL_GetTicks() - timerStart < 4450) {
 
 		App->render->Blit(Starting3, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4450) {
+	if (SDL_GetTicks() - timerStart > 4449 && SDL_GetTicks() - timerStart < 4600) {
 
 		App->render->Blit(Starting4, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4600) {
+	if (SDL_GetTicks() - timerStart > 4599 && SDL_GetTicks() - timerStart < 4750) {
 
 		App->render->Blit(Starting5, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4750) {
+	if (SDL_GetTicks() - timerStart > 4749 && SDL_GetTicks() - timerStart < 4900) {
 
 		App->render->Blit(Starting6, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4900) {
+	if (SDL_GetTicks() - timerStart > 4899 && SDL_GetTicks() - timerStart < 5050) {
 
 		App->render->Blit(Starting7, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5050) {
+	if (SDL_GetTicks() - timerStart > 5049 && SDL_GetTicks() - timerStart < 5200) {
 
 		App->render->Blit(Starting8, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5200) {
-
+	if (SDL_GetTicks() - timerStart > 5199 && SDL_GetTicks() - timerStart < 6600) {
 		App->render->Blit(Starting9, 0, 0, NULL);
 		App->fade->FadeToBlack(this, (Module*)App->scene, 70);
+	}
+	if (SDL_GetTicks() - timerStart > 6600 ) {
+		timerStart = 0;
+		timerStarted = false;
 	}
 	rectBlink = AnimBlink ->GetCurrentFrame();
 	App->render->Blit(InsertA, 110, 140, &rectBlink);

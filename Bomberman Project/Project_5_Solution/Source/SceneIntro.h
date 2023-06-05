@@ -50,7 +50,7 @@ public:
 
 	Uint32 timerStart = 0;
 	bool timerStarted = false;
-
+	int currentStep = 0;
 	uint sfx_explosion = 0;
 };
 
