@@ -127,7 +127,9 @@ update_status ModulePlayers::Update()
                                 {
                                     for (int s = 0; s < 3; s++)
                                     {
-                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j+2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
+                                        if ((players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr) ||
+                                            (players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == ((a) * 16) + 32 && players[n]->p[s].currentAnimation != nullptr) ||
+                                            (players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == ((a) * 16) + 32 && players[n]->p[s].currentAnimation != nullptr))
                                         {
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x-8, players[n]->p[s].position.y -24);
