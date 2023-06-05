@@ -158,7 +158,7 @@ update_status ModulePlayers::Update()
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
                                         
-                                            for (a; a > 0; i--)
+                                            for (a; a > 0; a--)
                                             {
                                                 players[n]->p[s].position.y +=16;
                                             }
