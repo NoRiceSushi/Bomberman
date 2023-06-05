@@ -33,8 +33,11 @@
     · N Button: Close the menu.<br>
     · C Button: Insert coin.<br><br>
  
-- Only in prototype:<br>
+- For debug mode:<br>
     · Q Button: Make the piece stop falling.<br>
     · F2 button: Insta lose.<br>
     · F3 Button: Insta win.<br>
     · F4 Button: Allow the game to create green puyos.<br>
+
+
++ Link to the website: https://bombermanbyssweststudio.wordpress.com/
