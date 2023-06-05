@@ -14,6 +14,7 @@
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 #include "ModuleLose.h"
 #include "ModuleMenu.h"
+#include "SceneIntro.h"
 
 ModuleLose::ModuleLose(bool startEnabled) : Module(startEnabled)
 {
@@ -47,7 +48,7 @@ bool ModuleLose::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	App->score->Disable();
+	App->sceneIntro->Disable();
 	currentAnimation = &AnimLose;
 	SpriteSheetOP_png = App->textures->Load("Assets/SpriteSheetOP.png");
 	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
