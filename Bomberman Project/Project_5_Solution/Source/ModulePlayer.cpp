@@ -586,7 +586,6 @@ update_status ModulePlayer::PostUpdate()
 }
 
 void ModulePlayer::Activation() {
-
 	if (p[0].active == false)
 	{
 		if (p[0].position.x == p[1].position.x)

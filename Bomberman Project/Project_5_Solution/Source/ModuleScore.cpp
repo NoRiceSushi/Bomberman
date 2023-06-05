@@ -238,35 +238,35 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
-	if (score >= 0 && score <= 1000)
+	if (score >= 0 && score <= 2000)
 	{
 		App->render->Blit(bgTexture, -103, 0, 0, 0);
 	}
-	if (score >= 1000 && score <= 2000)
+	if (score >= 2000 && score <= 4000)
 	{
 		App->render->Blit(bgTexture, -231, 0, 0, 0);
 	}
-	if (score >= 2000 && score <= 3000)
+	if (score >= 4000 && score <= 6000)
 	{
 		App->render->Blit(bgTexture, -359, 0, 0, 0);
 	}
-	if (score >= 3000 /*&& score <= 150*/)
+	if (score >= 6000 /*&& score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -487, 0, 0, 0);
 	}
-	if (score >= 4000 /*&& score <= 150*/)
+	if (score >= 8000 /*&& score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -615, 0, 0, 0);
 	}
-	if (score >= 5000/* && score <= 150*/)
+	if (score >= 10000/* && score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -743, 0, 0, 0);
 	}
-	if (score >= 6000/* && score <= 150*/)
+	if (score >= 12000/* && score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -871, 0, 0, 0);
 	}
-	if (score >= 7000/* && score <= 150*/)
+	if (score >= 14000/* && score <= 150*/)
 	{
 		App->render->Blit(bgTexture, -999, 0, 0, 0);
 	}

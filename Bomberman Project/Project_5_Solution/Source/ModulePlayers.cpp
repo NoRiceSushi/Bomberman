@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleBombazo.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "SDL/include/SDL.h"
 #include "ModuleScore.h"
 #include "SDL/include/SDL_scancode.h"
@@ -34,7 +35,8 @@ bool ModulePlayers::Start()
 
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
-
+    sfx_down = App->audio->LoadFx("Assets/sfx/sfx_down.wav");
+    sfx_combo = App->audio->LoadFx("Assets/sfx/sfx_combo.wav");
 
     for (uint i = 0; i < MAX_PLAYERS; ++i)
     {
@@ -149,6 +151,7 @@ update_status ModulePlayers::Update()
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y - 16, players[n]->p[s].color);
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
                                             players[n]->p[s] = {};
+                                            App->audio->PlayFx(sfx_down);
                                             App->score->score += 50;
 
                                         }
@@ -265,6 +268,7 @@ update_status ModulePlayers::Update()
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y - 16, players[n]->p[s].color);
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
                                             players[n]->p[s] = {};
+                                            App->audio->PlayFx(sfx_down);
                                             App->score->score += 50;
 
 

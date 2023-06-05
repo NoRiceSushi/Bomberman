@@ -61,7 +61,8 @@ public:
     void outAnim(int x, int y,char color);
 
     int animaciones;
-
+    uint sfx_combo = 0;
+    uint sfx_down = 0;
     int contador = 0;
 
 private:
