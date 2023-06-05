@@ -95,12 +95,12 @@ update_status NeoGeoIntro::PostUpdate()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart > 150 && SDL_GetTicks() - timerStart < 150) {
+	if (SDL_GetTicks() - timerStart > -150 && SDL_GetTicks() - timerStart < -150) {
 
 		App->render->Blit(Starting1, 0, 0, NULL);
 
 	}
-	else if (SDL_GetTicks() - timerStart > 300) {
+	else if (SDL_GetTicks() - timerStart > 0) {
 
 		App->render->Blit(Starting2, 0, 0, NULL);
 	}
