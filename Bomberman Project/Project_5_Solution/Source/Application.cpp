@@ -23,6 +23,7 @@
 #include "StudioNames.h"
 #include "ModuleBombazo.h"
 #include "ModuleTimer.h"
+#include "NeoGeoIntro.h"
 
 
 
@@ -53,14 +54,15 @@ Application::Application()
 	modules[13] = clearstage1 = new ClearStage1(false);
 
 	modules[14] = sceneIntro = new SceneIntro(false);
-	modules[15] = studio = new StudioNames(false);
-	modules[16] = introInfo = new IntroInfo(true);
-	modules[17] = Bombazo = new ModuleBombazo(false);
+	modules[15] = neogeo = new NeoGeoIntro(false);
+	modules[16] = studio = new StudioNames(false);
+	modules[17] = introInfo = new IntroInfo(true);
+	modules[18] = Bombazo = new ModuleBombazo(false);
 
-	modules[18] = lose = new ModuleLose(false);
-	modules[19] = fade = new ModuleFade(true);
-	modules[20] = timer = new ModuleTimer(false);
-	modules[21] = render = new ModuleRender(true);
+	modules[19] = lose = new ModuleLose(false);
+	modules[20] = fade = new ModuleFade(true);
+	modules[21] = timer = new ModuleTimer(false);
+	modules[22] = render = new ModuleRender(true);
 }
 
 Application::~Application()

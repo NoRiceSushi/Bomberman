@@ -38,7 +38,7 @@ bool StudioNames::Start()
 update_status StudioNames::Update()
 {
 
-	App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 70);
+	App->fade->FadeToBlack(this, (Module*)App->neogeo, 70);
 
 	return update_status::UPDATE_CONTINUE;
 

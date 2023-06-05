@@ -27,7 +27,7 @@ bool IntroInfo::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/neogeo.gif");
+	bgTexture = App->textures->Load("Assets/descriptionBomberman.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

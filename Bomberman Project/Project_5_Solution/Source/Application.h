@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 22
+#define NUM_MODULES 23
 
 class Module;
 class ModuleWindow;
@@ -28,6 +28,7 @@ class IntroInfo;
 class StudioNames;
 class ModuleBombazo;
 class ModuleTimer;
+class NeoGeoIntro;
 
 
 class Application
@@ -79,6 +80,7 @@ public:
 	StudioNames* studio = nullptr;
 	ModuleBombazo* Bombazo = nullptr;
 	ModuleTimer* timer = nullptr;
+	NeoGeoIntro* neogeo = nullptr;
 };
 
 // Global var made extern for Application ---

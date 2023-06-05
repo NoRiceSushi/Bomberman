@@ -100,9 +100,6 @@
     <ClInclude Include="StudioNames.h">
       <Filter>Source Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="RedPuyo.h">
-      <Filter>Source Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleTimer.h">
       <Filter>Source Files\Elements</Filter>
     </ClInclude>
@@ -114,6 +111,9 @@
     </ClInclude>
     <ClInclude Include="ModuleScore.h">
       <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="NeoGeoIntro.h">
+      <Filter>Source Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,9 +186,6 @@
     <ClCompile Include="StudioNames.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="RedPuyo.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleTimer.cpp">
       <Filter>Source Files\Elements</Filter>
     </ClCompile>
@@ -200,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="ModuleScore.cpp">
       <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="NeoGeoIntro.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
