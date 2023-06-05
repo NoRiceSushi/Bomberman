@@ -36,8 +36,7 @@ bool ModulePlayers::Start()
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
     texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
 
-    if (contador != 10)
-    {
+    
         for (uint i = 0; i < MAX_PLAYERS; ++i)
         {
             if (players[i] != nullptr)
@@ -48,7 +47,7 @@ bool ModulePlayers::Start()
             }
 
         }
-    }
+    
 
     animaciones = 0;
 
@@ -229,10 +228,10 @@ update_status ModulePlayers::Update()
                             App->scene->map[a + 1][j] = '0';
                             App->scene->map[a + 2][j] = '0';
                             
-                            for (a; a > 3; a--)
+                            /*for (a; a > 3; a--)
                             {
                                 App->scene->map[a][j] = App->scene->map[a - 3][j];
-                            }
+                            }*/
 
                             for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
@@ -445,8 +444,7 @@ bool ModulePlayers::AddEnemy(int x, int y)
 void ModulePlayers::HandleEnemiesSpawn()
 {
     // Iterate all the enemies queue
-    if (contador != 10)
-    {
+    
         for (uint i = 0; i < MAX_PLAYERS; ++i)
         {
 
@@ -464,9 +462,9 @@ void ModulePlayers::HandleEnemiesSpawn()
 
             }
         }
-    }
+    
 
-    else
+    
     {
         for (uint i = 0; i < MAX_BOMBAZOS; ++i)
         {
@@ -494,8 +492,6 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
 {
 
 
-    if (contador != 10)
-    {
 
 
 
@@ -530,7 +526,7 @@ void ModulePlayers::SpawnEnemy(const EnemySpawnpoint& info)
             }
 
         }
-    }
+    
 }
 
 
