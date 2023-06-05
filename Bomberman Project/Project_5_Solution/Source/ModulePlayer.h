@@ -63,6 +63,7 @@ public:
 	SDL_Texture* bgBorders = nullptr;
 	uint sfx_combo = 0;
 	uint sfx_down = 0;
+	bool win = false;
 
 };
 

@@ -109,6 +109,11 @@ update_status Application::Update()
 		return update_status::UPDATE_STOP;
 	}
 
+	if (App->score->score > 500)
+	{
+		App->win->Enable();
+	}
+
 
 	SDL_Delay(16.666f);
 	return ret;

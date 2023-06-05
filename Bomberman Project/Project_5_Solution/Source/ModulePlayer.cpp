@@ -20,7 +20,7 @@
 int bomba = 0;
 int bomba2 = 0;
 int verde = 0;
-bool win = false;
+
 float contadorW = 0;
 int PrimerGiro = 1;
 int girar;
