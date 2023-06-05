@@ -109,7 +109,7 @@ update_status Application::Update()
 		return update_status::UPDATE_STOP;
 	}
 
-	if (App->score->score > 500)
+	if (App->score->score > 3000)
 	{
 		App->win->Enable();
 	}
