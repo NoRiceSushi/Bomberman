@@ -85,6 +85,9 @@ public:
 	SDL_Texture* bgBorders = nullptr;
 	Animation* currentAnimLevel = nullptr;
 	Animation Animlevelup;
+	int targetPosLevel = 500;
+	bool moveLevel = true;
+	int LevelPosY = -50;
 
 	uint sfx_explosion = 0;
 

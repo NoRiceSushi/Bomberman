@@ -154,7 +154,7 @@ ModuleScore::ModuleScore(bool startEnabled) : Module(startEnabled)
 	bomb7.loop = true;
 	bomb7.speed = 0.2;
 
-	Animlevelup.PushBack({ 102,517,57,46 });
+	Animlevelup.PushBack({ 102,518,57,45 });
 
 
 	rect2 = { 0,72, 80, 16 };
@@ -238,7 +238,6 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
-	
 	if (score >= 0 && score <= 1000)
 	{
 		App->render->Blit(bgTexture, -103, 0, 0, 0);
@@ -318,8 +317,14 @@ update_status ModuleScore::Update()
 			goAnim = &goOut;
 		}
 	}
+	if (LevelPosY < targetPosLevel && moveLevel) {
+		LevelPosY += 2;
+	}
+	else {
+		moveLevel = false;
+	}
 
-	
+	currentAnimLevel->Update();
 	bomb1Anim->Update();
 	bomb2Anim->Update();
 	bomb3Anim->Update();
@@ -327,7 +332,6 @@ update_status ModuleScore::Update()
 	bomb5Anim->Update();
 	bomb6Anim->Update();
 	bomb7Anim->Update();
-	currentAnimLevel->Update();
 	coinCurrentAnim->Update();
 	readyAnim->Update();
 	bombaAnim->Update();
@@ -339,13 +343,17 @@ update_status ModuleScore::Update()
 update_status ModuleScore::PostUpdate()
 {
 	if (!App->menu->isMenuOpen) {
-
+		if (score >= 1000)
+		{
+			rectlevel = currentAnimLevel->GetCurrentFrame();
+			App->render->Blit(bgBorders, 100, LevelPosY, &rectlevel);
+		}
 		rect1 = coinCurrentAnim->GetCurrentFrame();
 		rect2 = readyAnim->GetCurrentFrame();
 		rectBomb = bombaAnim->GetCurrentFrame();
 		rectExplosion = explosionAnim->GetCurrentFrame();
 		rectGo = goAnim->GetCurrentFrame();
-		if (score >= 2100 && score <= 2700)
+		if (score >= 2100 )
 		{
 			rectbomb1 = bomb1Anim->GetCurrentFrame();
 			App->render->Blit(bomb, 107, 6, &rectbomb1);
@@ -379,8 +387,6 @@ update_status ModuleScore::PostUpdate()
 		{
 			rectbomb7 = bomb7Anim->GetCurrentFrame();
 			App->render->Blit(bomb, 107, 7, &rectbomb7);
-			/*rectlevel = currentAnimLevel->GetCurrentFrame();
-			App->render->Blit(bgBorders, positionBomba.x, positionBomba.y, &rectlevel);*/
 		}
 
 

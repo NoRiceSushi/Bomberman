@@ -27,8 +27,8 @@ bool ModuleWindow::Init()
 		//Create window
 		Uint32 flags = SDL_WINDOW_SHOWN;
 
-		/*if (WIN_FULLSCREEN == true)
-			flags |= SDL_WINDOW_FULLSCREEN;*/
+		if (WIN_FULLSCREEN == true)
+			flags |= SDL_WINDOW_FULLSCREEN;
 
 		if (WIN_BORDERLESS == true)
 			flags |= SDL_WINDOW_BORDERLESS;
@@ -36,8 +36,8 @@ bool ModuleWindow::Init()
 		if (WIN_RESIZABLE == true)
 			flags |= SDL_WINDOW_RESIZABLE;
 
-		/*if (WIN_FULLSCREEN_DESKTOP == true)
-			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;*/
+		if (WIN_FULLSCREEN_DESKTOP == true)
+			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
 		window = SDL_CreateWindow("Project 10 - Gamepad & Fullscreen",
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, flags);

@@ -265,7 +265,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[2].position.y = 48;
 				p[2].pos = 3;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
-
 				break;
 			case 1:
 				p[0].col = rand() % 4 + verde;
@@ -305,7 +304,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[2].position.y = 48;
 				p[2].pos = 2;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
-
 				break;
 			case 3:
 				p[0].col = rand() % 4 + verde;
@@ -325,7 +323,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 				p[2].position.y = 48;
 				p[2].pos = 2;
 				p[2].downAnim.PushBack({ 0, p[2].col * 16, 16,16 });
-
+			
 				break;
 			}
 
@@ -372,6 +370,8 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	sfx_down = App->audio->LoadFx("Assets/sfx/sfx_down.wav");
+	sfx_combo = App->audio->LoadFx("Assets/sfx/sfx_combo.wav");
 
 	return ret;
 }

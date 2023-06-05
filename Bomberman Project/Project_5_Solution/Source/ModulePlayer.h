@@ -61,7 +61,8 @@ public:
 	int minX, maxX, minY, maxY;
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* bgBorders = nullptr;
-
+	uint sfx_combo = 0;
+	uint sfx_down = 0;
 
 };
 
