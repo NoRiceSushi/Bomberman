@@ -27,13 +27,14 @@ bool IntroInfo::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/descriptionBomberman.png");
+	bgTexture = App->textures->Load("Assets/neogeo.gif");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
 	return ret;
 }
+
 
 update_status IntroInfo::Update()
 {
