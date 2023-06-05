@@ -275,6 +275,10 @@ update_status ModuleScore::Update()
 		App->audio->PlayFx(sfx_coin);
 		coins += 1;
 	}
+	if (App->input->keys[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN)
+	{
+		score = score + 1000;
+	}
 	if (coins == 0) { coinCurrentAnim = &Blink; }
 	else coinCurrentAnim = &Out;
 
