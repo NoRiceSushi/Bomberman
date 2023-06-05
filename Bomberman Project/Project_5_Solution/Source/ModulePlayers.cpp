@@ -99,11 +99,13 @@ update_status ModulePlayers::Update()
                                         if (players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z' && players[n]->p[s].active == false || players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].color == 'X' && App->scene->map[a][j] == 'Z' && players[n]->p[s].active == false)
                                         {
 
-                                            players[n]->p[s].currentAnimation = nullptr;
+                                            players[n]->p[s] = {};
+                                            App->scene->map[a][j] = '0';
                                         }
                                         if (players[n]->p[s].color == 'Z')
                                         {
-                                            players[n]->p[s].currentAnimation = nullptr;
+                                            players[n]->p[s] = {};
+                                            App->scene->map[a][j] = '0';
                                         }
 
 
@@ -111,12 +113,12 @@ update_status ModulePlayers::Update()
                                     }
                                 }
                             }
-                            App->scene->map[a][j] = '0';
+                            
 
 
                         }
 
-                        if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0')
+                        if (App->scene->map[a][j] == App->scene->map[a][j + 1] && App->scene->map[a][j] == App->scene->map[a][j + 2] && j < 7 && App->scene->map[a][j] != '0' && App->scene->map[a][j] != 'X' && App->scene->map[a][j] != 'Z')
                         {
                             App->scene->map[a][j] = '0';
                             App->scene->map[a][j + 1] = '0';
@@ -132,7 +134,7 @@ update_status ModulePlayers::Update()
                                         {
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y-16, players[n]->p[s].color);
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x-8, players[n]->p[s].position.y -24);
-                                            players[n]->p[s].currentAnimation = nullptr;
+                                            players[n]->p[s] = {};
                                             App->score->score += 50;
 
                                         }
@@ -141,12 +143,12 @@ update_status ModulePlayers::Update()
 
                             }
 
-                            for (a; a > 0; a--)
+                            /*for (a; a > 0; a--)
                             {
                                 App->scene->map[a][j] = App->scene->map[a - 1][j];
                                 App->scene->map[a][j+1] = App->scene->map[a - 1][j+1];
                                 App->scene->map[a][j+2] = App->scene->map[a - 1][j+2];
-                            }
+                            }*/
 
 
 
@@ -240,7 +242,7 @@ update_status ModulePlayers::Update()
                                         {
                                             outAnim(players[n]->p[s].position.x, players[n]->p[s].position.y - 16, players[n]->p[s].color);
                                             Particle* newParticle = App->particles->AddParticle(App->particles->Star, players[n]->p[s].position.x - 8, players[n]->p[s].position.y - 24);
-                                            players[n]->p[s].currentAnimation = nullptr;
+                                            players[n]->p[s] = {};
                                             App->score->score += 50;
 
                                             
@@ -274,6 +276,38 @@ update_status ModulePlayers::Update()
         }
     }
         
+    /*for (uint i = 0; i < MAX_PLAYERS; ++i)
+    {
+        if (players[i] != nullptr)
+        {
+            for (int a = 0; a < 12; a++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (App->scene->map[a][j] == '0' && App->scene->map[a+1][j] != '0')
+                    {
+
+                        for (uint n = 0; n < MAX_PLAYERS; ++n)
+                        {
+                            if (players[n] != nullptr)
+                            {
+                                for (int s = 0; s < 3; ++s)
+                                {
+                                    if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == ((a+1) * 16) + 32 && players[n]->p[s].active == false)
+                                    {
+                                        players[n]->p[s].position.y = (a * 16) + 32;
+                                    }
+                                    
+                                        
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }*/
 
 
         return update_status::UPDATE_CONTINUE;
