@@ -95,42 +95,150 @@ update_status NeoGeoIntro::PostUpdate()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart > 4000 && SDL_GetTicks() - timerStart < 4150) {
+	if (SDL_GetTicks() - timerStart > 150 && SDL_GetTicks() - timerStart < 150) {
 
 		App->render->Blit(Starting1, 0, 0, NULL);
-		App->audio->PlayFx(sfx_explosion);
+
 	}
-	else if (SDL_GetTicks() - timerStart > 4150) {
+	else if (SDL_GetTicks() - timerStart > 300) {
 
 		App->render->Blit(Starting2, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4300) {
+	if (SDL_GetTicks() - timerStart > 450) {
 
 		App->render->Blit(Starting3, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4450) {
+	if (SDL_GetTicks() - timerStart > 600) {
 
 		App->render->Blit(Starting4, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4600) {
+	if (SDL_GetTicks() - timerStart > 750) {
 
 		App->render->Blit(Starting5, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4750) {
+	if (SDL_GetTicks() - timerStart > 900) {
 
 		App->render->Blit(Starting6, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 4900) {
+	if (SDL_GetTicks() - timerStart > 1050) {
 
 		App->render->Blit(Starting7, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5050) {
+	if (SDL_GetTicks() - timerStart > 1200) {
 
 		App->render->Blit(Starting8, 0, 0, NULL);
 	}
-	if (SDL_GetTicks() - timerStart > 5200) {
+	if (SDL_GetTicks() - timerStart > 1350) {
 
 		App->render->Blit(Starting9, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 1500) {
+
+		App->render->Blit(Starting10, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 1650) {
+
+		App->render->Blit(Starting11, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 1800) {
+
+		App->render->Blit(Starting12, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 1950) {
+
+		App->render->Blit(Starting13, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2100) {
+
+		App->render->Blit(Starting14, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2250) {
+
+		App->render->Blit(Starting15, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2400) {
+
+		App->render->Blit(Starting16, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2550) {
+
+		App->render->Blit(Starting17, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2700) {
+
+		App->render->Blit(Starting18, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 2850) {
+
+		App->render->Blit(Starting19, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3000) {
+
+		App->render->Blit(Starting20, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3150) {
+
+		App->render->Blit(Starting21, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3300) {
+
+		App->render->Blit(Starting22, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3450) {
+
+		App->render->Blit(Starting23, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3600) {
+
+		App->render->Blit(Starting24, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3750) {
+
+		App->render->Blit(Starting25, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 3900) {
+
+		App->render->Blit(Starting26, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4050) {
+
+		App->render->Blit(Starting27, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4200) {
+
+		App->render->Blit(Starting28, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4350) {
+
+		App->render->Blit(Starting29, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4500) {
+
+		App->render->Blit(Starting30, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4650) {
+
+		App->render->Blit(Starting31, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4800) {
+
+		App->render->Blit(Starting32, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 4950) {
+
+		App->render->Blit(Starting33, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 5100) {
+
+		App->render->Blit(Starting34, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 5250) {
+
+		App->render->Blit(Starting35, 0, 0, NULL);
+	}
+	if (SDL_GetTicks() - timerStart > 5400) {
+
+		App->render->Blit(Starting36, 0, 0, NULL);
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 70);
 	}
 	return update_status::UPDATE_CONTINUE;
