@@ -261,7 +261,6 @@ update_status ModulePlayers::Update()
             }
         }
     }
-    int randompuyo = rand() % 3;
     int randomplayer = rand() % 10;
     if (players[randomplayer] != nullptr) {
         if (players[randomplayer]->p[0].active==false && players[randomplayer]->p[0].color=='B' && players[randomplayer]->p[0].currentAnimation!= &players[randomplayer]->p[0].WhiteidleAnim)
