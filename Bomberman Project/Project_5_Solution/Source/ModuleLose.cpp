@@ -70,11 +70,11 @@ update_status ModuleLose::Update()
 		timerStarted = true;
 		timerStart = SDL_GetTicks();
 	}
-	if (SDL_GetTicks() - timerStart < 2000) {
+	if (SDL_GetTicks() - timerStart < 1500) {
 		return update_status::UPDATE_CONTINUE;
 	}
 	else {
-		App->fade->FadeToBlack(this, (Module*)App->gameover, 70);
+		App->fade->FadeToBlack(this, (Module*)App->gameover, 40);
 		return update_status::UPDATE_CONTINUE;
 	}
 	

@@ -204,6 +204,7 @@ bool ModuleScore::Start()
 	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
 	currentAnimLevel = &Animlevelup;
 	sfx_explosion = App->audio->LoadFx("Assets/sfx/sfx_start_explosion.wav");
+
 	bomb = App->textures->Load("Assets/SpriteSheetOP.png");
 	bomb1Anim = &bomb1;
 	bomb2Anim = &bomb2;
@@ -237,6 +238,7 @@ bool ModuleScore::Start()
 
 update_status ModuleScore::Update()
 {
+	
 	if (score >= 0 && score <= 1000)
 	{
 		App->render->Blit(bgTexture, -103, 0, 0, 0);
@@ -310,7 +312,7 @@ update_status ModuleScore::Update()
 	if (goAnim == &goIdle) {
 		positionGo.y += posSpeedGo;
 		if (posSpeedGo < 5) {
-			posSpeedGo += 0.025;
+			posSpeedGo += 0.13;
 		}
 		if (positionGo.y >= 300) {
 			goAnim = &goOut;

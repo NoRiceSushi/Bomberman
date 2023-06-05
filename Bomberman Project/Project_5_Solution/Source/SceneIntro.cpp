@@ -21,7 +21,7 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 	Blink.loop = true;
 	Blink.speed = 0.25f;
 
-	Fire.PushBack({ 161,517,17,23 });
+	Fire.PushBack({ 161,518,17,23 });
 	Fire.PushBack({ 161,543,17,20 });
 	Fire.PushBack({ 161,565,17,20 });
 	Fire.PushBack({ 161,543,17,20 });

@@ -30,8 +30,8 @@ public:
 	bool isDownLessEmpty(int x, int y);
 
 	void DestroyLines();
-
-	int Score = 0;
+	
+	int score = 0;
 public:
 	
 	char map[12][8];
@@ -55,7 +55,6 @@ public:
 	*/
 
 public:
-
 	iPoint position;
 	SDL_Rect rectG;
 	SDL_Rect rectY;
@@ -69,12 +68,13 @@ public:
 	Animation* currentAnimY = nullptr;
 	Animation* currentAnimR = nullptr;
 	Animation* currentAnimLevel = nullptr;
+	Animation Animlevelup;
 	Animation AnimBorders;
 	Animation AnimBordersy;
 	Animation AnimBordersr;
-	Animation Animlevelup;
 
 	uint sfx_rotate = 0;
+	bool musicPlay=false;
 };
 
 #endif

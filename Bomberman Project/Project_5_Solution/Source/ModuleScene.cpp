@@ -8,6 +8,7 @@
 #include "ModulePlayers.h"
 #include "ModuleInput.h"
 #include "ModuleScore.h"
+#include "SceneIntro.h"
 #include "ModuleGameOver.h"
 #include "SDL/include/SDL_scancode.h"
 #include "ModulePlayer.h"
@@ -100,16 +101,16 @@ ModuleScene::~ModuleScene()
 
 }
 
-//void ModuleScene::PlayBackgroundMusic()
-//{
-//	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
-//}
+void ModuleScene::PlayBackgroundMusic()
+{
+	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
+}
 bool ModuleScene::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
-
+	App->sceneIntro->Disable();
 	bgTexture = App->textures->Load("Assets/background.png");
 	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
 	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
@@ -117,11 +118,8 @@ bool ModuleScene::Start()
 	currentAnimY = &AnimBordersy;
 	currentAnimR = &AnimBordersr;
 	currentAnimLevel = &Animlevelup;
-	//App->audio->PlayMusic("Assets/audio/07_Ready.ogg", 1.0f);
-	//SDL_Delay(5000);
-	//App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
-	App->audio->PlayMusic("Assets/audio/08_stage_1.ogg", 1.0f);
 	
+	App->audio->PlayMusico("Assets/audio/07_Ready.ogg", 1.0f);
 	sfx_rotate = App->audio->LoadFx("Assets/sfx/sfx_rotation.wav");
 
 	App->fade->EnableOnly(this, (Module*)App->score);
@@ -143,7 +141,12 @@ bool ModuleScene::Start()
 
 
 update_status ModuleScene::Update()
-{
+{	
+	if (App->input->keys[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN && !musicPlay) {
+			App->scene->PlayBackgroundMusic();
+			musicPlay = true;
+	}
+
 	if (App->input->keys[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN)
 	{
 		App->fade->EnableOnly(this, (Module*)App->lose);
