@@ -50,7 +50,7 @@ bool ModuleLose::Start()
 	bool ret = true;
 	App->sceneIntro->Disable();
 	currentAnimation = &AnimLose;
-	SpriteSheetOP_png = App->textures->Load("Assets/SpriteSheetOP.png");
+	SpriteSheetOP_png = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	App->audio->PlayMusic("Assets/audio/19_Lose.ogg", 1.0f);
 	
 	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)

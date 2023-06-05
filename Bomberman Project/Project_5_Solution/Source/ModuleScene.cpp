@@ -112,9 +112,9 @@ bool ModuleScene::Start()
 
 	bool ret = true;
 	App->sceneIntro->Disable();
-	bgTexture = App->textures->Load("Assets/background.png");
-	bgTexture2 = App->textures->Load("Assets/FondoIzquierdaLimpio.png");
-	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	bgTexture = App->textures->Load("Assets/Sprite/background.png");
+	bgTexture2 = App->textures->Load("Assets/Sprite/FondoIzquierdaLimpio.png");
+	bgBorders = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	currentAnimation = &AnimBorders;
 	currentAnimY = &AnimBordersy;
 	currentAnimR = &AnimBordersr;

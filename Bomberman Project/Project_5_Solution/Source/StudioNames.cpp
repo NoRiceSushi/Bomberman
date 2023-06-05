@@ -27,7 +27,7 @@ bool StudioNames::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SSWstudionames.png");
+	bgTexture = App->textures->Load("Assets/Sprite/SSWstudionames.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

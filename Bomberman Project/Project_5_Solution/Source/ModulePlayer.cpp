@@ -369,7 +369,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 
-	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	bgBorders = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	sfx_down = App->audio->LoadFx("Assets/sfx/sfx_down.wav");
 	sfx_combo = App->audio->LoadFx("Assets/sfx/sfx_combo.wav");
 

@@ -49,12 +49,12 @@ bool SceneIntro::Start()
 	Starting7 = App->textures->Load("Assets/IntroAnim/Starting7.png");
 	Starting8 = App->textures->Load("Assets/IntroAnim/Starting8.png");
 	Starting9 = App->textures->Load("Assets/IntroAnim/Starting9.png");
-	bgTexture = App->textures->Load("Assets/StartingScreen.png");
+	bgTexture = App->textures->Load("Assets/Sprite/StartingScreen.png");
 	App->audio->PlayMusic("Assets/audio/02_Title.ogg", 1.0f); 
 	sfx_explosion = App->audio->LoadFx("Assets/sfx/sfx_start_explosion.wav");
-	InsertA = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	InsertA = App->textures->Load("Assets/Sprite/Numeros+SpritesLetras.png");
 	AnimBlink= &Blink;
-	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	bgBorders = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	AnimFire = &Fire;
 
 	App->render->camera.x = 0;

@@ -42,7 +42,7 @@ bool ModuleWin::Start()
 	bool ret = true;
 	App->score->Disable();
 	currentAnimation = &AnimWin;
-	SpriteSheetOP_png = App->textures->Load("Assets/SpriteSheetOP.png");
+	SpriteSheetOP_png = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	App->audio->PlayMusic("Assets/audio/18_Win.ogg", 1.0f);
 
 	//if (App->scene->ReadTile(4, 0) == false || App->scene->ReadTile(5, 0) == false)

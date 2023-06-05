@@ -179,33 +179,33 @@ bool ModuleScore::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
-	bgTexture = App->textures->Load("Assets/background.png");
+	bgTexture = App->textures->Load("Assets/Sprite/background.png");
 	sfx_coin = App->audio->LoadFx("Assets/sfx/sfx_coins.wav");
 	char lookupTable[] = { "0123456789" };
-	scoreFont = App->fonts->Load("Assets/test.png", lookupTable, 1);
+	scoreFont = App->fonts->Load("Assets/Sprite/test.png", lookupTable, 1);
 
-	textureCoins = App->textures->Load("Assets/Credits.png");
+	textureCoins = App->textures->Load("Assets/Sprite/Credits.png");
 
-	insertCoins = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	insertCoins = App->textures->Load("Assets/Sprite/Numeros+SpritesLetras.png");
 	coinCurrentAnim = &Blink;
 
-	ready = App->textures->Load("Assets/Numeros+SpritesLetras.png");
+	ready = App->textures->Load("Assets/Sprite/Numeros+SpritesLetras.png");
 	readyAnim = &readyIn;
 
-	bombazaText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
+	bombazaText = App->textures->Load("Assets/Sprite/SpriteSheetPuyos+Bomb.png");
 	bombaAnim = &bombaOut;
 
-	explosionText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
+	explosionText = App->textures->Load("Assets/Sprite/SpriteSheetPuyos+Bomb.png");
 	explosionAnim = &explosionOut;
 
-	goText = App->textures->Load("Assets/SpriteSheetPuyos+Bomb.png");
+	goText = App->textures->Load("Assets/Sprite/SpriteSheetPuyos+Bomb.png");
 	goAnim = &goOut;
 
-	bgBorders = App->textures->Load("Assets/SpriteSheetOP.png");
+	bgBorders = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	currentAnimLevel = &Animlevelup;
 	sfx_explosion = App->audio->LoadFx("Assets/sfx/sfx_start_explosion.wav");
 
-	bomb = App->textures->Load("Assets/SpriteSheetOP.png");
+	bomb = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	bomb1Anim = &bomb1;
 	bomb2Anim = &bomb2;
 	bomb3Anim = &bomb3;

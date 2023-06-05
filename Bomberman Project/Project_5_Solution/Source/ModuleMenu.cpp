@@ -34,9 +34,9 @@ bool ModuleMenu::Start()
 
     if (App != nullptr && App->textures != nullptr)
     {
-        menuTexture = App->textures->Load("Assets/menu.png");
-        continueTexture = App->textures->Load("Assets/continue.png");
-        exitTexture = App->textures->Load("Assets/exit.png");
+        menuTexture = App->textures->Load("Assets/Sprite/menu.png");
+        continueTexture = App->textures->Load("Assets/Sprite/continue.png");
+        exitTexture = App->textures->Load("Assets/Sprite/exit.png");
         sfx_Menu = App->audio->LoadFx("Assets/sfx/sfx_Menu.wav");
         
        

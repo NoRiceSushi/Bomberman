@@ -33,8 +33,8 @@ bool ModulePlayers::Start()
 {
     LOG("Loading players textures");
 
-    texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
-    texture = App->textures->Load("Assets/SpriteSheetPuyos.png");
+    texture = App->textures->Load("Assets/Sprite/SpriteSheetPuyos.png");
+    texture = App->textures->Load("Assets/Sprite/SpriteSheetPuyos.png");
     sfx_down = App->audio->LoadFx("Assets/sfx/sfx_down.wav");
     sfx_combo = App->audio->LoadFx("Assets/sfx/sfx_combo.wav");
 

@@ -27,7 +27,7 @@ bool ClearStage1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	Stage_Clear_png = App->textures->Load("Assets/Stage_Clear.png");
+	Stage_Clear_png = App->textures->Load("Assets/Sprite/Stage_Clear.png");
 	App->audio->PlayMusic("Assets/audio/20_Stage_Clear.ogg", 1.0f);
 
 	return true;

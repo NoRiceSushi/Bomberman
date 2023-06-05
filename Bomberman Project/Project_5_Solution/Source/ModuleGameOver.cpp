@@ -45,9 +45,9 @@ bool ModuleGameOver::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	gameover_png = App->textures->Load("Assets/Game_over.png");
+	gameover_png = App->textures->Load("Assets/Sprite/Game_over.png");
 	App->audio->PlayMusic("Assets/audio/24_Game_Over.ogg", 1.0f);
-	letter = App->textures->Load("Assets/SpriteSheetOP.png");
+	letter = App->textures->Load("Assets/Sprite/SpriteSheetOP.png");
 	LettersAnimationG = &AnimLettersG;
 	LettersAnimationA = &AnimLettersA;
 	LettersAnimationM = &AnimLettersM;
@@ -142,13 +142,14 @@ update_status ModuleGameOver::Update()
 			}
 		}
 	}
-	if (SDL_GetTicks() - timerStart > 4999 && SDL_GetTicks() - timerStart < 10000) {
+	if (SDL_GetTicks() - timerStart > 4999 && SDL_GetTicks() - timerStart < 9000) {
+		
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 50);
-		update_status::UPDATE_STOP;
 	}
-	if (SDL_GetTicks() - timerStart > 10000) {
+	if (SDL_GetTicks() - timerStart > 9000) {
 		timerStart = 0;
 		timerStarted = false;
+		return update_status::UPDATE_STOP;
 	}
 	
 	LettersAnimationG->Update();
