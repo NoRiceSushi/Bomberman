@@ -538,6 +538,11 @@ update_status ModulePlayer::Update()
 				}
 			}
 		}
+		if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
+		{
+			bomba = 0;
+			bomba2 = 0;
+		}
 		
 		else
 			{
