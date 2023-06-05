@@ -140,16 +140,16 @@ update_status ModulePlayers::Update()
 
                             }
 
-                            /*for (a; a > 0; a--)
+                            for (a; a > 0; a--)
                             {
                                 App->scene->map[a][j] = App->scene->map[a - 1][j];
                                 App->scene->map[a][j+1] = App->scene->map[a - 1][j+1];
                                 App->scene->map[a][j+2] = App->scene->map[a - 1][j+2];
-                            }*/
+                            }
 
 
 
-                            /*for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
                                 if (players[n] != nullptr)
                                 {
@@ -158,15 +158,15 @@ update_status ModulePlayers::Update()
                                         if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 1) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr || players[n]->p[s].position.x == ((j + 2) * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].currentAnimation != nullptr)
                                         {
                                         
-                                            for (a; a < 12; i++)
+                                            for (a; a > 0; i--)
                                             {
-                                                players[n]->p[s].position.y = -16;
+                                                players[n]->p[s].position.y +=16;
                                             }
                                         }
                                     }
                                 }
 
-                            }*/
+                            }
                             
 
                            
@@ -226,6 +226,11 @@ update_status ModulePlayers::Update()
                             App->scene->map[a][j] = '0';
                             App->scene->map[a + 1][j] = '0';
                             App->scene->map[a + 2][j] = '0';
+                            
+                            for (a; a > 3; a--)
+                            {
+                                App->scene->map[a][j] = App->scene->map[a - 3][j];
+                            }
 
                             for (uint n = 0; n < MAX_PLAYERS; ++n)
                             {
@@ -248,10 +253,7 @@ update_status ModulePlayers::Update()
                                 }
                             }
 
-                            for (a; a > 3; a--)
-                            {
-                                App->scene->map[a][j] = App->scene->map[a - 3][j];
-                            }
+                            
                         }
 
                     }
@@ -294,7 +296,7 @@ update_status ModulePlayers::Update()
             {
                 for (int a = 0; a < 12; a++)
                 {
-                    for (int j = 0; j < 8; j++)
+                   /* for (int j = 0; j < 8; j++)
                     {
                         if (App->scene->map[a][j] != '0' && App->scene->map[a][j] != 'X')
                         {
@@ -326,7 +328,7 @@ update_status ModulePlayers::Update()
 
                         }
 
-                    }
+                    }*/
                 }
             }
         }
