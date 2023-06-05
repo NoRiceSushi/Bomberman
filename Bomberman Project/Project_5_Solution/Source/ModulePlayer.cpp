@@ -548,6 +548,11 @@ update_status ModulePlayer::Update()
 						PrimerGiro = 2;
 					}
 				}
+				p->BlackidleAnim.Update();
+				p->WhiteidleAnim.Update();
+				p->GreenidleAnim.Update();
+				p->RedidleAnim.Update();
+				p->BlueidleAnim.Update();
 			}
 	}
 		return update_status::UPDATE_CONTINUE;

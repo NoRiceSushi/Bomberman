@@ -263,6 +263,53 @@ update_status ModulePlayers::Update()
         }
     }
 
+    for (uint i = 0; i < MAX_PLAYERS; ++i)
+    {
+        if (players[i] != nullptr)
+        {
+
+            if (players[i]->p[0].active == false && players[i]->p[1].active == false && players[i]->p[2].active == false)
+            {
+                for (int a = 0; a < 12; a++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (App->scene->map[a][j] != '0' && App->scene->map[a][j] != 'X')
+                        {
+
+                            for (uint n = 0; n < MAX_PLAYERS; ++n)
+                            {
+                                if (players[n] != nullptr)
+                                {
+                                    for (int s = 0; s < 3; ++s)
+                                    {
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color=='B'){
+                                            players[n]->p[s].currentAnimation = &players[n]->p[s].WhiteidleAnim;
+                                        }
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'N') {
+                                            players[n]->p[s].currentAnimation = &players[n]->p[s].BlackidleAnim;
+                                        }
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'R') {
+                                            players[n]->p[s].currentAnimation = &players[n]->p[s].RedidleAnim;
+                                        }
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'A') {
+                                            players[n]->p[s].currentAnimation = &players[n]->p[s].BlueidleAnim;
+                                        }
+                                        if (players[n]->p[s].position.x == (j * 16) + 25 && players[n]->p[s].position.y == (a * 16) + 32 && players[n]->p[s].color == 'V') {
+                                            players[n]->p[s].currentAnimation = &players[n]->p[s].GreenidleAnim;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
 
     if (App->input->keys[SDL_SCANCODE_R] == KEY_STATE::KEY_DOWN)
     {
