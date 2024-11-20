@@ -6,7 +6,7 @@
 
     · Raül Sánchez [@Galycon] (Main Programmer)<br><br>
     
-    · Aleix Botella [@Aleix3] (Main UI Designer)<br><br>
+    · Aleix Botella [@Aleix3] (Programmer)<br><br>
     
     · Junhao Chen [@Chen075] (Audio Director)<br><br>
     
